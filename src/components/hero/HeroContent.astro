@@ -1,0 +1,82 @@
+---
+// HeroContent.astro - Text content and buttons for the hero section
+const creativePhrases = [
+  { text: "Software Excellence", delay: 0 },
+  { text: "Mobile Innovation", delay: 100 },
+  { text: "Digital Marketing Mastery", delay: 200 },
+  { text: "SEO Optimization", delay: 300 },
+  { text: "AI Integration", delay: 400 },
+];
+---
+
+<div class="dimensional-content" data-aos="fade-right" data-aos-duration="1000">
+  <!-- Dynamic headline with layers -->
+  <h1 class="relative font-display glitch-heading mb-4 md:mb-0">
+    <span class="glitch-line absolute -top-6 -left-2 opacity-[0.04] blur-sm text-5xl sm:text-6xl md:text-7xl">Digital reality</span>
+    <span class="glitch-line absolute -top-3 -left-1 opacity-[0.07] blur-[2px] text-5xl sm:text-6xl md:text-7xl">Digital reality</span>
+    <span class="relative z-10 text-4xl sm:text-5xl md:text-6xl font-bold leading-tight">
+      <span class="inline-block dimensional-text">Digital</span>
+      <span class="inline-block relative dimensional-accent ml-2">
+        reality
+        <svg class="absolute w-full bottom-0 left-0 -z-10" height="10" viewBox="0 0 200 10" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0,5 Q40,0 80,5 T160,5 T240,5" stroke="rgba(0,0,0,0.3)" stroke-width="2" fill="none"/>
+        </svg>
+      </span>
+      <span class="block text-4xl sm:text-5xl md:text-6xl mt-2">
+        <span class="inline-block">architect</span><span class="text-transparent kinetic-dot">.</span>
+      </span>
+    </span>
+  </h1>
+  
+  <div class="mt-6 md:mt-8 max-w-lg relative perspective-text">
+    <p class="text-lg md:text-xl text-gray-700 mb-6 md:mb-8 font-light relative z-10" data-aos="fade-up" data-aos-delay="100">
+      We synthesize the imagined into the tangible, where form embraces function in the poetry of <span class="font-medium relative underline-kinetic">computational elegance</span>.
+    </p>
+    
+    <!-- Matrix-like animated phrases - Mobile optimized -->
+    <div class="flex flex-wrap gap-2 sm:gap-3 mb-6 md:mb-8 matrix-phrases">
+      {creativePhrases.map((phrase, index) => (
+        <div 
+          class="opacity-80 phrase-animate matrix-text touch-feedback" 
+          data-aos="fade-up" 
+          data-aos-delay={phrase.delay}
+          style={`animation-delay: ${index * 0.2}s`}
+        >
+          <span class="text-sm font-mono tracking-wider">{phrase.text}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+  
+  <!-- Mobile optimized button section -->
+  <div class="button-container flex flex-col sm:flex-row items-center sm:items-start gap-4 md:gap-5 lg:gap-6 mt-4 w-full sm:w-auto" data-aos="fade-up" data-aos-delay="200">
+    <a href="/contact" class="neo-btn-primary group overflow-hidden w-full sm:w-auto touch-ripple-button">
+      <span class="btn-text-wrapper">
+        <span class="relative z-20">Initiate collaboration</span>
+        <span class="btn-mask-effect"></span>
+      </span>
+      <span class="btn-icon-wrapper">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 relative z-20 transition-transform duration-500 group-hover:translate-x-1" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none">
+          <path d="M5 12l14 0" />
+          <path d="M13 18l6 -6" />
+          <path d="M13 6l6 6" />
+        </svg>
+        <span class="absolute inset-0 z-10 group-hover:translate-x-full duration-500 btn-icon-mask"></span>
+      </span>
+    </a>
+    
+    <a href="/projects" class="neo-btn-secondary group overflow-hidden w-full sm:w-auto touch-ripple-button">
+      <span class="btn-text-wrapper">
+        <span class="relative z-20">Explore works</span>
+        <span class="absolute inset-0 z-10 w-0 group-hover:w-full duration-500 origin-left btn-secondary-mask"></span>
+      </span>
+      <span class="btn-icon-wrapper">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 relative z-20 opacity-0 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-0 -translate-x-3" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none">
+          <path d="M5 12l14 0" />
+          <path d="M13 18l6 -6" />
+          <path d="M13 6l6 6" />
+        </svg>
+      </span>
+    </a>
+  </div>
+</div>

@@ -1,0 +1,285 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Loader from '../components/Loader.astro';
+
+// Import CSS
+import '../styles/global.css';
+import '../styles/components/loader.css';
+
+export interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  type?: string;
+  keywords?: string;
+}
+
+const { 
+  title, 
+  description = "Transform your digital vision into reality with Softylus. We specialize in custom software development, mobile apps, digital marketing, and SEO services. Your trusted technology partner in Jordan and beyond.", 
+  image = "/softylus-opengraph.jpg",
+  type = "website",
+  keywords = "software development, digital solutions, mobile apps, web development, digital marketing, SEO services, Jordan tech company, custom software, enterprise solutions, digital transformation,Softylus"
+} = Astro.props;
+
+// Meta descriptions for different pages
+const pageMetaData = {
+  '/': {
+    title: 'Software Development & Digital Solutions | Softylus',
+    description: 'Transform your digital vision into reality with Softylus. Expert software development, mobile apps, digital marketing, and SEO services. Your trusted technology partner in Jordan.',
+    keywords: 'software development company, digital solutions, custom software development, web development services, mobile app development, digital transformation, software consulting, enterprise solutions, Jordan software company, Middle East tech company'
+  },
+  '/services': {
+    title: 'Digital Services & Solutions | Softylus',
+    description: 'Comprehensive digital services including custom software development, mobile apps, digital marketing, SEO, and enterprise solutions. Elevate your business with innovative technology.',
+    keywords: 'software development services, mobile app development, digital marketing services, SEO services, social media management, AI solutions, enterprise software development, custom software solutions, web application development, technology consulting services'
+  },
+  '/projects': {
+    title: 'Our Work & Case Studies | Softylus',
+    description: 'Explore our portfolio of successful digital projects. From web applications to mobile apps, see how we help businesses achieve their digital goals through innovative solutions.',
+    keywords: 'software development portfolio, web development projects, mobile app portfolio, digital transformation case studies, enterprise software solutions, custom application development, software project examples, technology implementation, digital project showcase, software development case studies'
+  },
+  '/about': {
+    title: 'About Softylus | Digital Excellence Since 2017',
+    description: 'Learn about Softylus - a leading software development company with offices in Jordan, London, and Riyadh. Discover our journey, team, and commitment to digital excellence.',
+    keywords: 'software development company history, digital agency team, technology company culture, software development expertise, IT company values, digital innovation team, software development professionals, tech company leadership, software development experience, digital transformation experts'
+  },
+  '/contact': {
+    title: 'Contact Softylus | Let\'s Build Something Great',
+    description: 'Get in touch with Softylus for your software development and digital transformation needs. Schedule a consultation and start your journey to digital excellence.',
+    keywords: 'software development consultation, hire software developers, technology consulting services, digital agency contact, software development quote, IT services inquiry, custom software development contact, digital solutions consultation, software development partnership, technology services contact'
+  },
+  '/methodology': {
+    title: 'Our Methodology | Digital Excellence Framework',
+    description: 'Discover our proven methodology for delivering exceptional digital solutions. A systematic approach combining strategic thinking, creative innovation, and technical excellence.',
+    keywords: 'software development methodology, agile development process, digital transformation framework, software project management, development lifecycle, quality assurance process, software testing methodology, project delivery framework, technical implementation process, digital solutions methodology'
+  }
+};
+
+// Get the current page path
+const currentPath = Astro.url.pathname;
+
+// Get page-specific meta data or use default
+const currentPageMeta = pageMetaData[currentPath] || {
+  title: `${title} | Softylus`,
+  description,
+  keywords
+};
+
+// Get the site URL from environment or default to Netlify URL
+const siteUrl = 'https://spiffy-cajeta-cc7dc8.netlify.app';
+
+// Construct absolute URLs - handle both absolute and relative paths
+const canonicalURL = new URL(Astro.url.pathname, siteUrl).href;
+const ogImage = image.startsWith('http') ? image : new URL(image, siteUrl).href;
+
+// Define structured data before the component template
+const structuredData = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${siteUrl}/#organization`,
+      "name": "Softylus",
+      "url": siteUrl,
+      "logo": {
+        "@type": "ImageObject",
+        "url": `${siteUrl}/images/logo.png`,
+        "width": "180",
+        "height": "180"
+      },
+      "sameAs": [
+        "https://twitter.com/softylus",
+        "https://www.linkedin.com/company/softylus",
+        "https://github.com/softylus"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+962-782-994-706",
+        "contactType": "customer service",
+        "email": "beyond@softylus.com",
+        "areaServed": ["JO", "GB", "SA"],
+        "availableLanguage": ["English", "Arabic"]
+      }
+    },
+    {
+      "@type": "LocalBusiness",
+      "@id": `${siteUrl}/#localbusiness`,
+      "name": "Softylus",
+      "image": `${siteUrl}/images/office.jpg`,
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "King Abdullah II St",
+        "addressLocality": "Zarqa",
+        "addressRegion": "Zarqa",
+        "postalCode": "13110",
+        "addressCountry": "JO"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "32.0636",
+        "longitude": "36.0878"
+      },
+      "url": siteUrl,
+      "telephone": "+962-782-994-706",
+      "email": "beyond@softylus.com",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Sunday"
+          ],
+          "opens": "09:00",
+          "closes": "18:00"
+        }
+      ],
+      "areaServed": [
+        {
+          "@type": "GeoCircle",
+          "geoMidpoint": {
+            "@type": "GeoCoordinates",
+            "latitude": "32.0636",
+            "longitude": "36.0878"
+          },
+          "geoRadius": "50000"
+        }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Digital Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Software Development",
+              "description": "Custom software solutions that transform business operations"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Mobile Development",
+              "description": "Native and cross-platform mobile applications"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Digital Marketing",
+              "description": "Strategic digital marketing and SEO services"
+            }
+          }
+        ]
+      }
+    }
+  ]
+});
+
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    
+    <!-- Primary Meta Tags -->
+    <title>{currentPageMeta.title}</title>
+    <meta name="title" content={currentPageMeta.title} />
+    <meta name="description" content={currentPageMeta.description} />
+    <meta name="keywords" content={currentPageMeta.keywords} />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={currentPageMeta.title} />
+    <meta property="og:description" content={currentPageMeta.description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content="Softylus" />
+    <meta property="og:locale" content="en_US" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={currentPageMeta.title} />
+    <meta name="twitter:description" content={currentPageMeta.description} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:creator" content="@softylus" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonicalURL} />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    
+    <!-- Generator -->
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet">
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="author" content="Softylus" />
+    <meta name="robots" content="index, follow" />
+    
+    <!-- iOS Meta Tags -->
+    <meta name="apple-mobile-web-app-title" content="Softylus" />
+    
+    <!-- Color Scheme -->
+    <meta name="color-scheme" content="light" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
+    
+    <!-- Verification Tags (add your actual verification codes) -->
+    <meta name="google-site-verification" content="your-google-verification-code" />
+    <meta name="facebook-domain-verification" content="your-facebook-verification-code" />
+    
+   
+         <!-- Structured Data -->
+    <script type="application/ld+json" set:html={structuredData} />
+   
+  </head>
+  <body class="font-sans antialiased text-gray-900 bg-white overflow-x-hidden">
+    <div class="noise-overlay"></div>
+    
+    <!-- Creative Loader -->
+    <Loader />
+    
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+    
+    <!-- Mobile scroll progress indicator -->
+    <div class="scroll-progress fixed top-0 left-0 w-0 h-1 bg-black z-50 md:hidden"></div>
+    
+    <!-- Back to top button - mobile only -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-black text-white shadow-lg flex items-center justify-center opacity-0 invisible transition-all duration-300 z-40 md:hidden" aria-label="Back to top">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd" />
+      </svg>
+    </button>
+    
+    <!-- Import main JS -->
+    <script src="../scripts/main.js"></script>
+  </body>
+</html>

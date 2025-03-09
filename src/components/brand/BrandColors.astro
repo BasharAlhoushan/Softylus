@@ -1,0 +1,171 @@
+---
+// BrandColors.astro - Color palette guidelines
+const colors = {
+  primary: [
+    { name: "Black", hex: "#000000", rgb: "0, 0, 0" },
+    { name: "White", hex: "#FFFFFF", rgb: "255, 255, 255" }
+  ],
+  grays: [
+    { name: "Gray 50", hex: "#FAFAFA", rgb: "250, 250, 250" },
+    { name: "Gray 100", hex: "#F5F5F5", rgb: "245, 245, 245" },
+    { name: "Gray 200", hex: "#EEEEEE", rgb: "238, 238, 238" },
+    { name: "Gray 300", hex: "#E0E0E0", rgb: "224, 224, 224" },
+    { name: "Gray 400", hex: "#BDBDBD", rgb: "189, 189, 189" },
+    { name: "Gray 500", hex: "#9E9E9E", rgb: "158, 158, 158" },
+    { name: "Gray 600", hex: "#757575", rgb: "117, 117, 117" },
+    { name: "Gray 700", hex: "#616161", rgb: "97, 97, 97" },
+    { name: "Gray 800", hex: "#424242", rgb: "66, 66, 66" },
+    { name: "Gray 900", hex: "#212121", rgb: "33, 33, 33" }
+  ]
+};
+---
+
+<section id="colors" class="py-16 bg-white">
+  <div class="container mx-auto px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-number">02</span>
+        <h2 class="section-title">Color Palette</h2>
+      </div>
+
+      <div class="mt-16">
+        <!-- Primary Colors -->
+        <div class="mb-16" data-aos="fade-up">
+          <h3 class="text-2xl font-display font-bold mb-6">Primary Colors</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {colors.primary.map(color => (
+              <div class="color-card">
+                <div 
+                  class="color-preview" 
+                  style={`background-color: ${color.hex}`}
+                ></div>
+                <div class="color-info">
+                  <h4 class="color-name">{color.name}</h4>
+                  <div class="color-values">
+                    <span class="color-hex">{color.hex}</span>
+                    <span class="color-rgb">RGB ({color.rgb})</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Gray Scale -->
+        <div data-aos="fade-up">
+          <h3 class="text-2xl font-display font-bold mb-6">Gray Scale</h3>
+          <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+            {colors.grays.map(color => (
+              <div class="color-card">
+                <div 
+                  class="color-preview" 
+                  style={`background-color: ${color.hex}`}
+                ></div>
+                <div class="color-info">
+                  <h4 class="color-name">{color.name}</h4>
+                  <div class="color-values">
+                    <span class="color-hex">{color.hex}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Color Usage Guidelines -->
+        <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8" data-aos="fade-up">
+          <!-- Usage Examples -->
+          <div>
+            <h3 class="text-xl font-bold mb-4">Color Usage</h3>
+            <div class="space-y-4">
+              <div class="p-4 bg-white border border-gray-200 rounded">
+                <h4 class="font-medium mb-2">Primary Text</h4>
+                <p class="text-black">Black (#000000) for maximum readability</p>
+              </div>
+              <div class="p-4 bg-black border border-gray-200 rounded">
+                <h4 class="font-medium mb-2 text-white">Inverted Text</h4>
+                <p class="text-white">White (#FFFFFF) on dark backgrounds</p>
+              </div>
+              <div class="p-4 bg-white border border-gray-200 rounded">
+                <h4 class="font-medium mb-2">Secondary Text</h4>
+                <p class="text-gray-600">Gray 600 (#757575) for supporting content</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Color Accessibility -->
+          <div>
+            <h3 class="text-xl font-bold mb-4">Accessibility Guidelines</h3>
+            <div class="space-y-4">
+              <div class="p-4 bg-white border border-gray-200 rounded">
+                <h4 class="font-medium mb-2">Contrast Ratios</h4>
+                <ul class="space-y-2 text-sm">
+                  <li>• Black on White: 21:1 (Exceeds WCAG AAA)</li>
+                  <li>• White on Black: 21:1 (Exceeds WCAG AAA)</li>
+                  <li>• Gray 600 on White: 5.6:1 (Meets WCAG AA)</li>
+                </ul>
+              </div>
+              <div class="p-4 bg-white border border-gray-200 rounded">
+                <h4 class="font-medium mb-2">Best Practices</h4>
+                <ul class="space-y-2 text-sm">
+                  <li>• Use high contrast for important text</li>
+                  <li>• Ensure readability in all sizes</li>
+                  <li>• Test colors in different lighting conditions</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .color-card {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+
+  .color-card:hover {
+    transform: translateY(-2px);
+  }
+
+  .color-preview {
+    height: 120px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .color-info {
+    padding: 1rem;
+  }
+
+  .color-name {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .color-values {
+    font-size: 0.875rem;
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  .color-hex {
+    display: block;
+    font-family: monospace;
+    margin-bottom: 0.25rem;
+  }
+
+  .color-rgb {
+    display: block;
+    font-family: monospace;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .color-card:hover {
+      transform: none;
+    }
+  }
+</style>

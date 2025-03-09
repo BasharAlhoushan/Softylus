@@ -1,0 +1,886 @@
+
+<header class="fixed w-full z-50 transition-all duration-300" id="main-header">
+  <div class="container mx-auto px-4 py-4">
+    <div class="flex justify-between items-center">
+      <!-- Ultra Premium Logo -->
+      <a href="/" class="premium-logo-container relative group">
+        <!-- Logo Wrapper with Premium Effects -->
+        <div class="logo-wrapper relative overflow-hidden flex items-center">
+          <!-- Premium Logo Symbol -->
+          <div class="logo-symbol mr-3">
+            <div class="symbol-outer-ring"></div>
+            <div class="symbol-inner-ring"></div>
+            <div class="symbol-diamond"></div>
+            <div class="symbol-dot"></div>
+          </div>
+          
+          <!-- Premium Logo Typography -->
+          <div class="logo-text-container">
+            <div class="text-divider"></div>
+            <div class="logo-text-group">
+              <span class="logo-letter letter-s">S</span>
+              <span class="logo-letter letter-o">O</span>
+              <span class="logo-letter letter-f">F</span>
+              <span class="logo-letter letter-t">T</span>
+              <span class="logo-letter letter-y">Y</span>
+              <span class="logo-letter letter-l">L</span>
+              <span class="logo-letter letter-u">U</span>
+              <span class="logo-letter letter-s2">S</span>
+            </div>
+            <!-- Sophisticated Underline Effect -->
+            <div class="logo-underline-effect">
+              <div class="logo-underline-track"></div>
+              <div class="logo-underline-progress"></div>
+            </div>
+          </div>
+          
+          <!-- Premium Hover Effects -->
+          <div class="logo-backdrop absolute inset-0 transform scale-y-0 origin-bottom bg-gradient-to-r from-black via-gray-900 to-black group-hover:scale-y-100 transition-transform duration-500 -z-10"></div>
+          
+          <!-- Luxury Light Effects -->
+          <div class="logo-luxury-shine absolute -inset-x-20 top-0 h-20 bg-gradient-to-r from-transparent via-white/10 to-transparent -skew-x-45 transform -translate-x-full group-hover:translate-x-full transition-all duration-1500 ease-in-out opacity-0 group-hover:opacity-100"></div>
+          <div class="logo-glow absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"></div>
+        </div>
+        
+        <!-- Premium 3D Shadow Effect -->
+        <div class="logo-shadow absolute h-[1px] bottom-0 left-1/2 w-4/5 transform -translate-x-1/2 bg-gradient-to-r from-transparent via-black/20 to-transparent opacity-0 group-hover:opacity-100 blur-sm transition-all duration-500"></div>
+        
+        <!-- Premium Reflection -->
+        <div class="logo-reflection absolute h-8 w-full bottom-0 left-0 transform translate-y-full scale-y-[-0.3] opacity-0 group-hover:opacity-20 transition-opacity duration-500">
+          <div class="logo-reflection-inner absolute inset-0 bg-gradient-to-b from-black/40 to-transparent blur-sm"></div>
+        </div>
+      </a>
+      
+      <div class="hidden md:flex items-center space-x-12">
+        <!-- Desktop Navigation Links -->
+        <nav class="nav-container flex items-center space-x-8">
+          <a href="/" class="nav-link relative overflow-hidden">
+            <span class="nav-text relative block z-10 transform transition-transform duration-300">Home</span>
+            <span class="nav-hover-text absolute top-0 left-0 w-full text-center transform translate-y-full transition-transform duration-300">Home</span>
+            <span class="nav-line absolute bottom-0 left-0 w-0 h-px bg-current transition-all duration-300 delay-75"></span>
+          </a>
+          <a href="/services" class="nav-link relative overflow-hidden">
+            <span class="nav-text relative block z-10 transform transition-transform duration-300">Services</span>
+            <span class="nav-hover-text absolute top-0 left-0 w-full text-center transform translate-y-full transition-transform duration-300">Services</span>
+            <span class="nav-line absolute bottom-0 left-0 w-0 h-px bg-current transition-all duration-300 delay-75"></span>
+          </a>
+          <a href="/projects" class="nav-link relative overflow-hidden">
+            <span class="nav-text relative block z-10 transform transition-transform duration-300">Projects</span>
+            <span class="nav-hover-text absolute top-0 left-0 w-full text-center transform translate-y-full transition-transform duration-300">Projects</span>
+            <span class="nav-line absolute bottom-0 left-0 w-0 h-px bg-current transition-all duration-300 delay-75"></span>
+          </a>
+          <a href="/about" class="nav-link relative overflow-hidden">
+            <span class="nav-text relative block z-10 transform transition-transform duration-300">About</span>
+            <span class="nav-hover-text absolute top-0 left-0 w-full text-center transform translate-y-full transition-transform duration-300">About</span>
+            <span class="nav-line absolute bottom-0 left-0 w-0 h-px bg-current transition-all duration-300 delay-75"></span>
+          </a>
+          <a href="/contact" class="nav-link relative overflow-hidden">
+            <span class="nav-text relative block z-10 transform transition-transform duration-300">Contact</span>
+            <span class="nav-hover-text absolute top-0 left-0 w-full text-center transform translate-y-full transition-transform duration-300">Contact</span>
+            <span class="nav-line absolute bottom-0 left-0 w-0 h-px bg-current transition-all duration-300 delay-75"></span>
+          </a>
+        </nav>
+        
+        <!-- Language Switcher with Animation -->
+        <div class="flex items-center space-x-4">
+          <a href="/ar" class="lang-link relative group">
+            <span class="relative z-10 inline-block transform transition-all duration-300 group-hover:text-black group-hover:font-medium">AR</span>
+            <span class="absolute -inset-1 scale-0 rounded-full bg-gray-100 group-hover:scale-100 transition-transform duration-300 -z-10"></span>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Mobile menu button with enhanced touchable area -->
+      <button id="menu-toggle" class="md:hidden focus:outline-none group p-2 -mr-2" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobile-menu">
+        <div class="menu-icon relative w-6 h-5">
+          <span class="menu-line absolute top-0 left-0 w-full h-0.5 bg-gray-800 transform transition-all duration-300 ease-in-out"></span>
+          <span class="menu-line absolute top-2 left-0 w-full h-0.5 bg-gray-800 transition-all duration-200 ease-in-out"></span>
+          <span class="menu-line absolute top-4 left-0 w-full h-0.5 bg-gray-800 transform transition-all duration-300 ease-in-out"></span>
+        </div>
+      </button>
+    </div>
+    
+    <!-- Enhanced Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+      <nav class="mobile-nav">
+        <a href="/" class="mobile-nav-link">
+          <span>Home</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="mobile-nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+          </svg>
+        </a>
+        <a href="/services" class="mobile-nav-link">
+          <span>Services</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="mobile-nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          </svg>
+        </a>
+        <a href="/projects" class="mobile-nav-link">
+          <span>Projects</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="mobile-nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          </svg>
+        </a>
+        <a href="/about" class="mobile-nav-link">
+          <span>About</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="mobile-nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </a>
+        <a href="/contact" class="mobile-nav-link">
+          <span>Contact</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="mobile-nav-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          </svg>
+        </a>
+        <div class="mobile-nav-divider"></div>
+        <a href="/ar" class="mobile-nav-link mobile-nav-lang">
+          <span>Arabic</span>
+          <span class="mobile-lang-label">AR</span>
+        </a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<script>
+  // Mobile menu toggle with animation
+  document.addEventListener('DOMContentLoaded', () => {
+    // Logo animation on page load
+    const logoLetters = document.querySelectorAll('.logo-letter');
+    const logoSymbol = document.querySelector('.logo-symbol');
+    const logoUnderlineProgress = document.querySelector('.logo-underline-progress');
+    
+    // Sequence the logo animations
+    if (logoSymbol) {
+      logoSymbol.classList.add('animate-in');
+    }
+    
+    // Staggered letter animation
+    logoLetters.forEach((letter, index) => {
+      setTimeout(() => {
+        letter.classList.add('animate-in');
+      }, 100 + (index * 60));
+    });
+    
+    // Animate underline after letters
+    setTimeout(() => {
+      if (logoUnderlineProgress) {
+        logoUnderlineProgress.classList.add('animate-in');
+      }
+    }, 700);
+    
+    // Create shimmer animation timing function for logo
+    const createShimmerEffect = () => {
+      const logoContainer = document.querySelector('.premium-logo-container');
+      if (logoContainer) {
+        // Reset animation by removing and re-adding the class
+        const luxuryShine = logoContainer.querySelector('.logo-luxury-shine');
+        if (luxuryShine) {
+          luxuryShine.classList.remove('animate-shimmer');
+          void luxuryShine.offsetWidth; // Force reflow
+          luxuryShine.classList.add('animate-shimmer');
+        }
+      }
+    };
+    
+    // Initial shimmer effect after page load
+    setTimeout(createShimmerEffect, 2000);
+    
+    // Repeat shimmer effect periodically
+    setInterval(createShimmerEffect, 8000);
+
+    // Handle menu toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuLines = document.querySelectorAll('.menu-line');
+    
+    if (menuToggle && mobileMenu) {
+      menuToggle.addEventListener('click', () => {
+        const expanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
+        
+        // Toggle menu visibility
+        mobileMenu.classList.toggle('hidden');
+        
+        // Update accessibility attributes
+        menuToggle.setAttribute('aria-expanded', !expanded);
+        
+        // Animate to X icon when open
+        if (!expanded) {
+          menuLines[0].classList.add('rotate-45', 'translate-y-2');
+          menuLines[1].classList.add('opacity-0');
+          menuLines[2].classList.add('-rotate-45', '-translate-y-2');
+        } else {
+          menuLines[0].classList.remove('rotate-45', 'translate-y-2');
+          menuLines[1].classList.remove('opacity-0');
+          menuLines[2].classList.remove('-rotate-45', '-translate-y-2');
+        }
+        
+        // Animate menu items if menu is visible
+        if (!mobileMenu.classList.contains('hidden')) {
+          const menuItems = mobileMenu.querySelectorAll('.mobile-nav-link');
+          menuItems.forEach((item, index) => {
+            item.style.animationDelay = `${index * 0.05}s`;
+            item.classList.add('menu-item-enter');
+          });
+        }
+      });
+    }
+    
+    // Header background change on scroll with additional animations
+    const header = document.getElementById('main-header');
+    let lastScrollY = window.scrollY;
+    
+    if (header) {
+      const handleScroll = () => {
+        const currentScrollY = window.scrollY;
+        
+        // Add background when scrolling down
+        if (currentScrollY > 10) {
+          header.classList.add('bg-white', 'shadow-subtle', 'py-2');
+          header.classList.remove('py-4');
+        } else {
+          header.classList.remove('bg-white', 'shadow-subtle', 'py-2');
+          header.classList.add('py-4');
+        }
+        
+        // Hide header when scrolling down, show when scrolling up (for mobile)
+        if (window.innerWidth < 768) {
+          if (currentScrollY > lastScrollY && currentScrollY > 100) {
+            header.classList.add('header-hidden');
+          } else {
+            header.classList.remove('header-hidden');
+          }
+        }
+        
+        lastScrollY = currentScrollY;
+      };
+      
+      // Throttle scroll event for better performance
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            handleScroll();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+    }
+    
+    // Add magnetic effect to navigation links (desktop only)
+    if (window.matchMedia('(min-width: 768px)').matches) {
+      const navLinks = document.querySelectorAll('.nav-link');
+      const magnetStrength = 0.3;
+      
+      navLinks.forEach(link => {
+        link.addEventListener('mousemove', (e) => {
+          const bounds = link.getBoundingClientRect();
+          const centerX = bounds.left + bounds.width / 2;
+          const centerY = bounds.top + bounds.height / 2;
+          
+          const distanceX = (e.clientX - centerX) * magnetStrength;
+          const distanceY = (e.clientY - centerY) * magnetStrength;
+          
+          link.style.transform = `translate(${distanceX}px, ${distanceY}px)`;
+        });
+        
+        link.addEventListener('mouseleave', () => {
+          link.style.transform = 'translate(0px, 0px)';
+        });
+      });
+    }
+    
+    // Add logo animation on hover - with enhanced 3D effect
+    const logoContainer = document.querySelector('.premium-logo-container');
+    const logoSymbolElements = document.querySelectorAll('.logo-symbol > div');
+    
+    if (logoContainer) {
+      // Track mouse position for 3D perspective effect
+      logoContainer.addEventListener('mousemove', (e) => {
+        if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+          const bounds = logoContainer.getBoundingClientRect();
+          const centerX = bounds.left + bounds.width / 2;
+          const centerY = bounds.top + bounds.height / 2;
+          
+          // Calculate mouse position relative to center (in percentage -50 to 50)
+          const percentX = ((e.clientX - centerX) / (bounds.width / 2)) * 10;
+          const percentY = ((e.clientY - centerY) / (bounds.height / 2)) * 5;
+          
+          // Apply subtle 3D rotation based on mouse position
+          logoContainer.style.transform = `perspective(1000px) rotateY(${percentX}deg) rotateX(${-percentY}deg) translateZ(10px)`;
+        }
+      });
+      
+      logoContainer.addEventListener('mouseleave', () => {
+        // Reset transform when mouse leaves
+        logoContainer.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg) translateZ(0)';
+      });
+      
+      logoContainer.addEventListener('mouseenter', () => {
+        // Animate symbol elements on hover
+        logoSymbolElements.forEach((element, index) => {
+          element.style.animationDelay = `${index * 0.1}s`;
+          element.classList.add('hover-animate');
+        });
+      });
+      
+      logoContainer.addEventListener('mouseleave', () => {
+        // Remove animation classes on mouse leave
+        logoSymbolElements.forEach(element => {
+          element.classList.remove('hover-animate');
+        });
+      });
+    }
+  });
+</script>
+
+<style>
+  /* Header transitions */
+  #main-header {
+    transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+  
+  /* Header hide animation for mobile scroll */
+  .header-hidden {
+    transform: translateY(-100%);
+  }
+  
+  /* Premium Logo Styling */
+  .premium-logo-container {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.5rem;
+    padding: 0.25rem 0;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    position: relative;
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+  
+  .logo-wrapper {
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    height: 38px;
+    padding: 0 1px; /* Create space for border effect */
+    position: relative;
+    transform-style: preserve-3d;
+  }
+  
+  /* Border gradient effect */
+  .logo-wrapper::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    background: linear-gradient(45deg, transparent 0%, rgba(0,0,0,0.15) 40%, transparent 60%);
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.6s ease;
+    pointer-events: none;
+  }
+  
+  .premium-logo-container:hover .logo-wrapper::before {
+    opacity: 1;
+  }
+  
+  .premium-logo-container:hover .logo-wrapper {
+    transform: translateZ(25px);
+  }
+  
+  /* Premium Logo Symbol */
+  .logo-symbol {
+    position: relative;
+    width: 32px;
+    height: 32px;
+    margin-right: 12px;
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    opacity: 0;
+    transform: scale(0.9) translateZ(0);
+  }
+  
+  .logo-symbol.animate-in {
+    opacity: 1;
+    transform: scale(1) translateZ(0);
+  }
+  
+  .symbol-outer-ring {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 1.5px solid rgba(0, 0, 0, 0.85);
+    border-radius: 50%;
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transform-style: preserve-3d;
+  }
+  
+  .symbol-inner-ring {
+    position: absolute;
+    top: 22%;
+    left: 22%;
+    width: 56%;
+    height: 56%;
+    border: 1px solid rgba(0, 0, 0, 0.75);
+    border-radius: 50%;
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transform-style: preserve-3d;
+  }
+  
+  .symbol-diamond {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 28%;
+    height: 28%;
+    background-color: black;
+    transform: translate(-50%, -50%) rotate(45deg);
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transform-style: preserve-3d;
+  }
+  
+  .symbol-dot {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10%;
+    height: 10%;
+    background-color: white;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transform-style: preserve-3d;
+  }
+  
+  /* Logo Symbol hover animations */
+  .logo-symbol > div.hover-animate {
+    animation-duration: 0.6s;
+    animation-fill-mode: both;
+    animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+  
+  .symbol-outer-ring.hover-animate {
+    animation-name: pulse-ring;
+  }
+  
+  .symbol-inner-ring.hover-animate {
+    animation-name: rotate-ring;
+  }
+  
+  .symbol-diamond.hover-animate {
+    animation-name: diamond-transform;
+  }
+  
+  .symbol-dot.hover-animate {
+    animation-name: dot-pulse;
+  }
+  
+  @keyframes pulse-ring {
+    0% { transform: scale(1) translateZ(0); border-color: rgba(0, 0, 0, 0.85); }
+    50% { transform: scale(1.05) translateZ(30px); border-color: rgba(255, 255, 255, 0.9); }
+    100% { transform: scale(1) translateZ(20px); border-color: rgba(255, 255, 255, 0.9); }
+  }
+  
+  @keyframes rotate-ring {
+    0% { transform: rotate(0) translateZ(0); border-color: rgba(0, 0, 0, 0.75); }
+    100% { transform: rotate(180deg) translateZ(25px); border-color: rgba(255, 255, 255, 0.8); }
+  }
+  
+  @keyframes diamond-transform {
+    0% { transform: translate(-50%, -50%) rotate(45deg) translateZ(0); background-color: black; }
+    50% { transform: translate(-50%, -50%) rotate(225deg) scale(1.1) translateZ(40px); background-color: white; }
+    100% { transform: translate(-50%, -50%) rotate(405deg) translateZ(30px); background-color: white; }
+  }
+  
+  @keyframes dot-pulse {
+    0% { transform: translate(-50%, -50%) scale(1) translateZ(0); background-color: white; }
+    50% { transform: translate(-50%, -50%) scale(0) translateZ(20px); background-color: black; }
+    100% { transform: translate(-50%, -50%) scale(1) translateZ(35px); background-color: black; }
+  }
+  
+  /* Premium logo hover states */
+  .premium-logo-container:hover .symbol-outer-ring {
+    border-color: rgba(255, 255, 255, 0.9);
+    transform: translateZ(20px);
+  }
+  
+  .premium-logo-container:hover .symbol-inner-ring {
+    border-color: rgba(255, 255, 255, 0.8);
+    transform: translateZ(25px) rotate(45deg);
+  }
+  
+  .premium-logo-container:hover .symbol-diamond {
+    background-color: white;
+    transform: translate(-50%, -50%) rotate(45deg) scale(1.1) translateZ(30px);
+  }
+  
+  .premium-logo-container:hover .symbol-dot {
+    background-color: black;
+    transform: translate(-50%, -50%) translateZ(35px);
+  }
+  
+  /* Text divider */
+  .text-divider {
+    position: absolute;
+    left: -5px;
+    top: 15%;
+    height: 70%;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.2), transparent);
+    opacity: 0.7;
+    transition: all 0.5s ease;
+  }
+  
+  .premium-logo-container:hover .text-divider {
+    background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.6), transparent);
+    opacity: 1;
+    transform: translateZ(15px);
+  }
+  
+  /* Premium Logo Text */
+  .logo-text-container {
+    position: relative;
+    display: flex;
+    padding-left: 10px;
+    height: 100%;
+    transform-style: preserve-3d;
+  }
+  
+  .logo-text-group {
+    display: flex;
+    align-items: center;
+    transform-style: preserve-3d;
+  }
+  
+  .logo-letter {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    color: black;
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    opacity: 0;
+    transform: translateY(8px);
+    display: inline-block;
+    transform-style: preserve-3d;
+  }
+  
+  .logo-letter.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Letter-specific fine-tuning */
+  .letter-s, .letter-s2 { font-weight: 500; }
+  .letter-o { letter-spacing: 0.25px; }
+  .letter-f { letter-spacing: 0.35px; }
+  .letter-y { letter-spacing: 0.3px; }
+  
+  /* Enhanced 3D staggered hover animation for letters */
+  .premium-logo-container:hover .letter-s { color: white; transform: translateY(-2px) translateZ(35px); transition-delay: 0.02s; }
+  .premium-logo-container:hover .letter-o { color: white; transform: translateY(-2px) translateZ(40px); transition-delay: 0.04s; }
+  .premium-logo-container:hover .letter-f { color: white; transform: translateY(-2px) translateZ(45px); transition-delay: 0.06s; }
+  .premium-logo-container:hover .letter-t { color: white; transform: translateY(-2px) translateZ(50px); transition-delay: 0.08s; }
+  .premium-logo-container:hover .letter-y { color: white; transform: translateY(-2px) translateZ(45px); transition-delay: 0.10s; }
+  .premium-logo-container:hover .letter-l { color: white; transform: translateY(-2px) translateZ(40px); transition-delay: 0.12s; }
+  .premium-logo-container:hover .letter-u { color: white; transform: translateY(-2px) translateZ(35px); transition-delay: 0.14s; }
+  .premium-logo-container:hover .letter-s2 { color: white; transform: translateY(-2px) translateZ(30px); transition-delay: 0.16s; }
+  
+  /* Sophisticated underline effect */
+  .logo-underline-effect {
+    position: absolute;
+    bottom: 1px;
+    left: 10px;
+    width: calc(100% - 10px);
+    height: 2px;
+    transform-style: preserve-3d;
+  }
+  
+  .logo-underline-track {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100 ;
+    width: 100%;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.1);
+    transition: background-color 0.5s ease;
+  }
+  
+  .logo-underline-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: linear-gradient(to right, 
+      rgba(0, 0, 0, 0.7), 
+      rgba(0, 0, 0, 0.9) 50%, 
+      rgba(0, 0, 0, 0.7) 100%);
+    transition: width 0.8s cubic-bezier(0.165, 0.84, 0.44, 1), background 0.5s ease, transform 0.5s ease;
+    transform-origin: left;
+    transform: translateZ(0);
+  }
+  
+  .logo-underline-progress.animate-in {
+    width: 100%;
+  }
+  
+  .premium-logo-container:hover .logo-underline-track {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  .premium-logo-container:hover .logo-underline-progress {
+    background: linear-gradient(to right, 
+      rgba(255, 255, 255, 0.7), 
+      rgba(255, 255, 255, 0.9) 50%, 
+      rgba(255, 255, 255, 0.7) 100%);
+    transform: translateZ(15px);
+    height: 2px;
+  }
+  
+  /* Luxury shine effect */
+  .logo-luxury-shine {
+    will-change: transform;
+  }
+  
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-150%) translateY(-150%) rotate(-45deg);
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.5;
+    }
+    20% {
+      opacity: 0.3;
+    }
+    30% {
+      opacity: 0.5;
+    }
+    100% {
+      transform: translateX(150%) translateY(150%) rotate(-45deg);
+      opacity: 0;
+    }
+  }
+  
+  .animate-shimmer {
+    animation: shimmer 3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+  
+  /* Logo glow effect */
+  .logo-glow {
+    box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+  }
+  
+  /* Enhanced 3D shadow */
+  .logo-shadow {
+    transform-style: preserve-3d;
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+  
+  .premium-logo-container:hover .logo-shadow {
+    width: 100%;
+    transform: translateX(-50%) translateZ(-10px);
+  }
+  
+  /* Enhanced reflection effect */
+  .logo-reflection, .logo-reflection-inner {
+    transform-style: preserve-3d;
+  }
+  
+  /* Navigation Link Animations */
+  .nav-link {
+    position: relative;
+    height: 1.5rem;
+    display: inline-block;
+    color: var(--text-color, rgba(75, 85, 99));
+    transition: transform 0.3s ease;
+  }
+  
+  .nav-link:hover .nav-text {
+    transform: translateY(-100%);
+  }
+  
+  .nav-link:hover .nav-hover-text {
+    transform: translateY(0);
+  }
+  
+  .nav-link:hover .nav-line {
+    width: 100%;
+  }
+  
+  /* Menu Icon Animation */
+  .menu-icon {
+    cursor: pointer;
+  }
+  
+  .menu-line {
+    transform-origin: center;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  
+  /* Shadow utility */
+  .shadow-subtle {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  }
+  
+  /* Enhanced Mobile Menu */
+  .mobile-nav {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    margin-top: 0.75rem;
+  }
+  
+  .mobile-nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    color: #1a1a1a;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  
+  .mobile-nav-link:active {
+    background-color: rgba(0, 0, 0, 0.03);
+  }
+  
+  .menu-item-enter {
+    animation: menuItemEnter 0.4s forwards cubic-bezier(0.25, 1, 0.5, 1);
+  }
+  
+  @keyframes menuItemEnter {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .mobile-nav-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .mobile-nav-divider {
+    height: 8px;
+    background-color: rgba(0, 0, 0, 0.02);
+  }
+  
+  .mobile-nav-lang {
+    color: rgba(0, 0, 0, 0.6);
+  }
+  
+  .mobile-lang-label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    background-color: rgba(0, 0, 0, 0.03);
+    border-radius: 50%;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .logo-symbol {
+      width: 28px;
+      height: 28px;
+      margin-right: 10px;
+    }
+    
+    .logo-letter {
+      font-size: 1.3rem;
+    }
+    
+    .symbol-inner-ring {
+      top: 23%;
+      left: 23%;
+      width: 54%;
+      height: 54%;
+    }
+    
+    .logo-wrapper {
+      height: 34px;
+    }
+    
+    .logo-underline-effect {
+      bottom: 0;
+    }
+  }
+  
+  /* Super small screens */
+  @media (max-width: 360px) {
+    .logo-symbol {
+      width: 24px;
+      height: 24px;
+      margin-right: 8px;
+    }
+    
+    .logo-letter {
+      font-size: 1.1rem;
+    }
+    
+    .symbol-diamond {
+      width: 26%;
+      height: 26%;
+    }
+    
+    .logo-wrapper {
+      height: 30px;
+    }
+    
+    .text-divider {
+      left: -3px;
+    }
+    
+    .logo-text-container {
+      padding-left: 8px;
+    }
+  }
+  
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .premium-logo-container,
+    .logo-wrapper,
+    .logo-symbol,
+    .logo-letter,
+    .logo-underline-progress,
+    .symbol-outer-ring,
+    .symbol-inner-ring,
+    .symbol-diamond,
+    .symbol-dot {
+      transition: none !important;
+      animation: none !important;
+      transform: none !important;
+    }
+    
+    .logo-luxury-shine {
+      display: none;
+    }
+    
+    .premium-logo-container:hover .logo-letter {
+      color: white;
+    }
+    
+    .premium-logo-container:hover .logo-underline-progress {
+      background: white;
+      width: 100%;
+    }
+  }
+</style>

@@ -1,0 +1,222 @@
+---
+// MethodologyProcess.astro - Detailed process steps
+const processSteps = [
+  {
+    number: "01",
+    title: "Discovery",
+    description: "Deep analysis of requirements, objectives, and constraints to craft the perfect approach.",
+    details: [
+      "Stakeholder interviews",
+      "Requirements gathering",
+      "Market research",
+      "Technical feasibility analysis"
+    ],
+    icon: "M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+  },
+  {
+    number: "02",
+    title: "Strategy",
+    description: "Developing comprehensive roadmaps and technical architectures for seamless execution.",
+    details: [
+      "Solution architecture",
+      "Technology selection",
+      "Resource planning",
+      "Risk assessment"
+    ],
+    icon: "M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"
+  },
+  {
+    number: "03",
+    title: "Design",
+    description: "Creating intuitive interfaces and interactive prototypes that bring ideas to life.",
+    details: [
+      "UX wireframing",
+      "Visual design",
+      "Interaction design",
+      "Prototype testing"
+    ],
+    icon: "M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"
+  },
+  {
+    number: "04",
+    title: "Development",
+    description: "Engineering robust solutions with clean, maintainable, and scalable code.",
+    details: [
+      "Agile development",
+      "Code quality",
+      "Performance optimization",
+      "Security implementation"
+    ],
+    icon: "M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+  },
+  {
+    number: "05",
+    title: "Testing",
+    description: "Rigorous quality assurance to ensure flawless functionality and user experience.",
+    details: [
+      "Unit testing",
+      "Integration testing",
+      "User acceptance testing",
+      "Performance testing"
+    ],
+    icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+  },
+  {
+    number: "06",
+    title: "Launch",
+    description: "Carefully planned deployment and post-launch monitoring for optimal performance.",
+    details: [
+      "Deployment strategy",
+      "Performance monitoring",
+      "User feedback",
+      "Continuous improvement"
+    ],
+    icon: "M13 10V3L4 14h7v7l9-11h-7z"
+  }
+];
+---
+
+<section class="py-24 px-4 bg-white relative overflow-hidden">
+  <div class="container mx-auto">
+    <div class="max-w-3xl mx-auto text-center mb-16" data-aos="fade-up">
+      <h2 class="text-3xl md:text-4xl font-display font-bold mb-6">Our Process</h2>
+      <p class="text-xl text-gray-600">
+        A systematic approach that ensures consistent quality and exceptional results across every project.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {processSteps.map((step, index) => (
+        <div 
+          class="process-card" 
+          data-aos="fade-up" 
+          data-aos-delay={100 + index * 50}
+        >
+          <div class="process-number">{step.number}</div>
+          
+          <div class="process-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d={step.icon} />
+            </svg>
+          </div>
+          
+          <h3 class="process-title">{step.title}</h3>
+          <p class="process-description">{step.description}</p>
+          
+          <div class="process-details">
+            <h4 class="text-sm font-semibold mb-2">Key Activities:</h4>
+            <ul class="space-y-1">
+              {step.details.map(detail => (
+                <li class="flex items-center text-sm text-gray-600">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 text-black" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                  </svg>
+                  {detail}
+                </li>
+              ))}
+            </ul>
+          </div>
+          
+          <div class="process-progress"></div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .process-card {
+    background: white;
+    padding: 2rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
+  .process-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .process-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.1);
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+
+  .process-icon {
+    width: 3rem;
+    height: 3rem;
+    background: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
+  .process-card:hover .process-icon {
+    transform: rotate(10deg);
+  }
+
+  .process-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: black;
+  }
+
+  .process-description {
+    font-size: 0.95rem;
+    color: rgba(0, 0, 0, 0.7);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .process-details {
+    background: rgba(0, 0, 0, 0.02);
+    padding: 1rem;
+    border-radius: 0.5rem;
+  }
+
+  .process-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: black;
+    transition: width 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
+  .process-card:hover .process-progress {
+    width: 100%;
+  }
+
+  /* Touch optimization */
+  @media (max-width: 768px) {
+    .process-card {
+      padding: 1.5rem;
+    }
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .process-card:hover {
+      transform: none;
+    }
+
+    .process-card:hover .process-icon {
+      transform: none;
+    }
+
+    .process-progress {
+      transition: none;
+    }
+  }
+</style>

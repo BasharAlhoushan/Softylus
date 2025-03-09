@@ -1,0 +1,85 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ServiceHero from '../components/services/ServiceHero.astro';
+import ServiceGrid from '../components/services/ServiceGrid.astro';
+import ServiceProcess from '../components/services/ServiceProcess.astro';
+import ServiceTechnology from '../components/services/ServiceTechnology.astro';
+import ServiceCTA from '../components/services/ServiceCTA.astro';
+
+const siteUrl = 'https://spiffy-cajeta-cc7dc8.netlify.app';
+
+// Define the metadata for the services page
+const metadata = {
+  title: "Digital Services & Solutions | Softylus",
+  description: "Comprehensive digital services including custom software development, mobile apps, digital marketing, SEO, and enterprise solutions. Elevate your business with innovative technology.",
+  keywords: "software development services, mobile app development, digital marketing services, SEO services, social media management, AI solutions, enterprise software development, custom software solutions, web application development, technology consulting services"
+};
+
+// Service schemas
+const servicesStructuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": `${siteUrl}/services#software-development`,
+      "name": "Software Development",
+      "description": "Custom software solutions that transform business operations into seamless digital experiences",
+      "provider": { "@id": `${siteUrl}/#organization` },
+      "areaServed": ["Jordan", "United Kingdom", "Saudi Arabia"],
+      "serviceType": "Software Development",
+      "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/InStock"
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": `${siteUrl}/services#mobile-development`,
+      "name": "Mobile Development",
+      "description": "Native and cross-platform mobile applications for iOS and Android",
+      "provider": { "@id": `${siteUrl}/#organization` },
+      "areaServed": ["Jordan", "United Kingdom", "Saudi Arabia"],
+      "serviceType": "Mobile App Development"
+    },
+    {
+      "@type": "Service",
+      "@id": `${siteUrl}/services#digital-marketing`,
+      "name": "Digital Marketing & SEO",
+      "description": "Comprehensive digital marketing solutions including SEO and social media management",
+      "provider": { "@id": `${siteUrl}/#organization` },
+      "serviceType": "Digital Marketing"
+    },
+    {
+      "@type": "Service",
+      "@id": `${siteUrl}/services#enterprise-solutions`,
+      "name": "Enterprise Solutions",
+      "description": "Comprehensive digital transformation solutions for businesses",
+      "provider": { "@id": `${siteUrl}/#organization` },
+      "serviceType": "Enterprise Software"
+    },
+    {
+      "@type": "Service",
+      "@id": `${siteUrl}/services#ai-integration`,
+      "name": "AI Integration",
+      "description": "Intelligent systems and AI solutions for business automation",
+      "provider": { "@id": `${siteUrl}/#organization` },
+      "serviceType": "Artificial Intelligence"
+    }
+  ]
+};
+---
+
+<Layout 
+  title={metadata.title}
+  description={metadata.description}
+  keywords={metadata.keywords}
+>
+  <!-- Add structured data script -->
+  <script type="application/ld+json" set:html={JSON.stringify(servicesStructuredData)} slot="head" />
+  
+  <ServiceHero />
+  <ServiceGrid />
+  <ServiceProcess />
+  <ServiceTechnology />
+  <ServiceCTA />
+</Layout>

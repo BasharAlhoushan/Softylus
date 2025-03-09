@@ -1,0 +1,734 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Our New Identity - Softylus">
+  <!-- Fixed Navigation -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-lg border-b border-white/10">
+    <div class="container mx-auto px-4">
+      <div class="flex items-center justify-between h-20">
+        <a href="/" class="text-white font-medium hover:text-white/80 transition-colors">
+          <span class="sr-only">Back to home</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+          </svg>
+        </a>
+
+        <!-- Progress Indicator -->
+        <div class="flex items-center space-x-2">
+          <div class="w-2 h-2 rounded-full bg-white/20 progress-dot" data-section="1" aria-label="Go to section 1"></div>
+          <div class="w-2 h-2 rounded-full bg-white/20 progress-dot" data-section="2" aria-label="Go to section 2"></div>
+          <div class="w-2 h-2 rounded-full bg-white/20 progress-dot" data-section="3" aria-label="Go to section 3"></div>
+          <div class="w-2 h-2 rounded-full bg-white/20 progress-dot" data-section="4" aria-label="Go to section 4"></div>
+          <div class="w-2 h-2 rounded-full bg-white/20 progress-dot" data-section="5" aria-label="Go to section 5"></div>
+          <div class="w-2 h-2 rounded-full bg-white/20 progress-dot" data-section="6" aria-label="Go to section 6"></div>
+          <div class="w-2 h-2 rounded-full bg-white/20 progress-dot" data-section="7" aria-label="Go to section 7"></div>
+          <div class="w-2 h-2 rounded-full bg-white/20 progress-dot" data-section="8" aria-label="Go to section 8"></div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Dramatic Intro Section -->
+  <section id="section1" class="min-h-screen bg-black flex items-center justify-center relative overflow-hidden snap-start">
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black opacity-90"></div>
+      <div class="absolute inset-0 opacity-[0.05]">
+        <div class="absolute inset-0 bg-grid-pattern transform rotate-3 scale-150"></div>
+      </div>
+      <div class="absolute top-1/4 right-1/4 w-96 h-96 bg-white/5 rounded-full blur-3xl animate-pulse-slow"></div>
+      <div class="absolute bottom-1/3 left-1/3 w-[32rem] h-[32rem] bg-white/3 rounded-full blur-3xl animate-pulse-slow animation-delay-500"></div>
+    </div>
+
+    <div class="container mx-auto px-4 text-center">
+      <div data-aos="fade-up" class="max-w-4xl mx-auto">
+        <div class="reveal-text">
+          <span class="inline-block text-white/60 text-sm tracking-widest uppercase mb-6 reveal-child">2025</span>
+          <h1 class="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-white mb-8">
+            <span class="block reveal-child">A New Era</span>
+            <span class="block reveal-child animation-delay-200">Begins</span>
+          </h1>
+          <p class="text-xl md:text-2xl text-white/70 max-w-3xl mx-auto mb-12 reveal-child animation-delay-400">
+            Today marks a pivotal moment in our journey as we unveil an identity that embodies our vision for the future of digital excellence.
+          </p>
+        </div>
+
+        <div class="swipe-indicator reveal-child animation-delay-600">
+          <div class="swipe-text">
+            <span class="text-white/40 text-sm block">Swipe to Experience Our Evolution</span>
+            <div class="swipe-line mt-4"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vision Statement -->
+  <section id="section2" class="min-h-screen bg-black flex items-center relative overflow-hidden py-24 snap-start">
+    <div class="absolute inset-0">
+      <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-black opacity-90"></div>
+    </div>
+
+    <div class="container mx-auto px-4 relative">
+      <div class="max-w-5xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-16 items-center">
+          <div data-aos="fade-right">
+            <div class="reveal-text">
+              <h2 class="text-3xl md:text-4xl font-display font-bold text-white mb-8 reveal-child">
+                Beyond Digital Excellence
+              </h2>
+              <p class="text-xl text-white/70 mb-8 leading-relaxed reveal-child animation-delay-200">
+                Our new identity is more than a symbol—it's a manifestation of our commitment to pushing the boundaries of digital innovation. Each element has been meticulously crafted to reflect our values, methodology, and vision.
+              </p>
+              <div class="stats-grid grid grid-cols-2 gap-8 reveal-child animation-delay-400">
+                <div class="stat-item group">
+                  <div class="text-4xl font-display font-bold text-white mb-2 group-hover:transform group-hover:translate-y-[-5px] transition-transform">7+</div>
+                  <div class="text-white/60">Years of Innovation</div>
+                </div>
+                <div class="stat-item group">
+                  <div class="text-4xl font-display font-bold text-white mb-2 group-hover:transform group-hover:translate-y-[-5px] transition-transform">100+</div>
+                  <div class="text-white/60">Projects</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="relative aspect-square" data-aos="fade-left">
+            <div class="absolute inset-0 bg-white/5 rounded-full animate-pulse-slow"></div>
+            <div class="absolute inset-[15%] bg-white/5 rounded-full animate-pulse-slow animation-delay-300"></div>
+            <div class="absolute inset-[30%] bg-white/5 rounded-full animate-pulse-slow animation-delay-600"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Outer Ring Section -->
+  <section id="section3" class="min-h-screen bg-black flex items-center relative overflow-hidden py-24 snap-start">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-16 items-center">
+        <div class="relative aspect-square" data-aos="fade-right">
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div class="w-full h-full border-[10px] border-white rounded-full animate-spin-slow"></div>
+          </div>
+        </div>
+        <div data-aos="fade-left">
+          <div class="reveal-text">
+            <span class="text-white/60 text-sm tracking-widest uppercase mb-4 block reveal-child">Element 01</span>
+            <h2 class="text-4xl md:text-5xl font-display font-bold text-white mb-8 reveal-child animation-delay-200">
+              The Outer Ring
+            </h2>
+            <p class="text-xl text-white/70 mb-8 leading-relaxed reveal-child animation-delay-400">
+              A perfect circle of unity and completeness. This foundational element represents our holistic approach to digital solutions, where every aspect is considered and refined to perfection.
+            </p>
+            <ul class="space-y-6 reveal-child animation-delay-600">
+              <li class="feature-item">
+                <div class="flex-shrink-0 w-8 h-8 rounded-full border border-white/20 flex items-center justify-center mr-4">
+                  <div class="w-2 h-2 bg-white rounded-full"></div>
+                </div>
+                <p class="text-white/70">Symbolizes completeness and continuity</p>
+              </li>
+              <li class="feature-item">
+                <div class="flex-shrink-0 w-8 h-8 rounded-full border border-white/20 flex items-center justify-center mr-4">
+                  <div class="w-2 h-2 bg-white rounded-full"></div>
+                </div>
+                <p class="text-white/70">Represents our end-to-end solutions</p>
+              </li>
+              <li class="feature-item">
+                <div class="flex-shrink-0 w-8 h-8 rounded-full border border-white/20 flex items-center justify-center mr-4">
+                  <div class="w-2 h-2 bg-white rounded-full"></div>
+                </div>
+                <p class="text-white/70">Embodies infinite possibilities</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Inner Ring Section -->
+  <section id="section4" class="min-h-screen bg-black flex items-center relative overflow-hidden py-24 snap-start">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-16 items-center">
+        <div data-aos="fade-right">
+          <div class="reveal-text">
+            <span class="text-white/60 text-sm tracking-widest uppercase mb-4 block reveal-child">Element 02</span>
+            <h2 class="text-4xl md:text-5xl font-display font-bold text-white mb-8 reveal-child animation-delay-200">
+              The Inner Ring
+            </h2>
+            <p class="text-xl text-white/70 mb-8 leading-relaxed reveal-child animation-delay-400">
+              At our core lies unwavering precision. The inner ring represents our methodical approach and the disciplined execution that drives every project.
+            </p>
+            <ul class="space-y-6 reveal-child animation-delay-600">
+              <li class="feature-item">
+                <div class="flex-shrink-0 w-8 h-8 rounded-full border border-white/20 flex items-center justify-center mr-4">
+                  <div class="w-2 h-2 bg-white rounded-full"></div>
+                </div>
+                <p class="text-white/70">Core values and principles</p>
+              </li>
+              <li class="feature-item">
+                <div class="flex-shrink-0 w-8 h-8 rounded-full border border-white/20 flex items-center justify-center mr-4">
+                  <div class="w-2 h-2 bg-white rounded-full"></div>
+                </div>
+                <p class="text-white/70">Precision in execution</p>
+              </li>
+              <li class="feature-item">
+                <div class="flex-shrink-0 w-8 h-8 rounded-full border border-white/20 flex items-center justify-center mr-4">
+                  <div class="w-2 h-2 bg-white rounded-full"></div>
+                </div>
+                <p class="text-white/70">Focused methodology</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="relative aspect-square" data-aos="fade-left">
+          <div class="absolute inset-[20%] border-[8px] border-white rounded-full animate-pulse"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Diamond Section -->
+  <section id="section5" class="min-h-screen bg-black flex items-center relative overflow-hidden py-24 snap-start">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-16 items-center">
+        <div class="relative aspect-square" data-aos="fade-right">
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div class="w-1/3 h-1/3 bg-white transform rotate-45 animate-float"></div>
+          </div>
+        </div>
+        <div data-aos="fade-left">
+          <div class="reveal-text">
+            <span class="text-white/60 text-sm tracking-widest uppercase mb-4 block reveal-child">Element 03</span>
+            <h2 class="text-4xl md:text-5xl font-display font-bold text-white mb-8 reveal-child animation-delay-200">
+              The Diamond
+            </h2>
+            <p class="text-xl text-white/70 mb-8 leading-relaxed reveal-child animation-delay-400">
+              A symbol of excellence and perspective. The diamond represents our commitment to delivering value through multiple viewpoints and innovative approaches.
+            </p>
+            <ul class="space-y-6 reveal-child animation-delay-600">
+              <li class="feature-item">
+                <div class="flex-shrink-0 w-8 h-8 rounded-full border border-white/20 flex items-center justify-center mr-4">
+                  <div class="w-2 h-2 bg-white rounded-full"></div>
+                </div>
+                <p class="text-white/70">Multiple perspectives</p>
+              </li>
+              <li class="feature-item">
+                <div class="flex-shrink-0 w-8 h-8 rounded-full border border-white/20 flex items-center justify-center mr-4">
+                  <div class="w-2 h-2 bg-white rounded-full"></div>
+                </div>
+                <p class="text-white/70">Cutting-edge solutions</p>
+              </li>
+              <li class="feature-item">
+                <div class="flex-shrink-0 w-8 h-8 rounded-full border border-white/20 flex items-center justify-center mr-4">
+                  <div class="w-2 h-2 bg-white rounded-full"></div>
+                </div>
+                <p class="text-white/70">Uncompromising quality</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Inner Circle Section -->
+  <section id="section6" class="min-h-screen bg-black flex items-center relative overflow-hidden py-24 snap-start">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-16 items-center">
+        <div class="relative aspect-square" data-aos="fade-right">
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div class="w-1/3 h-1/3 bg-white transform rotate-45 relative">
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="w-1/3 h-1/3 bg-black rounded-full animate-pulse"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div data-aos="fade-left">
+          <div class="reveal-text">
+            <span class="text-white/60 text-sm tracking-widest uppercase mb-4 block reveal-child">Element 04</span>
+            <h2 class="text-4xl md:text-5xl font-display font-bold text-white mb-8 reveal-child animation-delay-200">
+              The Inner Circle
+            </h2>
+            <p class="text-xl text-white/70 mb-8 leading-relaxed reveal-child animation-delay-400">
+              At the heart of our identity lies the inner circle, representing our core focus and the central point where all our principles converge into singular purpose.
+            </p>
+            <ul class="space-y-6 reveal-child animation-delay-600">
+              <li class="feature-item">
+                <div class="flex-shrink-0 w-8 h-8 rounded-full border border-white/20 flex items-center justify-center mr-4">
+                  <div class="w-2 h-2 bg-white rounded-full"></div>
+                </div>
+                <p class="text-white/70">Central focus point</p>
+              </li>
+              <li class="feature-item">
+                <div class="flex-shrink-0 w-8 h-8 rounded-full border border-white/20 flex items-center justify-center mr-4">
+                  <div class="w-2 h-2 bg-white rounded-full"></div>
+                </div>
+                <p class="text-white/70">Core principles</p>
+              </li>
+              <li class="feature-item">
+                <div class="flex-shrink-0 w-8 h-8 rounded-full border border-white/20 flex items-center justify-center mr-4">
+                  <div class="w-2 h-2 bg-white rounded-full"></div>
+                </div>
+                <p class="text-white/70">Unified purpose</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Complete Symbol Section -->
+  <section id="section7" class="min-h-screen bg-black flex items-center justify-center relative overflow-hidden snap-start">
+    <div class="absolute inset-0">
+      <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-black opacity-90"></div>
+      <div class="absolute inset-0 opacity-[0.05]">
+        <div class="absolute inset-0 bg-grid-pattern transform rotate-3 scale-150"></div>
+      </div>
+    </div>
+
+    <div class="container mx-auto px-4 text-center relative">
+      <div data-aos="fade-up" class="mb-16">
+        <div class="reveal-text">
+          <h2 class="text-4xl md:text-6xl font-display font-bold text-white mb-8 reveal-child">
+            The Complete Symbol
+          </h2>
+          <p class="text-xl text-white/70 max-w-3xl mx-auto reveal-child animation-delay-200">
+            When united, these elements form more than a logo—they create a powerful symbol of our commitment to excellence, innovation, and the future of digital reality.
+          </p>
+        </div>
+      </div>
+
+      <!-- Complete Symbol -->
+      <div class="complete-symbol-container" data-aos="fade-up" data-aos-delay="400">
+        <div class="symbol-wrapper">
+          <div class="symbol-container">
+            <div class="symbol-outer-ring"></div>
+            <div class="symbol-inner-ring"></div>
+            <div class="symbol-diamond">
+              <div class="symbol-inner-circle"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Typography Section -->
+  <section id="section8" class="min-h-screen bg-black flex items-center justify-center relative overflow-hidden snap-start">
+    <div class="absolute inset-0">
+      <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-black opacity-90"></div>
+      <div class="absolute inset-0 opacity-[0.05]">
+        <div class="absolute inset-0 bg-grid-pattern transform rotate-3 scale-150"></div>
+      </div>
+    </div>
+
+    <div class="container mx-auto px-4 text-center relative">
+      <!-- Typography Container -->
+      <div class="typography-container" data-aos="fade-up">
+        <div class="text-container">
+          <div class="text-divider"></div>
+          <div class="text-group">
+            <span class="text-letter">S</span>
+            <span class="text-letter">O</span>
+            <span class="text-letter">F</span>
+            <span class="text-letter">T</span>
+            <span class="text-letter">Y</span>
+            <span class="text-letter">L</span>
+            <span class="text-letter">U</span>
+            <span class="text-letter">S</span>
+          </div>
+          <div class="text-underline"></div>
+        </div>
+      </div>
+
+      <!-- Slogan -->
+      <div class="mt-24 slogan-container" data-aos="fade-up" data-aos-delay="600">
+        <div class="slogan-text">Digital Reality Architect</div>
+        <p class="text-white/70 mt-12 text-xl max-w-2xl mx-auto leading-relaxed">
+          Join us in shaping the future of digital experiences. Together, we'll transform your vision into an extraordinary reality.
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Background Pattern */
+  .bg-grid-pattern {
+    background-image:
+      linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  /* Swipe Indicator */
+  .swipe-text {
+    position: relative;
+    display: inline-block;
+  }
+
+  .swipe-line {
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(to right, transparent, white, transparent);
+    margin: 0 auto;
+    animation: swipeLine 2s ease-in-out infinite;
+  }
+
+  @keyframes swipeLine {
+    0% { transform: translateX(-30px); opacity: 0; }
+    50% { transform: translateX(30px); opacity: 1; }
+    100% { transform: translateX(90px); opacity: 0; }
+  }
+
+  /* Feature Items */
+  .feature-item {
+    display: flex;
+    align-items: start;
+    transition: transform 0.3s ease;
+  }
+
+  .feature-item:hover {
+    transform: translateX(10px);
+  }
+
+  /* Text Reveal Animation */
+  .reveal-text {
+    overflow: hidden;
+  }
+
+  .reveal-child {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: revealText 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+  }
+
+  .animation-delay-200 { animation-delay: 200ms; }
+  .animation-delay-400 { animation-delay: 400ms; }
+  .animation-delay-500 { animation-delay: 500ms; }
+  .animation-delay-600 { animation-delay: 600ms; }
+
+  @keyframes revealText {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Progress Dots */
+  .progress-dot.active {
+    background-color: white;
+    transform: scale(1.2);
+  }
+
+  /* Animations */
+  .animate-spin-slow {
+    animation: spin 8s linear infinite;
+  }
+
+  .animate-pulse-slow {
+    animation: pulseSlow 3s ease-in-out infinite;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+
+  @keyframes pulseSlow {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.6; }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: rotate(45deg) translateY(0); }
+    50% { transform: rotate(45deg) translateY(-20px); }
+  }
+
+  /* Complete Symbol Container */
+  .complete-symbol-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    aspect-ratio: 1;
+    position: relative;
+  }
+
+  .symbol-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+
+  .symbol-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: symbolFloat 6s ease-in-out infinite;
+  }
+
+  .symbol-outer-ring {
+    position: absolute;
+    inset: 0;
+    border: 12px solid white;
+    border-radius: 50%;
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
+    animation: pulseRing 3s ease-in-out infinite;
+  }
+
+  .symbol-inner-ring {
+    position: absolute;
+    top: 22%;
+    left: 22%;
+    width: 56%;
+    height: 56%;
+    border: 8px solid white;
+    border-radius: 50%;
+    animation: rotateRing 8s linear infinite;
+  }
+
+  .symbol-diamond {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 28%;
+    height: 28%;
+    background: white;
+    transform: translate(-50%, -50%) rotate(45deg);
+    animation: floatDiamond 4s ease-in-out infinite;
+  }
+
+  .symbol-inner-circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 33.33%;
+    height: 33.33%;
+    background: black;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  /* Typography Container */
+  .typography-container {
+    margin-top: 4rem;
+  }
+
+  .text-container {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    padding: 2rem;
+  }
+
+  .text-divider {
+    width: 2px;
+    height: 80%;
+    background: linear-gradient(to bottom, transparent, white, transparent);
+    margin-right: 2rem;
+    opacity: 0.5;
+  }
+
+  .text-group {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .text-letter {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 5rem;
+    color: white;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: revealLetter 0.5s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  }
+
+  .text-letter:nth-child(1) { animation-delay: 0.1s; }
+  .text-letter:nth-child(2) { animation-delay: 0.2s; }
+  .text-letter:nth-child(3) { animation-delay: 0.3s; }
+  .text-letter:nth-child(4) { animation-delay: 0.4s; }
+  .text-letter:nth-child(5) { animation-delay: 0.5s; }
+  .text-letter:nth-child(6) { animation-delay: 0.6s; }
+  .text-letter:nth-child(7) { animation-delay: 0.7s; }
+  .text-letter:nth-child(8) { animation-delay: 0.8s; }
+
+  .text-underline {
+    position: absolute;
+    bottom: 1rem;
+    left: 4rem;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(to right, transparent, white, transparent);
+    transform: scaleX(0);
+    animation: expandUnderline 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards 1s;
+  }
+
+  /* Slogan Container */
+  .slogan-container {
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+    animation-delay: 1.2s;
+  }
+
+  .slogan-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    font-weight: 300;
+    color: white;
+    letter-spacing: 0.2em; /* Fixed typo here */
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+  }
+
+  @keyframes symbolFloat {
+    0%, 100% { transform: translateY(0) rotate(0); }
+    50% { transform: translateY(-20px) rotate(5deg); }
+  }
+
+  @keyframes pulseRing {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.05); opacity: 0.8; }
+  }
+
+  @keyframes rotateRing {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  @keyframes floatDiamond {
+    0%, 100% { transform: translate(-50%, -50%) rotate(45deg) scale(1); }
+    50% { transform: translate(-50%, -50%) rotate(45deg) scale(1.1); }
+  }
+
+  @keyframes revealLetter {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes expandUnderline {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .text-letter {
+      font-size: 3rem;
+    }
+
+    .slogan-text {
+      font-size: 1.5rem;
+      letter-spacing: 0.15em;
+    }
+
+    .complete-symbol-container {
+      max-width: 300px;
+    }
+
+    .symbol-outer-ring {
+      border-width: 8px;
+    }
+
+    .symbol-inner-ring {
+      border-width: 6px;
+    }
+
+    .text-divider {
+      margin-right: 1rem;
+    }
+  }
+
+  /* Reduced Motion */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-spin-slow,
+    .animate-pulse-slow,
+    .animate-float,
+    .symbol-outer-ring,
+    .symbol-inner-ring,
+    .symbol-diamond,
+    .symbol-container {
+      animation: none;
+    }
+
+    .text-letter {
+      opacity: 1;
+      transform: none;
+      animation: none;
+    }
+
+    .text-underline {
+      transform: scaleX(1);
+      animation: none;
+    }
+
+    .slogan-container {
+      opacity: 1;
+      transform: none;
+      animation: none;
+    }
+
+    .feature-item:hover {
+      transform: none;
+    }
+  }
+</style>
+
+<script>
+// Progress Indicator and Section Navigation
+document.addEventListener('DOMContentLoaded', () => {
+  const sections = document.querySelectorAll('section');
+  const dots = document.querySelectorAll('.progress-dot');
+
+  const observerOptions = {
+    root: null,
+    threshold: 0.5, // Trigger when 50% of the section is visible
+    rootMargin: '0px'
+  };
+
+  // Intersection Observer for highlighting active progress dot
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const sectionId = entry.target.id;
+        const sectionNumber = sectionId.replace('section', '');
+
+        // Remove active class from all dots
+        dots.forEach(dot => dot.classList.remove('active'));
+        // Add active class to the corresponding dot
+        dots[parseInt(sectionNumber) - 1]?.classList.add('active');
+      }
+    });
+  }, observerOptions);
+
+  // Observe each section
+  sections.forEach(section => observer.observe(section));
+
+  // Click event listener for progress dots to navigate to sections
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      document.getElementById(`section${index + 1}`)?.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+});
+</script>

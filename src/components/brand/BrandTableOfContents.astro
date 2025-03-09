@@ -1,0 +1,233 @@
+---
+// BrandTableOfContents.astro - Navigation for brand guidelines
+const sections = [
+  { id: "logo", title: "Logo", description: "Usage guidelines, clear space, and variations" },
+  { id: "colors", title: "Color Palette", description: "Primary and secondary colors with codes" },
+  { id: "typography", title: "Typography", description: "Font families, weights, and hierarchy" },
+  { id: "imagery", title: "Imagery", description: "Photography style and guidelines" },
+  { id: "voice", title: "Tone of Voice", description: "Writing style and principles" },
+  { id: "components", title: "UI Components", description: "Design patterns and templates" }
+];
+---
+
+<section class="py-16 bg-white">
+  <div class="container mx-auto px-4">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-2xl font-display font-bold mb-8" data-aos="fade-up">Contents</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {sections.map((section, index) => (
+          <a 
+            href={`#${section.id}`} 
+            class="toc-card group" 
+            data-aos="fade-up" 
+            data-aos-delay={index * 50}
+          >
+            <span class="toc-number">{String(index + 1).padStart(2, '0')}</span>
+            <h3 class="toc-title">{section.title}</h3>
+            <p class="toc-description">{section.description}</p>
+            <div class="toc-progress"></div>
+            
+            <!-- Arrow icon -->
+            <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              class="toc-arrow" 
+              viewBox="0 0 20 20" 
+              fill="currentColor"
+            >
+              <path 
+                fill-rule="evenodd" 
+                d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" 
+                clip-rule="evenodd" 
+              />
+            </svg>
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .toc-card {
+    position: relative;
+    padding: 2rem;
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .toc-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .toc-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.1);
+    line-height: 1;
+    margin-bottom: 1rem;
+    display: block;
+    transition: color 0.3s ease;
+  }
+
+  .toc-card:hover .toc-number {
+    color: rgba(0, 0, 0, 0.2);
+  }
+
+  .toc-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: black;
+    transition: transform 0.3s ease;
+  }
+
+  .toc-card:hover .toc-title {
+    transform: translateX(10px);
+  }
+
+  .toc-description {
+    font-size: 0.95rem;
+    color: rgba(0, 0, 0, 0.7);
+    line-height: 1.6;
+    flex-grow: 1;
+  }
+
+  .toc-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: black;
+    transition: width 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
+  .toc-card:hover .toc-progress {
+    width: 100%;
+  }
+
+  .toc-arrow {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    width: 1.25rem;
+    height: 1.25rem;
+    color: black;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+  }
+
+  .toc-card:hover .toc-arrow {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* Touch optimization */
+  @media (max-width: 768px) {
+    .toc-card {
+      padding: 1.5rem;
+    }
+
+    .toc-number {
+      font-size: 2.5rem;
+    }
+
+    .toc-arrow {
+      opacity: 0.5;
+      transform: none;
+      bottom: 1.5rem;
+      right: 1.5rem;
+    }
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .toc-card:hover {
+      transform: none;
+    }
+
+    .toc-card:hover .toc-title {
+      transform: none;
+    }
+
+    .toc-progress {
+      transition: none;
+    }
+
+    .toc-arrow {
+      transition: none;
+    }
+  }
+
+  /* Active section indicator */
+  .toc-card[data-active="true"] {
+    border-color: black;
+  }
+
+  .toc-card[data-active="true"] .toc-number {
+    color: rgba(0, 0, 0, 0.2);
+  }
+
+  .toc-card[data-active="true"] .toc-progress {
+    width: 100%;
+  }
+</style>
+
+<script>
+  // Intersection Observer for active section highlighting
+  document.addEventListener('DOMContentLoaded', () => {
+    const sections = document.querySelectorAll('section[id]');
+    const tocCards = document.querySelectorAll('.toc-card');
+    
+    const observerOptions = {
+      rootMargin: '-20% 0px -70% 0px'
+    };
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const activeId = entry.target.id;
+          tocCards.forEach(card => {
+            const href = card.getAttribute('href');
+            if (href === `#${activeId}`) {
+              card.setAttribute('data-active', 'true');
+            } else {
+              card.setAttribute('data-active', 'false');
+            }
+          });
+        }
+      });
+    }, observerOptions);
+
+    sections.forEach(section => observer.observe(section));
+
+    // Smooth scroll handling
+    tocCards.forEach(card => {
+      card.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = card.getAttribute('href').slice(1);
+        const targetSection = document.getElementById(targetId);
+        
+        if (targetSection) {
+          const headerOffset = 80;
+          const elementPosition = targetSection.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  });
+</script>

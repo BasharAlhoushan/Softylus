@@ -1,0 +1,160 @@
+---
+// AboutValues.astro - Company values and principles
+const values = [
+  {
+    title: "Innovation First",
+    description: "We push boundaries and embrace emerging technologies to create forward-thinking solutions.",
+    icon: "M13 10V3L4 14h7v7l9-11h-7z"
+  },
+  {
+    title: "Human-Centered",
+    description: "Every decision we make is guided by understanding and enhancing the human experience.",
+    icon: "M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
+  },
+  {
+    title: "Excellence",
+    description: "We maintain the highest standards in everything we do, from code quality to design precision.",
+    icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+  },
+  {
+    title: "Collaboration",
+    description: "We believe in the power of teamwork and open communication to achieve exceptional results.",
+    icon: "M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
+  },
+  {
+    title: "Adaptability",
+    description: "We stay agile and responsive to change, evolving with the dynamic digital landscape.",
+    icon: "M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+  },
+  {
+    title: "Integrity",
+    description: "We maintain the highest ethical standards and transparency in all our interactions.",
+    icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+  }
+];
+---
+
+<section class="py-24 px-4 bg-gray-50 relative overflow-hidden">
+  <!-- Background Elements -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute inset-0 opacity-[0.03]">
+      <div class="absolute inset-0 bg-grid-pattern transform -skew-y-6"></div>
+    </div>
+  </div>
+
+  <div class="container mx-auto relative">
+    <div class="max-w-3xl mx-auto text-center mb-16" data-aos="fade-up">
+      <h2 class="text-3xl md:text-4xl font-display font-bold mb-6">Our Values</h2>
+      <p class="text-xl text-gray-600">
+        The principles that guide our work and shape our culture, driving us to deliver excellence in everything we do.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {values.map((value, index) => (
+        <div 
+          class="value-card" 
+          data-aos="fade-up" 
+          data-aos-delay={100 + index * 50}
+        >
+          <div class="value-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d={value.icon} />
+            </svg>
+          </div>
+          <h3 class="value-title">{value.title}</h3>
+          <p class="value-description">{value.description}</p>
+          <div class="value-progress"></div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .bg-grid-pattern {
+    background-image: 
+      linear-gradient(to right, rgba(0,0,0,0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0,0,0,0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .value-card {
+    background: white;
+    padding: 2rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
+  .value-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .value-icon {
+    width: 3rem;
+    height: 3rem;
+    background: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
+  .value-card:hover .value-icon {
+    transform: rotate(10deg);
+  }
+
+  .value-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: black;
+  }
+
+  .value-description {
+    font-size: 0.95rem;
+    color: rgba(0, 0, 0, 0.7);
+    line-height: 1.6;
+  }
+
+  .value-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: black;
+    transition: width 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
+  .value-card:hover .value-progress {
+    width: 100%;
+  }
+
+  /* Touch optimization */
+  @media (max-width: 768px) {
+    .value-card {
+      padding: 1.5rem;
+    }
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .value-card:hover {
+      transform: none;
+    }
+
+    .value-card:hover .value-icon {
+      transform: none;
+    }
+
+    .value-progress {
+      transition: none;
+    }
+  }
+</style>

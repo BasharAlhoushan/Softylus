@@ -1,0 +1,157 @@
+---
+// CareersCulture.astro - Company culture section
+const culturePoints = [
+  {
+    title: "Innovation First",
+    description: "We encourage bold thinking and creative problem-solving, providing the freedom to explore new ideas.",
+    icon: "M13 10V3L4 14h7v7l9-11h-7z"
+  },
+  {
+    title: "Growth Mindset",
+    description: "Continuous learning and professional development are core to our culture.",
+    icon: "M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+  },
+  {
+    title: "Work-Life Balance",
+    description: "We believe in flexible schedules and respect for personal time to maintain peak creativity.",
+    icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+  },
+  {
+    title: "Global Community",
+    description: "Join a diverse team of professionals from around the world, bringing unique perspectives.",
+    icon: "M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
+  }
+];
+---
+
+<section class="py-24 px-4 bg-white relative overflow-hidden">
+  <div class="container mx-auto">
+    <div class="max-w-3xl mx-auto text-center mb-16" data-aos="fade-up">
+      <h2 class="text-3xl md:text-4xl font-display font-bold mb-6">Our Culture</h2>
+      <p class="text-xl text-gray-600">
+        We foster an environment where creativity thrives, innovation is celebrated, and every voice matters.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {culturePoints.map((point, index) => (
+        <div 
+          class="culture-card" 
+          data-aos="fade-up" 
+          data-aos-delay={100 + index * 50}
+        >
+          <div class="culture-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d={point.icon} />
+            </svg>
+          </div>
+          <h3 class="culture-title">{point.title}</h3>
+          <p class="culture-description">{point.description}</p>
+          <div class="culture-progress"></div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Culture Video/Image Section -->
+    <div class="mt-16 relative" data-aos="fade-up">
+      <div class="aspect-video relative overflow-hidden rounded-lg">
+        <img 
+          src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+          alt="Team collaboration" 
+          class="w-full h-full object-cover"
+        />
+        <div class="absolute inset-0 bg-black/50 flex items-center justify-center">
+          <blockquote class="text-white text-center max-w-2xl px-6">
+            <p class="text-xl md:text-2xl font-display italic mb-4">
+              "We believe that great ideas can come from anywhere, and innovation thrives when diverse perspectives come together."
+            </p>
+            <footer class="text-white/80">
+              — Ahmad Softylus, Founder & CEO
+            </footer>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .culture-card {
+    background: white;
+    padding: 2rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
+  .culture-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .culture-icon {
+    width: 3rem;
+    height: 3rem;
+    background: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
+  .culture-card:hover .culture-icon {
+    transform: rotate(10deg);
+  }
+
+  .culture-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: black;
+  }
+
+  .culture-description {
+    font-size: 0.95rem;
+    color: rgba(0, 0, 0, 0.7);
+    line-height: 1.6;
+  }
+
+  .culture-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: black;
+    transition: width 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
+  .culture-card:hover .culture-progress {
+    width: 100%;
+  }
+
+  /* Touch optimization */
+  @media (max-width: 768px) {
+    .culture-card {
+      padding: 1.5rem;
+    }
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .culture-card:hover {
+      transform: none;
+    }
+
+    .culture-card:hover .culture-icon {
+      transform: none;
+    }
+
+    .culture-progress {
+      transition: none;
+    }
+  }
+</style>

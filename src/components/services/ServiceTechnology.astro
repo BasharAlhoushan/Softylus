@@ -1,0 +1,227 @@
+---
+const technologies = [
+  {
+    category: "Frontend",
+    items: [
+      { name: "React", level: 95 },
+      { name: "Vue", level: 90 },
+      { name: "Angular", level: 85 },
+      { name: "Next.js", level: 92 }
+    ]
+  },
+  {
+    category: "Backend",
+    items: [
+      { name: "Node.js", level: 95 },
+      { name: "Python", level: 88 },
+      { name: "Go", level: 85 },
+      { name: "Rust", level: 80 }
+    ]
+  },
+  {
+    category: "Cloud & DevOps",
+    items: [
+      { name: "AWS", level: 90 },
+      { name: "Docker", level: 92 },
+      { name: "Kubernetes", level: 85 },
+      { name: "CI/CD", level: 88 }
+    ]
+  }
+];
+
+const features = [
+  {
+    title: "Cutting-Edge Stack",
+    description: "We leverage the latest technologies while maintaining stability and reliability.",
+    icon: "M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18"
+  },
+  {
+    title: "Performance First",
+    description: "Optimized solutions that deliver exceptional speed and efficiency.",
+    icon: "M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"
+  },
+  {
+    title: "Future Ready",
+    description: "Built with scalability and future technological advances in mind.",
+    icon: "M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"
+  }
+];
+---
+
+<section class="py-24 px-4 bg-white relative overflow-hidden">
+  <!-- Background Elements -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute inset-0 bg-gradient-to-b from-gray-50/50 to-white/50"></div>
+    <div class="absolute inset-0 opacity-[0.03]">
+      <div class="absolute inset-0 bg-grid-pattern transform -skew-y-6"></div>
+    </div>
+  </div>
+
+  <div class="container mx-auto relative">
+    <!-- Section Header -->
+    <div class="max-w-3xl mx-auto text-center mb-16" data-aos="fade-up">
+      <span class="inline-block px-3 py-1 bg-black text-white text-sm mb-4">Technology Stack</span>
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-black mb-4">
+        Technical Excellence
+      </h2>
+      <p class="text-lg md:text-xl text-gray-600">
+        Our mastery of cutting-edge technologies enables us to build sophisticated digital solutions.
+      </p>
+    </div>
+
+    <!-- Technology Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+      {technologies.map((tech, index) => (
+        <div class="tech-card" data-aos="fade-up" data-aos-delay={100 + index * 50}>
+          <h3 class="text-xl font-display font-bold mb-6">{tech.category}</h3>
+          <div class="space-y-6">
+            {tech.items.map(item => (
+              <div class="tech-item">
+                <div class="flex justify-between items-center mb-2">
+                  <span class="font-medium">{item.name}</span>
+                  <span class="text-sm text-gray-500">{item.level}%</span>
+                </div>
+                <div class="progress-bar">
+                  <div 
+                    class="progress-fill" 
+                    style={`width: ${item.level}%`}
+                  ></div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Features Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+      {features.map((feature, index) => (
+        <div 
+          class="feature-card" 
+          data-aos="fade-up" 
+          data-aos-delay={200 + index * 50}
+        >
+          <div class="feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d={feature.icon} />
+            </svg>
+          </div>
+          <h3 class="text-xl font-display font-bold mb-3">{feature.title}</h3>
+          <p class="text-gray-600">{feature.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .bg-grid-pattern {
+    background-image: 
+      linear-gradient(to right, rgba(0,0,0,0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0,0,0,0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  /* Technology Card Styles */
+  .tech-card {
+    padding: 2rem;
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
+  .tech-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Progress Bar Styles */
+  .progress-bar {
+    width: 100%;
+    height: 4px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: black;
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: transform 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
+  .tech-card:hover .progress-fill {
+    transform: scaleX(1);
+  }
+
+  /* Feature Card Styles */
+  .feature-card {
+    padding: 2rem;
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .feature-icon {
+    width: 3rem;
+    height: 3rem;
+    background: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
+  .feature-card:hover .feature-icon {
+    transform: rotate(10deg);
+  }
+
+  /* Progress indicator */
+  .feature-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: black;
+    transition: width 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
+  .feature-card:hover::after {
+    width: 100%;
+  }
+
+  /* Reduced Motion */
+  @media (prefers-reduced-motion: reduce) {
+    .tech-card:hover,
+    .feature-card:hover {
+      transform: none;
+    }
+
+    .feature-card:hover .feature-icon {
+      transform: none;
+    }
+
+    .progress-fill {
+      transition: none;
+      transform: none;
+    }
+
+    .feature-card::after {
+      transition: none;
+    }
+  }
+</style>

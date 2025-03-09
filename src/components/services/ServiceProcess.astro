@@ -1,0 +1,107 @@
+---
+import { siteContent } from '@lib/content';
+
+
+import Section from '../ui/Section.astro';
+
+const { process } = siteContent;
+---
+
+<Section
+
+  contentKey="services"
+  background="gray"
+  padding="lg"
+  class="py-24 px-4 relative overflow-hidden"
+>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    {process.stages.map((stage, index) => (
+      <div 
+        class="process-card" 
+        data-aos="fade-up" 
+        data-aos-delay={100 + index * 50}
+      >
+        <div class="process-number">{stage.number}</div>
+        
+        <div class="process-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d={stage.icon} />
+          </svg>
+        </div>
+        
+        <h3 class="text-xl font-display font-bold mb-3">{stage.title}</h3>
+        <p class="text-gray-600">{stage.description}</p>
+        
+        <div class="process-progress"></div>
+      </div>
+    ))}
+  </div>
+</Section>
+
+<style>
+  .process-card {
+    position: relative;
+    padding: 2rem;
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
+  .process-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .process-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.1);
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+
+  .process-icon {
+    width: 3rem;
+    height: 3rem;
+    background: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
+  .process-card:hover .process-icon {
+    transform: rotate(10deg);
+  }
+
+  .process-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: black;
+    transition: width 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
+  .process-card:hover .process-progress {
+    width: 100%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .process-card:hover {
+      transform: none;
+    }
+
+    .process-card:hover .process-icon {
+      transform: none;
+    }
+
+    .process-progress {
+      transition: none;
+    }
+  }
+</style>

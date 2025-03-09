@@ -1,0 +1,145 @@
+---
+// BrandAssets.astro - Downloadable brand assets section
+const assets = [
+  {
+    title: "Logo Package",
+    description: "All logo variations in AI, EPS, SVG, and PNG formats",
+    size: "2.4 MB",
+    type: "zip"
+  },
+  {
+    title: "Brand Guidelines PDF",
+    description: "Complete brand guidelines document",
+    size: "1.8 MB",
+    type: "pdf"
+  },
+  {
+    title: "Color Palette",
+    description: "Color swatches for digital and print",
+    size: "156 KB",
+    type: "zip"
+  },
+  {
+    title: "Icon Library",
+    description: "Complete icon set in SVG format",
+    size: "890 KB",
+    type: "zip"
+  }
+];
+---
+
+<section id="assets" class="py-16 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-number">07</span>
+        <h2 class="section-title">Brand Assets</h2>
+      </div>
+
+      <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-6">
+        {assets.map((asset, index) => (
+          <div 
+            class="asset-card" 
+            data-aos="fade-up" 
+            data-aos-delay={index * 50}
+          >
+            <div class="asset-icon">
+              {asset.type === 'zip' ? (
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
+              ) : (
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                </svg>
+              )}
+            </div>
+            <div class="asset-content">
+              <h3 class="asset-title">{asset.title}</h3>
+              <p class="asset-description">{asset.description}</p>
+              <span class="asset-size">{asset.size}</span>
+            </div>
+            <button class="asset-download">
+              <span class="sr-only">Download {asset.title}</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+              </svg>
+            </button>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .asset-card {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem;
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .asset-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  }
+
+  .asset-icon {
+    width: 3rem;
+    height: 3rem;
+    background: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1.5rem;
+    flex-shrink: 0;
+  }
+
+  .asset-content {
+    flex: 1;
+  }
+
+  .asset-title {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+  }
+
+  .asset-description {
+    font-size: 0.875rem;
+    color: rgba(0, 0, 0, 0.6);
+    margin-bottom: 0.25rem;
+  }
+
+  .asset-size {
+    font-size: 0.75rem;
+    color: rgba(0, 0, 0, 0.4);
+  }
+
+  .asset-download {
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    transition: all 0.3s ease;
+  }
+
+  .asset-download:hover {
+    transform: translateY(-2px);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .asset-card:hover {
+      transform: none;
+    }
+
+    .asset-download:hover {
+      transform: none;
+    }
+  }
+</style>

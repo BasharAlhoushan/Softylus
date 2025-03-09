@@ -1,0 +1,115 @@
+---
+// Featured mini-projects preview component
+const featuredProjects = [
+  { 
+    title: "Neural UI", 
+    category: "UX Design",
+    accent: "rgba(0, 0, 0, 0.8)" // Changed to black with opacity
+  },
+  { 
+    title: "Quantum Flow", 
+    category: "Development",
+    accent: "rgba(0, 0, 0, 0.7)" // Changed to black with opacity
+  },
+  { 
+    title: "Echo System", 
+    category: "Architecture",
+    accent: "rgba(0, 0, 0, 0.6)" // Changed to black with opacity
+  }
+];
+---
+
+<div class="featured-container">
+  <div class="featured-projects">
+    {featuredProjects.map((project, index) => (
+      <div 
+        class="featured-project" 
+        data-aos="fade-up" 
+        data-aos-delay={100 + index * 50}
+        style={`--accent-color: ${project.accent}`}
+      >
+        <div class="project-category">{project.category}</div>
+        <h4 class="project-title">{project.title}</h4>
+        <div class="project-indicator"></div>
+      </div>
+    ))}
+  </div>
+</div>
+
+<style>
+  .featured-container {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    z-index: 15;
+  }
+  
+  .featured-projects {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  
+  @media (max-width: 640px) {
+    .featured-container {
+      display: none;
+    }
+  }
+  
+  @media (min-width: 641px) and (max-width: 768px) {
+    .featured-projects {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .featured-project:nth-child(3) {
+      display: none;
+    }
+  }
+  
+  .featured-project {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 4px;
+    padding: 12px;
+    border-left: 2px solid var(--accent-color, rgba(0, 0, 0, 0.8));
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .featured-project:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .project-category {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgba(0, 0, 0, 0.6);
+    margin-bottom: 4px;
+  }
+  
+  .project-title {
+    color: black;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 0;
+  }
+  
+  .project-indicator {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 0;
+    background-color: var(--accent-color, rgba(0, 0, 0, 0.8));
+    transition: width 0.3s ease;
+  }
+  
+  .featured-project:hover .project-indicator {
+    width: 100%;
+  }
+</style>

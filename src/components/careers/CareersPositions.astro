@@ -1,0 +1,289 @@
+---
+// CareersPositions.astro - Open positions section
+const positions = [
+  {
+    title: "Senior Frontend Developer",
+    department: "Engineering",
+    location: "Remote",
+    type: "Full-time",
+    description: "Join our frontend team to build exceptional user interfaces using modern web technologies.",
+    requirements: [
+      "5+ years of experience with modern JavaScript frameworks",
+      "Strong understanding of web performance optimization",
+      "Experience with TypeScript and testing frameworks",
+      "Excellent problem-solving skills"
+    ]
+  },
+  {
+    title: "UX/UI Designer",
+    department: "Design",
+    location: "London",
+    type: "Full-time",
+    description: "Create intuitive and beautiful user experiences for our digital products.",
+    requirements: [
+      "3+ years of experience in digital product design",
+      "Strong portfolio showcasing user-centered design",
+      "Proficiency in modern design tools",
+      "Experience with design systems"
+    ]
+  },
+  {
+    title: "DevOps Engineer",
+    department: "Operations",
+    location: "Remote",
+    type: "Full-time",
+    description: "Help us build and maintain robust infrastructure and deployment pipelines.",
+    requirements: [
+      "4+ years of DevOps experience",
+      "Strong knowledge of cloud platforms",
+      "Experience with containerization and orchestration",
+      "Security-first mindset"
+    ]
+  },
+  {
+    title: "Product Manager",
+    department: "Product",
+    location: "Zarqa",
+    type: "Full-time",
+    description: "Lead product strategy and execution for our digital solutions.",
+    requirements: [
+      "5+ years of product management experience",
+      "Track record of successful product launches",
+      "Strong analytical and communication skills",
+      "Technical background preferred"
+    ]
+  }
+];
+---
+
+<section class="py-24 px-4 bg-gray-50">
+  <div class="container mx-auto">
+    <div class="max-w-3xl mx-auto text-center mb-16" data-aos="fade-up">
+      <h2 class="text-3xl md:text-4xl font-display font-bold mb-6">Open Positions</h2>
+      <p class="text-xl text-gray-600">
+        Join our team of innovators and help shape the future of digital experiences.
+      </p>
+    </div>
+
+    <div class="space-y-6">
+      {positions.map((position, index) => (
+        <div 
+          class="position-card" 
+          data-aos="fade-up" 
+          data-aos-delay={100 + index * 50}
+        >
+          <div class="position-header">
+            <div>
+              <h3 class="position-title">{position.title}</h3>
+              <div class="position-meta">
+                <span class="department">{position.department}</span>
+                <span class="separator">•</span>
+                <span class="location">{position.location}</span>
+                <span class="separator">•</span>
+                <span class="type">{position.type}</span>
+              </div>
+            </div>
+            <button class="position-expand-btn" aria-expanded="false">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 transform transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+          </div>
+          
+          <div class="position-content">
+            <p class="position-description">{position.description}</p>
+            
+            <div class="position-requirements">
+              <h4 class="text-sm font-semibold mb-2">Requirements</h4>
+              <ul class="list-disc list-inside space-y-1 text-gray-600">
+                {position.requirements.map(requirement => (
+                  <li>{requirement}</li>
+                ))}
+              </ul>
+            </div>
+            
+            <div class="position-actions">
+              <a href={`/careers/apply?position=${encodeURIComponent(position.title)}`} class="apply-button">
+                Apply Now
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          
+          <div class="position-progress"></div>
+        </div>
+      ))}
+    </div>
+
+    <!-- No positions message -->
+    <div class="text-center mt-12" data-aos="fade-up">
+      <p class="text-gray-600">
+        Don't see a position that matches your skills?
+      </p>
+      <a href="/careers/general-application" class="inline-flex items-center text-black font-medium mt-2 hover:underline">
+        Submit a general application
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Position card expansion functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const positionCards = document.querySelectorAll('.position-card');
+    
+    positionCards.forEach(card => {
+      const expandBtn = card.querySelector('.position-expand-btn');
+      const content = card.querySelector('.position-content');
+      
+      if (expandBtn && content) {
+        expandBtn.addEventListener('click', () => {
+          const isExpanded = expandBtn.getAttribute('aria-expanded') === 'true';
+          
+          // Update button state
+          expandBtn.setAttribute('aria-expanded', !isExpanded);
+          expandBtn.querySelector('svg').style.transform = isExpanded ? '' : 'rotate(180deg)';
+          
+          // Toggle content
+          if (isExpanded) {
+            content.style.maxHeight = '0';
+            content.style.opacity = '0';
+            content.style.marginTop = '0';
+          } else {
+            content.style.maxHeight = content.scrollHeight + 'px';
+            content.style.opacity = '1';
+            content.style.marginTop = '1.5rem';
+          }
+        });
+      }
+    });
+  });
+</script>
+
+<style>
+  .position-card {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .position-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  }
+
+  .position-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .position-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: black;
+    margin-bottom: 0.5rem;
+  }
+
+  .position-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  .separator {
+    color: rgba(0, 0, 0, 0.3);
+  }
+
+  .position-expand-btn {
+    padding: 0.5rem;
+    margin: -0.5rem;
+    transition: transform 0.3s ease;
+  }
+
+  .position-content {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
+  .position-description {
+    color: rgba(0, 0, 0, 0.7);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+
+  .position-requirements {
+    margin-bottom: 1.5rem;
+  }
+
+  .apply-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.75rem 1.5rem;
+    background-color: black;
+    color: white;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+
+  .apply-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .position-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: black;
+    transition: width 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
+  .position-card:hover .position-progress {
+    width: 100%;
+  }
+
+  /* Touch optimization */
+  @media (max-width: 768px) {
+    .position-card {
+      padding: 1.25rem;
+    }
+
+    .apply-button {
+      width: 100%;
+      justify-content: center;
+      min-height: 48px;
+    }
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .position-card:hover {
+      transform: none;
+    }
+
+    .position-expand-btn,
+    .position-content,
+    .position-progress {
+      transition: none;
+    }
+
+    .apply-button:hover {
+      transform: none;
+    }
+  }
+</style>

@@ -1,0 +1,253 @@
+---
+// BrandComponents.astro - UI components and design patterns
+const components = [
+  {
+    category: "Buttons",
+    variations: [
+      {
+        name: "Primary",
+        class: "bg-black text-white hover:bg-gray-800",
+        text: "Primary Action"
+      },
+      {
+        name: "Secondary",
+        class: "bg-white text-black border border-black hover:bg-gray-100",
+        text: "Secondary Action"
+      },
+      {
+        name: "Text",
+        class: "text-black hover:underline",
+        text: "Text Link"
+      }
+    ]
+  },
+  {
+    category: "Cards",
+    preview: true,
+    description: "Consistent card design for content organization"
+  },
+  {
+    category: "Forms",
+    preview: true,
+    description: "Input fields, labels, and form elements"
+  }
+];
+
+const designPatterns = [
+  {
+    title: "Navigation",
+    description: "Consistent header navigation with hover states and mobile menu",
+    image: "https://images.unsplash.com/photo-1618788372246-79faff0c3742?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+  },
+  {
+    title: "Grid System",
+    description: "Responsive 12-column grid for layout consistency",
+    image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2055&q=80"
+  },
+  {
+    title: "Spacing",
+    description: "Standardized spacing units for consistent layout rhythm",
+    image: "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+  }
+];
+---
+
+<section id="components" class="py-16 bg-white">
+  <div class="container mx-auto px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-number">06</span>
+        <h2 class="section-title">UI Components</h2>
+      </div>
+
+      <div class="mt-16">
+        <!-- Buttons -->
+        <div class="mb-16" data-aos="fade-up">
+          <h3 class="text-2xl font-display font-bold mb-6">Buttons</h3>
+          <div class="bg-white border border-gray-200 rounded-lg p-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {components[0].variations.map(button => (
+                <div class="button-showcase">
+                  <h4 class="text-sm font-medium text-gray-500 mb-3">{button.name}</h4>
+                  <button class={`px-6 py-3 ${button.class} transition-all duration-300`}>
+                    {button.text}
+                  </button>
+                </div>
+              ))}
+            </div>
+            
+            <div class="mt-8 pt-8 border-t border-gray-200">
+              <h4 class="text-lg font-bold mb-4">Button Guidelines</h4>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <h5 class="font-medium mb-2">Sizing</h5>
+                  <ul class="text-sm text-gray-600 space-y-2">
+                    <li>• Height: 48px (touch-friendly)</li>
+                    <li>• Padding: 24px horizontal</li>
+                    <li>• Text: 16px with medium weight</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5 class="font-medium mb-2">States</h5>
+                  <ul class="text-sm text-gray-600 space-y-2">
+                    <li>• Default: Solid fill</li>
+                    <li>• Hover: Slight color change</li>
+                    <li>• Active: Scale down slightly</li>
+                    <li>• Disabled: 50% opacity</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cards -->
+        <div class="mb-16" data-aos="fade-up">
+          <h3 class="text-2xl font-display font-bold mb-6">Cards</h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Example Card -->
+            <div class="card-example">
+              <div class="card-preview">
+                <div class="aspect-video bg-gray-100 mb-4"></div>
+                <h4 class="text-lg font-bold mb-2">Card Title</h4>
+                <p class="text-gray-600 text-sm mb-4">Card description text goes here, demonstrating the typical content layout.</p>
+                <button class="text-black font-medium text-sm hover:underline">Learn More →</button>
+              </div>
+              <div class="card-specs mt-4 pt-4 border-t border-gray-200">
+                <h5 class="text-sm font-medium mb-2">Specifications</h5>
+                <ul class="text-sm text-gray-600 space-y-1">
+                  <li>• Padding: 24px</li>
+                  <li>• Border: 1px solid rgba(0,0,0,0.1)</li>
+                  <li>• Border Radius: 0px</li>
+                  <li>• Shadow on hover</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Forms -->
+        <div class="mb-16" data-aos="fade-up">
+          <h3 class="text-2xl font-display font-bold mb-6">Forms</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Input Examples -->
+            <div class="bg-white border border-gray-200 rounded-lg p-8">
+              <h4 class="text-lg font-bold mb-6">Input Fields</h4>
+              <div class="space-y-4">
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-1">Text Input</label>
+                  <input type="text" class="w-full px-4 py-2 border border-gray-300 focus:border-black transition-colors" placeholder="Enter text">
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-1">Select</label>
+                  <select class="w-full px-4 py-2 border border-gray-300 focus:border-black transition-colors">
+                    <option>Select option</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-1">Textarea</label>
+                  <textarea class="w-full px-4 py-2 border border-gray-300 focus:border-black transition-colors" rows="3" placeholder="Enter text"></textarea>
+                </div>
+              </div>
+            </div>
+
+            <!-- Form Guidelines -->
+            <div class="bg-white border border-gray-200 rounded-lg p-8">
+              <h4 class="text-lg font-bold mb-6">Form Guidelines</h4>
+              <div class="space-y-6">
+                <div>
+                  <h5 class="font-medium mb-2">Layout</h5>
+                  <ul class="text-sm text-gray-600 space-y-2">
+                    <li>• Single column for better scanning</li>
+                    <li>• Group related fields</li>
+                    <li>• Clear error states</li>
+                    <li>• Required field indicators</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5 class="font-medium mb-2">Validation</h5>
+                  <ul class="text-sm text-gray-600 space-y-2">
+                    <li>• Immediate feedback</li>
+                    <li>• Clear error messages</li>
+                    <li>• Success confirmation</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Design Patterns -->
+        <div data-aos="fade-up">
+          <h3 class="text-2xl font-display font-bold mb-6">Design Patterns</h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {designPatterns.map(pattern => (
+              <div class="pattern-card">
+                <div class="pattern-image">
+                  <img src={pattern.image} alt={pattern.title} class="w-full h-48 object-cover" />
+                </div>
+                <div class="p-6">
+                  <h4 class="text-lg font-bold mb-2">{pattern.title}</h4>
+                  <p class="text-gray-600 text-sm">{pattern.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .button-showcase {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .card-example {
+    background: white;
+    padding: 2rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .card-preview {
+    background: white;
+    padding: 1.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .pattern-card {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+
+  .pattern-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .pattern-image {
+    overflow: hidden;
+  }
+
+  .pattern-image img {
+    transition: transform 0.3s ease;
+  }
+
+  .pattern-card:hover .pattern-image img {
+    transform: scale(1.05);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .pattern-card:hover {
+      transform: none;
+    }
+
+    .pattern-image img {
+      transition: none;
+    }
+  }
+</style>

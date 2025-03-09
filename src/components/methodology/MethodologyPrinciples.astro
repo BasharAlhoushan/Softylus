@@ -1,0 +1,139 @@
+---
+// MethodologyPrinciples.astro - Core principles of our methodology
+const principles = [
+  {
+    number: "01",
+    title: "Minimalist Precision",
+    description: "We eliminate the superfluous to amplify what truly matters. Every element serves a specific purpose.",
+    icon: "M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
+  },
+  {
+    number: "02",
+    title: "Intuitive Interaction",
+    description: "Digital experiences should feel natural and effortless, guiding users through a seamless journey.",
+    icon: "M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11"
+  },
+  {
+    number: "03",
+    title: "Technical Excellence",
+    description: "We engineer solutions with meticulous attention to performance, security, and scalability.",
+    icon: "M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+  }
+];
+---
+
+<section class="py-24 px-4 bg-white">
+  <div class="container mx-auto">
+    <div class="max-w-3xl mx-auto text-center mb-16" data-aos="fade-up">
+      <h2 class="text-3xl md:text-4xl font-display font-bold mb-6">Guiding Principles</h2>
+      <p class="text-xl text-gray-600">
+        The fundamental principles that shape our approach and ensure excellence in every project we deliver.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {principles.map((principle, index) => (
+        <div class="principle-card" data-aos="fade-up" data-aos-delay={100 + index * 50}>
+          <div class="principle-number">{principle.number}</div>
+          <h4 class="principle-title">{principle.title}</h4>
+          <p class="principle-description">{principle.description}</p>
+          <div class="principle-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d={principle.icon} />
+            </svg>
+          </div>
+          <div class="card-progress"></div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .principle-card {
+    position: relative;
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    height: 100%;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
+  .principle-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    border-color: rgba(0, 0, 0, 0.2);
+  }
+
+  .principle-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1;
+    color: rgba(0, 0, 0, 0.05);
+    margin-bottom: 1rem;
+  }
+
+  .principle-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: black;
+  }
+
+  .principle-description {
+    font-size: 0.95rem;
+    color: rgba(0, 0, 0, 0.7);
+    line-height: 1.6;
+  }
+
+  .principle-icon {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    color: rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+  }
+
+  .principle-card:hover .principle-icon {
+    color: black;
+    transform: translateY(-5px);
+  }
+
+  .card-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: black;
+    transition: width 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
+  .principle-card:hover .card-progress {
+    width: 100%;
+  }
+
+  /* Touch optimization */
+  @media (max-width: 768px) {
+    .principle-card {
+      padding: 1.5rem;
+    }
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .principle-card:hover {
+      transform: none;
+    }
+
+    .principle-card:hover .principle-icon {
+      transform: none;
+    }
+
+    .card-progress {
+      transition: none;
+    }
+  }
+</style>

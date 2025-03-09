@@ -1,0 +1,295 @@
+---
+// AboutOffices.astro - Global office locations
+const offices = [
+  {
+    city: "Zarqa",
+    country: "Jordan",
+    type: "Headquarters",
+    address: "Innovation District, Building 23",
+    coordinates: "32.0636° N, 36.0878° E",
+    image: "https://images.unsplash.com/photo-1534712469197-4c57af2d6b7c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80"
+  },
+  {
+    city: "London",
+    country: "United Kingdom",
+    type: "Innovation Hub",
+    address: "Tech City, EC2A 4NE",
+    coordinates: "51.5074° N, 0.1278° W",
+    image: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+  },
+  {
+    city: "Riyadh",
+    country: "Saudi Arabia",
+    type: "Regional Office",
+    address: "Digital District, Unit 15",
+    coordinates: "24.7136° N, 46. 6753° E",
+    image: "https://images.unsplash.com/photo-1578895101408-1bc89683ba50?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80"
+  }
+];
+---
+
+<section class="py-24 px-4 bg-gray-50 relative overflow-hidden">
+  <div class="container mx-auto">
+    <div class="max-w-3xl mx-auto text-center mb-16" data-aos="fade-up">
+      <h2 class="text-3xl md:text-4xl font-display font-bold mb-6">Global Presence</h2>
+      <p class="text-xl text-gray-600">
+        Our offices around the world serve as hubs of innovation and collaboration.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {offices.map((office, index) => (
+        <div 
+          class="office-card" 
+          data-aos="fade-up" 
+          data-aos-delay={100 + index * 50}
+        >
+          <div class="office-image-container">
+            <img 
+              src={office.image} 
+              alt={`${office.city} office`} 
+              class="office-image"
+              loading="lazy"
+            />
+            <div class="office-overlay">
+              <div class="office-coordinates">{office.coordinates}</div>
+            </div>
+          </div>
+          
+          <div class="office-content">
+            <div class="office-type">{office.type}</div>
+            <h3 class="office-location">
+              {office.city}, <span class="office-country">{office.country}</span>
+            </h3>
+            <p class="office-address">{office.address}</p>
+          </div>
+          
+          <div class="office-progress"></div>
+        </div>
+      ))}
+    </div>
+
+    <!-- World Map Visualization -->
+    <div class="mt-16 relative" data-aos="fade-up">
+      <div class="world-map aspect-[2/1] bg-white rounded-lg p-8 border border-black/10">
+        <div class="absolute inset-0 opacity-10">
+          <!-- Simple world map SVG pattern -->
+          <svg viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+            <path d="M0,250 Q250,200 500,250 T1000,250" stroke="currentColor" fill="none" stroke-width="0.5" />
+            <path d="M0,150 Q250,100 500,150 T1000,150" stroke="currentColor" fill="none" stroke-width="0.5" />
+            <path d="M0,350 Q250,300 500,350 T1000,350" stroke="currentColor" fill="none" stroke-width="0.5" />
+          </svg>
+        </div>
+        
+        <!-- Office location markers -->
+        {offices.map((office, index) => (
+          <div 
+            class="location-marker"
+            style={`--marker-x: ${index * 30}%; --marker-y: ${50 + (index - 1) * 20}%`}
+          >
+            <div class="marker-dot"></div>
+            <div class="marker-pulse"></div>
+            <div class="marker-label">
+              {office.city}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .office-card {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
+  .office-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .office-image-container {
+    position: relative;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+  }
+
+  .office-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
+  .office-card:hover .office-image {
+    transform: scale(1.05);
+  }
+
+  .office-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  .office-card:hover .office-overlay {
+    opacity: 1;
+  }
+
+  .office-coordinates {
+    color: white;
+    font-family: 'Courier New', monospace;
+    font-size: 0.875rem;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
+  .office-card:hover .office-coordinates {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .office-content {
+    padding: 1.5rem;
+  }
+
+  .office-type {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: rgba(0, 0, 0, 0.6);
+    margin-bottom: 0.5rem;
+  }
+
+  .office-location {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: black;
+  }
+
+  .office-country {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  .office-address {
+    font-size: 0.875rem;
+    color: rgba(0, 0, 0, 0.7);
+  }
+
+  .office-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: black;
+    transition: width 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
+  .office-card:hover .office-progress {
+    width: 100%;
+  }
+
+  /* World Map Visualization */
+  .world-map {
+    position: relative;
+  }
+
+  .location-marker {
+    position: absolute;
+    left: var(--marker-x);
+    top: var(--marker-y);
+    transform: translate(-50%, -50%);
+  }
+
+  .marker-dot {
+    width: 8px;
+    height: 8px;
+    background: black;
+    border-radius: 50%;
+    position: relative;
+    z-index: 2;
+  }
+
+  .marker-pulse {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 24px;
+    height: 24px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  .marker-label {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(2);
+      opacity: 0;
+    }
+  }
+
+  /* Touch optimization */
+  @media (max-width: 768px) {
+    .office-overlay {
+      opacity: 0;
+      background: rgba(0, 0, 0, 0.3);
+    }
+
+    .office-card:active .office-overlay {
+      opacity: 1;
+    }
+
+    .location-marker {
+      transform: translate(-50%, -50%) scale(0.8);
+    }
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .office-card:hover {
+      transform: none;
+    }
+
+    .office-card:hover .office-image {
+      transform: none;
+    }
+
+    .marker-pulse {
+      animation: none;
+    }
+
+    .office-progress {
+      transition: none;
+    }
+  }
+</style>

@@ -1,0 +1,715 @@
+---
+// CollaborativeWorkspace.astro - A creative visualization of client collaboration process
+---
+
+<section class="py-20 md:py-32 px-4 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
+  <!-- Background Elements -->
+  <div class="absolute inset-0 pointer-events-none">
+    <!-- Subtle Grid Pattern -->
+    <div class="absolute inset-0 opacity-[0.02]">
+      <div class="grid-pattern w-full h-full"></div>
+    </div>
+    
+    <!-- Radial Gradient -->
+    <div class="absolute top-1/4 left-1/3 w-96 h-96 bg-black/[0.01] blur-3xl rounded-full"></div>
+    <div class="absolute bottom-1/3 right-1/4 w-64 h-64 bg-black/[0.01] blur-2xl rounded-full"></div>
+    
+    <!-- Geometric Accents -->
+    <div class="absolute top-20 right-20 w-24 h-24 border border-black/5 rotate-12 opacity-40"></div>
+    <div class="absolute bottom-16 left-16 w-16 h-16 border border-black/10 -rotate-12 opacity-30"></div>
+  </div>
+
+  <div class="container mx-auto relative">
+    <div class="max-w-3xl mx-auto text-center mb-16" data-aos="fade-up">
+      <span class="inline-block px-3 py-1 bg-black text-white text-sm mb-4">Our Process</span>
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-black mb-4">
+        Collaborative Workspace
+      </h2>
+      <p class="text-lg md:text-xl text-gray-600">
+        A transparent journey from concept to creation, where your vision meets our expertise.
+      </p>
+    </div>
+    
+    <!-- Desktop: Split-Screen Journey Map -->
+    <div class="relative hidden md:block">
+      <!-- Central Connection Line -->
+      <div class="absolute left-1/2 top-8 bottom-8 w-px bg-black/10" aria-hidden="true"></div>
+      
+      <!-- Stages Container -->
+      <div class="relative z-10 flex">
+        <!-- Left Column - Client Side -->
+        <div class="w-1/2 journey-side client-side pr-12" data-aos="fade-right">
+          <div class="flex flex-col space-y-24">
+            <!-- Stage 1: Client Vision -->
+            <div class="journey-stage">
+              <div class="stage-marker left-marker">
+                <div class="stage-number">01</div>
+                <div class="stage-connector"></div>
+              </div>
+              <div class="journey-card left-card group">
+                <div class="card-label">Client Vision</div>
+                <h3 class="text-xl md:text-2xl font-display mb-2">Your Aspirations</h3>
+                <p class="text-gray-600 mb-4">We begin by deeply understanding your requirements, objectives and the challenges you're facing.</p>
+                
+                <div class="stage-visual">
+                  <div class="icon-container">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
+                    </svg>
+                  </div>
+                  <div class="visual-dots">
+                    <span></span><span></span><span></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Stage 3: Client Feedback -->
+            <div class="journey-stage">
+              <div class="stage-marker left-marker">
+                <div class="stage-number">03</div>
+                <div class="stage-connector"></div>
+              </div>
+              <div class="journey-card left-card group">
+                <div class="card-label">Client Feedback</div>
+                <h3 class="text-xl md:text-2xl font-display mb-2">Your Insights</h3>
+                <p class="text-gray-600 mb-4">Your critical feedback shapes our approach, refining every aspect to ensure we're aligned with your vision.</p>
+                
+                <div class="stage-visual">
+                  <div class="icon-container">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                    </svg>
+                  </div>
+                  <div class="visual-dots">
+                    <span></span><span></span><span></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Stage 5: Client Success -->
+            <div class="journey-stage">
+              <div class="stage-marker left-marker">
+                <div class="stage-number">05</div>
+                <div class="stage-connector"></div>
+              </div>
+              <div class="journey-card left-card group">
+                <div class="card-label">Client Success</div>
+                <h3 class="text-xl md:text-2xl font-display mb-2">Your Achievement</h3>
+                <p class="text-gray-600 mb-4">The culmination of our partnership results in a solution that empowers your digital presence and business goals.</p>
+                
+                <div class="stage-visual">
+                  <div class="icon-container">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    </svg>
+                  </div>
+                  <div class="visual-dots">
+                    <span></span><span></span><span></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Right Column - Our Side -->
+        <div class="w-1/2 journey-side our-side pl-12" data-aos="fade-left">
+          <div class="flex flex-col space-y-24">
+            <!-- Stage 2: Our Strategy -->
+            <div class="journey-stage">
+              <div class="stage-marker right-marker">
+                <div class="stage-number">02</div>
+                <div class="stage-connector"></div>
+              </div>
+              <div class="journey-card right-card group">
+                <div class="card-label">Our Strategy</div>
+                <h3 class="text-xl md:text-2xl font-display mb-2">Strategic Blueprint</h3>
+                <p class="text-gray-600 mb-4">We craft a comprehensive roadmap with clear deliverables, innovative approaches, and measurable milestones.</p>
+                
+                <div class="stage-visual">
+                  <div class="icon-container">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+                    </svg>
+                  </div>
+                  <div class="visual-dots">
+                    <span></span><span></span><span></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Stage 4: Our Implementation -->
+            <div class="journey-stage">
+              <div class="stage-marker right-marker">
+                <div class="stage-number">04</div>
+                <div class="stage-connector"></div>
+              </div>
+              <div class="journey-card right-card group">
+                <div class="card-label">Our Implementation</div>
+                <h3 class="text-xl md:text-2xl font-display mb-2">Technical Mastery</h3>
+                <p class="text-gray-600 mb-4">Our team executes the refined vision with precision, turning concepts into elegant, functional digital realities.</p>
+                
+                <div class="stage-visual">
+                  <div class="icon-container">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                    </svg>
+                  </div>
+                  <div class="visual-dots">
+                    <span></span><span></span><span></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Stage 6: Our Support -->
+            <div class="journey-stage">
+              <div class="stage-marker right-marker">
+                <div class="stage-number">06</div>
+                <div class="stage-connector"></div>
+              </div>
+              <div class="journey-card right-card group">
+                <div class="card-label">Our Support</div>
+                <h3 class="text-xl md:text-2xl font-display mb-2">Ongoing Excellence</h3>
+                <p class="text-gray-600 mb-4">Our relationship continues with dedicated support, ensuring your solution evolves and adapts to changing needs.</p>
+                
+                <div class="stage-visual">
+                  <div class="icon-container">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                  </div>
+                  <div class="visual-dots">
+                    <span></span><span></span><span></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Mobile: Creative Compact Layout -->
+    <div class="md:hidden mobile-journey">
+      <!-- Process Timeline -->
+      <div class="process-timeline" data-aos="fade-up">
+        <!-- Timeline Container with sequential cards -->
+        <div class="timeline-container">
+          <!-- Timeline path connecting all steps -->
+          <div class="timeline-path"></div>
+          
+          <!-- Stage 1: Client Vision -->
+          <div class="timeline-step" data-aos="fade-up" data-aos-delay="100">
+            <div class="step-number">
+              <span>01</span>
+            </div>
+            <div class="step-connector"></div>
+            <div class="step-card client-side-card">
+              <div class="step-header">
+                <div class="step-badge">Client Vision</div>
+                <h3 class="step-title">Your Aspirations</h3>
+              </div>
+              <div class="step-content">
+                <p>We begin by deeply understanding your requirements, objectives and the challenges you're facing.</p>
+              </div>
+              <div class="step-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
+                </svg>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Stage 2: Our Strategy -->
+          <div class="timeline-step" data-aos="fade-up" data-aos-delay="150">
+            <div class="step-number">
+              <span>02</span>
+            </div>
+            <div class="step-connector"></div>
+            <div class="step-card our-side-card">
+              <div class="step-header">
+                <div class="step-badge">Our Strategy</div>
+                <h3 class="step-title">Strategic Blueprint</h3>
+              </div>
+              <div class="step-content">
+                <p>We craft a comprehensive roadmap with clear deliverables, innovative approaches, and measurable milestones.</p>
+              </div>
+              <div class="step-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+                </svg>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Stage 3: Client Feedback -->
+          <div class="timeline-step" data-aos="fade-up" data-aos-delay="200">
+            <div class="step-number">
+              <span>03</span>
+            </div>
+            <div class="step-connector"></div>
+            <div class="step-card client-side-card">
+              <div class="step-header">
+                <div class="step-badge">Client Feedback</div>
+                <h3 class="step-title">Your Insights</h3>
+              </div>
+              <div class="step-content">
+                <p>Your critical feedback shapes our approach, refining every aspect to ensure we're aligned with your vision.</p>
+              </div>
+              <div class="step-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                </svg>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Stage 4: Our Implementation -->
+          <div class="timeline-step" data-aos="fade-up" data-aos-delay="250">
+            <div class="step-number">
+              <span>04</span>
+            </div>
+            <div class="step-connector"></div>
+            <div class="step-card our-side-card">
+              <div class="step-header">
+                <div class="step-badge">Our Implementation</div>
+                <h3 class="step-title">Technical Mastery</h3>
+              </div>
+              <div class="step-content">
+                <p>Our team executes the refined vision with precision, turning concepts into elegant, functional digital realities.</p>
+              </div>
+              <div class="step-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                </svg>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Stage 5: Client Success -->
+          <div class="timeline-step" data-aos="fade-up" data-aos-delay="300">
+            <div class="step-number">
+              <span>05</span>
+            </div>
+            <div class="step-connector"></div>
+            <div class="step-card client-side-card">
+              <div class="step-header">
+                <div class="step-badge">Client Success</div>
+                <h3 class="step-title">Your Achievement</h3>
+              </div>
+              <div class="step-content">
+                <p>The culmination of our partnership results in a solution that empowers your digital presence and business goals.</p>
+              </div>
+              <div class="step-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Stage 6: Our Support -->
+          <div class="timeline-step" data-aos="fade-up" data-aos-delay="350">
+            <div class="step-number">
+              <span>06</span>
+            </div>
+            <div class="step-connector"></div>
+            <div class="step-card our-side-card">
+              <div class="step-header">
+                <div class="step-badge">Our Support</div>
+                <h3 class="step-title">Ongoing Excellence</h3>
+              </div>
+              <div class="step-content">
+                <p>Our relationship continues with dedicated support, ensuring your solution evolves and adapts to changing needs.</p>
+              </div>
+              <div class="step-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Mobile Legend -->
+      <div class="mobile-legend" data-aos="fade-up" data-aos-delay="400">
+        <div class="legend-item client-legend">
+          <div class="legend-color"></div>
+          <span>Client Side</span>
+        </div>
+        <div class="legend-item our-legend">
+          <div class="legend-color"></div>
+          <span>Our Side</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Call to Action -->
+    <div class="text-center mt-24" data-aos="fade-up">
+      <a href="/contact" class="inline-flex items-center px-8 py-3 border-2 border-black bg-black text-white font-medium text-base transition-all duration-300 hover:bg-white hover:text-black group">
+        <span>Start your journey with us</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 transform transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Grid pattern background */
+  .grid-pattern {
+    background-image: 
+      linear-gradient(to right, rgba(0,0,0,0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0,0,0,0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    transform: rotate(-2deg) scale(1.5);
+  }
+  
+  /* Desktop Journey Map Styling */
+  .journey-stage {
+    position: relative;
+  }
+  
+  /* Stage markers and numbers */
+  .stage-marker {
+    position: absolute;
+    z-index: 20;
+  }
+  
+  .left-marker {
+    right: -12px;
+    top: 32px;
+  }
+  
+  .right-marker {
+    left: -12px;
+    top: 32px;
+  }
+  
+  .stage-number {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: black;
+    color: white;
+    font-size: 10px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .stage-connector {
+    position: absolute;
+    width: 25px;
+    height: 1px;
+    background-color: black;
+    top: 50%;
+  }
+  
+  .left-marker .stage-connector {
+    left: 100%;
+  }
+  
+  .right-marker .stage-connector {
+    right: 100%;
+  }
+  
+  /* Journey Cards */
+  .journey-card {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 0;
+    padding: 1.75rem;
+    background-color: white;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+  
+  @media not (prefers-reduced-motion: reduce) {
+    .journey-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      border-color: rgba(0, 0, 0, 0.2);
+    }
+  }
+  
+  .left-card {
+    text-align: right;
+  }
+  
+  .right-card {
+    text-align: left;
+  }
+  
+  .card-label {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(0, 0, 0, 0.5);
+    margin-bottom: 0.75rem;
+  }
+  
+  /* Visual Elements */
+  .stage-visual {
+    display: flex;
+    align-items: center;
+    margin-top: 1.5rem;
+  }
+  
+  .left-card .stage-visual {
+    justify-content: flex-end;
+  }
+  
+  .right-card .stage-visual {
+    justify-content: flex-start;
+  }
+  
+  .icon-container {
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+  }
+  
+  @media not (prefers-reduced-motion: reduce) {
+    .journey-card:hover .icon-container {
+      background-color: black;
+      color: white;
+      transform: scale(1.05);
+    }
+  }
+  
+  .icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    stroke-width: 1.5;
+  }
+  
+  .visual-dots {
+    display: flex;
+    margin: 0 0.5rem;
+  }
+  
+  .left-card .visual-dots {
+    margin-right: 0;
+  }
+  
+  .right-card .visual-dots {
+    margin-left: 0;
+  }
+  
+  .visual-dots span {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.2);
+    margin: 0 2px;
+  }
+  
+  /* MOBILE JOURNEY TIMELINE - NEW COMPACT DESIGN */
+  .mobile-journey {
+    position: relative;
+    padding: 0 0.75rem;
+  }
+
+  .process-timeline {
+    position: relative;
+    margin: 0 auto;
+    max-width: 100%;
+  }
+
+  .timeline-container {
+    position: relative;
+    padding: 1rem 0;
+  }
+
+  /* Create the main timeline path */
+  .timeline-path {
+    position: absolute;
+    left: 24px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, 
+      rgba(0,0,0,0.05) 0%,
+      rgba(0,0,0,0.15) 15%, 
+      rgba(0,0,0,0.15) 85%,
+      rgba(0,0,0,0.05) 100%);
+  }
+
+  /* Timeline Step */
+  .timeline-step {
+    position: relative;
+    display: flex;
+    margin-bottom: 1.25rem;
+    min-height: 100px;
+  }
+
+  .timeline-step:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Step Number */
+  .step-number {
+    position: relative;
+    z-index: 5;
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1.25rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+
+  .step-number span {
+    font-weight: 600;
+    font-size: 1rem;
+  }
+
+  /* Connector line from number to card */
+  .step-connector {
+    position: absolute;
+    left: 48px;
+    top: 24px;
+    width: 20px;
+    height: 2px;
+    background-color: rgba(0,0,0,0.15);
+    z-index: 3;
+  }
+
+  /* Step Card */
+  .step-card {
+    position: relative;
+    flex: 1;
+    background: white;
+    border: 1px solid rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    padding: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    will-change: transform, box-shadow;
+  }
+  
+  .step-card:hover, .step-card:active {
+    transform: translateX(5px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  }
+
+  /* Client vs Our side distinctions */
+  .client-side-card {
+    border-left: 3px solid rgba(0, 0, 0, 0.7); /* Replace blue with black for client */
+  }
+
+  .our-side-card {
+    border-left: 3px solid rgba(0, 0, 0, 0.4); /* Replace green with gray for our side */
+  }
+
+  /* Card header */
+  .step-header {
+    margin-bottom: 0.75rem;
+  }
+
+  .step-badge {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.25rem;
+    color: rgba(0,0,0,0.6);
+  }
+
+  .client-side-card .step-badge {
+    color: rgba(0, 0, 0, 0.8); /* Replace blue with dark gray for client */
+  }
+
+  .our-side-card .step-badge {
+    color: rgba(0, 0, 0, 0.7); /* Replace green with medium gray for our side */
+  }
+
+  .step-title {
+    font-size: 1.1rem;
+    line-height: 1.3;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-family: 'Playfair Display', serif;
+  }
+
+  /* Card content */
+  .step-content p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: rgba(0,0,0,0.7);
+    margin-bottom: 0.75rem;
+  }
+
+  /* Step Icon */
+  .step-icon {
+    position: absolute;
+    bottom: 0.75rem;
+    right: 0.75rem;
+    opacity: 0.35;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .step-card:hover .step-icon {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+
+  /* Mobile Legend */
+  .mobile-legend {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    padding: 0.75rem;
+    background: white;
+    border: 1px solid rgba(0,0,0,0.05);
+    border-radius: 30px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    font-size: 0.8rem;
+  }
+
+  .legend-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    margin-right: 0.5rem;
+  }
+
+  .client-legend .legend-color {
+    background-color: rgba(0, 0, 0, 0.8); /* Replace blue with dark gray for client */
+  }
+
+  .our-legend .legend-color {
+    background-color: rgba(0, 0, 0, 0.4); /* Replace green with medium gray for our side */
+  }
+</style>

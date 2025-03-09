@@ -1,0 +1,43 @@
+---
+// HeroBackground.astro - Background elements for the hero section
+
+// Dynamically generated geometric shapes
+const geometricShapes = Array(5).fill(null).map((_, i) => ({
+  size: Math.floor(Math.random() * 40) + 20,
+  rotation: Math.floor(Math.random() * 60) - 30,
+  posX: Math.floor(Math.random() * 80) + 10,
+  posY: Math.floor(Math.random() * 80) + 10,
+  delay: i * 0.2,
+  duration: Math.floor(Math.random() * 5) + 8
+}));
+---
+
+<div class="absolute inset-0 pointer-events-none">
+  <!-- Nebula gradient background -->
+  <div class="absolute inset-0 bg-gradient-radial from-white via-gray-50 to-white opacity-80"></div>
+  
+  <!-- Animated grid pattern -->
+  <div class="nebula-grid absolute inset-0 opacity-[0.03]"></div>
+  
+  <!-- Floating particles -->
+  <div class="particle-container absolute inset-0"></div>
+  
+  <!-- Noise texture overlay -->
+  <div class="absolute inset-0 noise-texture opacity-[0.04]"></div>
+  
+  <!-- Geometric abstract shapes - Mobile optimized positioning -->
+  {geometricShapes.map(shape => (
+    <div 
+      class="absolute border-2 border-black shape-float opacity-[0.04] mobile-shape" 
+      style={`
+        width: ${shape.size}px; 
+        height: ${shape.size}px; 
+        transform: rotate(${shape.rotation}deg);
+        top: ${shape.posY}%; 
+        left: ${shape.posX}%; 
+        animation-delay: ${shape.delay}s;
+        animation-duration: ${shape.duration}s;
+      `}
+    ></div>
+  ))}
+</div>

@@ -1,0 +1,791 @@
+---
+import HeroVisual from './hero/HeroVisual.astro';
+
+// Creative phrases
+const creativePhrases = [
+  { text: "Software Excellence", delay: 0 },
+  { text: "Mobile Innovation", delay: 100 },
+  { text: "Digital Marketing Mastery", delay: 200 },
+  { text: "SEO Optimization", delay: 300 },
+  { text: "AI Integration", delay: 400 },
+];
+---
+
+<section class="hero-section relative min-h-screen flex items-center overflow-hidden py-24 sm:py-32 px-4" id="hero">
+  <!-- Dynamic Background Elements -->
+  <div class="absolute inset-0 pointer-events-none">
+    <!-- Nebula gradient background -->
+    <div class="absolute inset-0 bg-gradient-radial from-white via-gray-50 to-white opacity-80"></div>
+    
+    <!-- Animated grid pattern -->
+    <div class="nebula-grid absolute inset-0 opacity-[0.03]"></div>
+    
+    <!-- Floating particles -->
+    <div class="particle-container absolute inset-0"></div>
+    
+    <!-- Noise texture overlay -->
+    <div class="absolute inset-0 noise-texture opacity-[0.04]"></div>
+    
+    <!-- Geometric abstract shapes - Mobile optimized positioning -->
+    <div class="absolute border-2 border-black shape-float opacity-[0.04] mobile-shape" 
+      style="width: 40px; height: 40px; transform: rotate(-15deg); top: 20%; left: 15%; animation-delay: 0.2s; animation-duration: 10s;"></div>
+    <div class="absolute border-2 border-black shape-float opacity-[0.04] mobile-shape" 
+      style="width: 30px; height: 30px; transform: rotate(20deg); top: 70%; left: 75%; animation-delay: 0.6s; animation-duration: 12s;"></div>
+    <div class="absolute border-2 border-black shape-float opacity-[0.04] mobile-shape" 
+      style="width: 50px; height: 50px; transform: rotate(10deg); top: 40%; left: 60%; animation-delay: 0.4s; animation-duration: 9s;"></div>
+  </div>
+
+  <div class="container mx-auto relative z-10">
+    <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+      <!-- Text Content -->
+      <div class="dimensional-content" data-aos="fade-right" data-aos-duration="1000">
+        <!-- Dynamic headline with layers -->
+        <h1 class="relative font-display glitch-heading mb-4 md:mb-0">
+          <span class="glitch-line absolute -top-6 -left-2 opacity-[0.04] blur-sm text-5xl sm:text-6xl md:text-7xl">Digital reality</span>
+          <span class="glitch-line absolute -top-3 -left-1 opacity-[0.07] blur-[2px] text-5xl sm:text-6xl md:text-7xl">Digital reality</span>
+          <span class="relative z-10 text-4xl sm:text-5xl md:text-6xl font-bold leading-tight">
+            <span class="inline-block dimensional-text">Digital</span>
+            <span class="inline-block relative dimensional-accent ml-2">
+              reality
+              <svg class="absolute w-full bottom-0 left-0 -z-10" height="10" viewBox="0 0 200 10" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,5 Q40,0 80,5 T160,5 T240,5" stroke="rgba(0,0,0,0.3)" stroke-width="2" fill="none"/>
+              </svg>
+            </span>
+            <span class="block text-4xl sm:text-5xl md:text-6xl mt-2">
+              <span class="inline-block">architect</span><span class="text-transparent kinetic-dot">.</span>
+            </span>
+          </span>
+        </h1>
+        
+        <div class="mt-6 md:mt-8 max-w-lg relative perspective-text">
+          <p class="text-lg md:text-xl text-gray-700 mb-6 md:mb-8 font-light relative z-10" data-aos="fade-up" data-aos-delay="100">
+            We synthesize the imagined into the tangible, where form embraces function in the poetry of <span class="font-medium relative underline-kinetic">computational elegance</span>.
+          </p>
+          
+          <!-- Matrix-like animated phrases - Mobile optimized -->
+          <div class="flex flex-wrap gap-2 sm:gap-3 mb-6 md:mb-8 matrix-phrases">
+            {creativePhrases.map((phrase, index) => (
+              <div 
+                class="opacity-80 phrase-animate matrix-text touch-feedback" 
+                data-aos="fade-up" 
+                data-aos-delay={phrase.delay}
+                style={`animation-delay: ${index * 0.2}s`}
+              >
+                <span class="text-sm font-mono tracking-wider">{phrase.text}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        
+        <!-- Mobile optimized button section -->
+        <div class="button-container flex flex-col sm:flex-row items-center sm:items-start gap-4 md:gap-5 lg:gap-6 mt-4 w-full sm:w-auto" data-aos="fade-up" data-aos-delay="200">
+          <a href="/contact" class="neo-btn-primary group overflow-hidden w-full sm:w-auto touch-ripple-button">
+            <span class="btn-text-wrapper">
+              <span class="relative z-20">Initiate collaboration</span>
+              <span class="btn-mask-effect"></span>
+            </span>
+            <span class="btn-icon-wrapper">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 relative z-20 transition-transform duration-500 group-hover:translate-x-1" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none">
+                <path d="M5 12l14 0" />
+                <path d="M13 18l6 -6" />
+                <path d="M13 6l6 6" />
+              </svg>
+              <span class="absolute inset-0 z-10 group-hover:translate-x-full duration-500 btn-icon-mask"></span>
+            </span>
+          </a>
+          
+          <a href="/projects" class="neo-btn-secondary group overflow-hidden w-full sm:w-auto touch-ripple-button">
+            <span class="btn-text-wrapper">
+              <span class="relative z-20">Explore works</span>
+              <span class="absolute inset-0 z-10 w-0 group-hover:w-full duration-500 origin-left btn-secondary-mask"></span>
+            </span>
+            <span class="btn-icon-wrapper">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 relative z-20 opacity-0 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-0 -translate-x-3" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none">
+                <path d="M5 12l14 0" />
+                <path d="M13 18l6 -6" />
+                <path d="M13 6l6 6" />
+              </svg>
+            </span>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Creative Visual Section - Replaced with HeroVisual component -->
+      <div class="relative mt-10 md:mt-0" data-aos="fade-left" data-aos-duration="1000">
+        <HeroVisual />
+      </div>
+    </div>
+    
+    <!-- Feature Grid - Mobile optimized spacing -->
+    <div class="mt-20 md:mt-32 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+      <!-- Feature 1 -->
+      <div class="neo-feature-card touch-feedback-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="neo-feature-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none">
+            <path d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
+          </svg>
+        </div>
+        <div class="neo-feature-content">
+          <h3 class="neo-feature-title">Adaptive Development</h3>
+          <p class="neo-feature-description">Custom software solutions that evolve with your business needs</p>
+        </div>
+        <div class="neo-feature-indicator"></div>
+      </div>
+      
+      <!-- Feature 2 -->
+      <div class="neo-feature-card touch-feedback-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="neo-feature-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none">
+            <path d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+        </div>
+        <div class="neo-feature-content">
+          <h3 class="neo-feature-title">Digital Marketing</h3>
+          <p class="neo-feature-description">Strategic campaigns that drive engagement and growth</p>
+        </div>
+        <div class="neo-feature-indicator"></div>
+      </div>
+      
+      <!-- Feature 3 -->
+      <div class="neo-feature-card touch-feedback-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="neo-feature-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none">
+            <path d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+          </svg>
+        </div>
+        <div class="neo-feature-content">
+          <h3 class="neo-feature-title">Mobile Excellence</h3>
+          <p class="neo-feature-description">Native and cross-platform mobile experiences</p>
+        </div>
+        <div class="neo-feature-indicator"></div>
+      </div>
+      
+      <!-- Feature 4 -->
+      <div class="neo-feature-card touch-feedback-card" data-aos="fade-up" data-aos-delay="400">
+        <div class="neo-feature-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none">
+            <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+        </div>
+        <div class="neo-feature-content">
+          <h3 class="neo-feature-title">SEO Mastery</h3>
+          <p class="neo-feature-description">Data-driven optimization for maximum visibility</p>
+        </div>
+        <div class="neo-feature-indicator"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Background */
+  .bg-gradient-radial {
+    background: radial-gradient(circle at center, var(--tw-gradient-from) 0%, var(--tw-gradient-via) 50%, var(--tw-gradient-to) 100%);
+  }
+  
+  /* Dynamic background elements */
+  .nebula-grid {
+    background-image: 
+      linear-gradient(to right, rgba(0,0,0,0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0,0,0,0.03) 1px, transparent 1px);
+    background-size: 35px 35px;
+    transform: rotate(-5deg) scale(2);
+    animation: grid-drift 40s linear infinite;
+  }
+  
+  @keyframes grid-drift {
+    0% { 
+      transform: rotate(-5deg) scale(2) translateY(0);
+      background-position: 0 0;
+    }
+    50% { 
+      transform: rotate(-4deg) scale(2.1) translateY(-20px);
+      background-position: 17px 17px;
+    }
+    100% { 
+      transform: rotate(-5deg) scale(2) translateY(0);
+      background-position: 35px 35px;
+    }
+  }
+  
+  /* Neural network background */
+  .neural-network {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle at 10% 20%, rgba(0,0,0,0.05) 1px, transparent 1px),
+                      radial-gradient(circle at 30% 70%, rgba(0,0,0,0.05) 1px, transparent 1px),
+                      radial-gradient(circle at 60% 30%, rgba(0,0,0,0.05) 1px, transparent 1px),
+                      radial-gradient(circle at 90% 80%, rgba(0,0,0,0.05) 1px, transparent 1px);
+    background-size: 100px 100px;
+    background-position: 0 0, 0 0, 0 0, 0 0;
+    animation: network-pulse 8s ease-in-out infinite;
+  }
+  
+  @keyframes network-pulse {
+    0%, 100% { 
+      background-size: 80px 80px;
+      opacity: 0.3;
+    }
+    50% { 
+      background-size: 110px 110px;
+      opacity: 0.5;
+    }
+  }
+  
+  /* Noise texture overlay */
+  .noise-texture {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  }
+  
+  /* Floating particles */
+  .particle {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    animation: float-particle linear infinite;
+  }
+  
+  @keyframes float-particle {
+    0% { 
+      transform: translateY(0) translateX(0);
+      opacity: 0; 
+    }
+    10% { opacity: 0.3; }
+    90% { opacity: 0.2; }
+    100% { 
+      transform: translateY(-100px) translateX(20px);
+      opacity: 0; 
+    }
+  }
+  
+  /* Floating shapes */
+  .shape-float {
+    animation: shape-float ease-in-out infinite;
+  }
+  
+  @keyframes shape-float {
+    0%, 100% { transform: translateY(0) rotate(var(--rotation, 0deg)); }
+    50% { transform: translateY(-20px) rotate(calc(var(--rotation, 0deg) + 5deg)); }
+  }
+  
+  /* Dimensional content perspective effects */
+  .dimensional-content {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+  
+  .glitch-heading {
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+  }
+  
+  .glitch-heading:hover {
+    transform: translateZ(10px);
+  }
+  
+  .glitch-line {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    transform: translateZ(-5px);
+  }
+  
+  .dimensional-text {
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  
+  .dimensional-text:hover {
+    transform: translateZ(20px) translateY(-2px);
+  }
+  
+  .dimensional-accent {
+    font-style: italic;
+    display: inline-block;
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  
+  .dimensional-accent:hover {
+    transform: translateZ(15px) translateY(-1px) rotate(-1deg);
+  }
+  
+  /* Kinetic dot animation */
+  .kinetic-dot {
+    position: relative;
+    display: inline-block;
+    animation: dot-pulse 3s infinite;
+    background: linear-gradient(135deg, #000, #333);
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+  
+  @keyframes dot-pulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+  }
+  
+  /* Perspective text container */
+  .perspective-text {
+    perspective: 800px;
+    transform-style: preserve-3d;
+  }
+  
+  /* Underline kinetic animation */
+  .underline-kinetic {
+    position: relative;
+  }
+  
+  .underline-kinetic::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0,0,0,0.8), transparent);
+    transform-origin: center;
+    animation: underline-scan 3s ease-in-out infinite;
+  }
+  
+  @keyframes underline-scan {
+    0%, 100% { 
+      transform: scaleX(0.3); 
+      opacity: 0.5;
+    }
+    50% { 
+      transform: scaleX(1); 
+      opacity: 1;
+    }
+  }
+  
+  /* Matrix phrases animation - Updated for mobile responsiveness */
+  .matrix-phrases {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  
+  .phrase-animate {
+    position: relative;
+    padding: 0.3rem 0.5rem;
+    border: 1px solid rgba(0,0,0,0.1);
+    background: rgba(255,255,255,0.7);
+    backdrop-filter: blur(5px);
+    animation: phrase-flicker 5s infinite;
+    margin-bottom: 0.5rem;
+    margin-right: 0.5rem;
+    transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease;
+  }
+  
+  @media (max-width: 640px) {
+    .phrase-animate {
+      padding: 0.25rem 0.4rem;
+      font-size: 0.85rem;
+      margin-bottom: 0.35rem;
+      margin-right: 0.35rem;
+    }
+  }
+  
+  @keyframes phrase-flicker {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 0.4; }
+  }
+  
+  .matrix-text {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .matrix-text::before {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    width: 300%;
+    height: 300%;
+    background: linear-gradient(
+      to bottom right,
+      transparent, 
+      rgba(255,255,255,0.2), 
+      transparent
+    );
+    transform: rotate(45deg);
+    animation: matrix-scan 4s cubic-bezier(0.23, 1, 0.32, 1) infinite;
+  }
+  
+  @keyframes matrix-scan {
+    0% { transform: rotate(45deg) translateY(-100%) translateX(-100%); }
+    100% { transform: rotate(45deg) translateY(100%) translateX(100%); }
+  }
+  
+  /* Button container responsive styles */
+  .button-container {
+    max-width: 100%;
+  }
+  
+  /* Neo button primary */
+  .neo-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    background-color: black;
+    color: white;
+    font-weight: 500;
+    padding: 0;
+    border-radius: 0;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    min-width: 180px;
+    justify-content: space-between;
+  }
+  
+  @media (max-width: 640px) {
+    .neo-btn-primary,
+    .neo-btn-secondary {
+      justify-content: center;
+      min-height: 48px; /* Better tap target */
+    }
+    
+    .btn-text-wrapper {
+      text-align: center;
+    }
+  }
+  
+  .btn-text-wrapper {
+    position: relative;
+    display: inline-block;
+    padding: 0.85rem 1.5rem;
+    overflow: hidden;
+    flex: 1;
+  }
+  
+  .btn-mask-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 300%;
+    background: linear-gradient(to bottom, transparent 0%, rgba(255,255,255,0.2) 50%, transparent 100%);
+    transform: translateY(-100%);
+    transition: transform 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+    z-index: 10;
+  }
+  
+  .neo-btn-primary:hover .btn-mask-effect {
+    transform: translateY(100%);
+  }
+  
+  .btn-icon-wrapper {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 3rem;
+    height: 100%;
+    background-color: rgba(255,255,255,0.1);
+    overflow: hidden;
+  }
+  
+  .btn-icon-mask {
+    background-color: rgba(255,255,255,0.2);
+  }
+  
+  .neo-btn-primary:hover {
+    transform: translateY(-3px);
+  }
+  
+  /* Touch ripple effect for buttons */
+  .touch-ripple-button {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .touch-ripple {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    margin-top: -50px;
+    margin-left: -50px;
+    transform: scale(0);
+    animation: ripple 0.6s linear;
+    pointer-events: none;
+  }
+  
+  @keyframes ripple {
+    to {
+      transform: scale(3);
+      opacity: 0;
+    }
+  }
+  
+  /* Neo button secondary */
+  .neo-btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    background-color: white;
+    color: black;
+    font-weight: 500;
+    padding: 0;
+    border-radius: 0;
+    border: 1px solid black;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    min-width: 180px;
+    justify-content: space-between;
+  }
+  
+  .btn-secondary-mask {
+    background-color: black;
+  }
+  
+  .neo-btn-secondary:hover {
+    color: white;
+    transform: translateY(-3px);
+  }
+  
+  .neo-btn-secondary .btn-text-wrapper {
+    padding: 0.8rem 1.5rem;
+  }
+  
+  .neo-btn-secondary .btn-icon-wrapper {
+    min-width: 3rem;
+    background-color: transparent;
+    border-left: 1px solid rgba(0,0,0,0.2);
+  }
+  
+  /* Glitch text effect */
+  .glitch-text {
+    position: relative;
+  }
+  
+  .glitch-text::before,
+  .glitch-text::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+  }
+  
+  .glitch-text::before {
+    left: 2px;
+    text-shadow: -1px 0 rgba(0,0,0,0.1);
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim 5s infinite linear alternate-reverse;
+  }
+  
+  .glitch-text::after {
+    left: -2px;
+    text-shadow: 1px 0 rgba(0,0,0,0.1);
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim2 5s infinite linear alternate-reverse;
+    animation-delay: 0.5s;
+  }
+  
+  @keyframes glitch-anim {
+    0% { clip: rect(40px, 9999px, 42px, 0); transform: skew(0.4deg); }
+    5% { clip: rect(96px, 9999px, 78px, 0); transform: skew(0.8deg); }
+    10% { clip: rect(74px, 9999px, 96px, 0); transform: skew(0.5deg); }
+    15% { clip: rect(8px, 9999px, 78px, 0); transform: skew(0.1deg); }
+    20% { clip: rect(47px, 9999px, 46px, 0); transform: skew(0.6deg); }
+    25% { clip: rect(0, 0, 0, 0); transform: skew(0.8deg); }
+    30% { clip: rect(0, 0, 0, 0); transform: skew(0.3deg); }
+    100% { clip: rect(0, 0, 0, 0); transform: skew(0.2deg); }
+  }
+  
+  @keyframes glitch-anim2 {
+    0% { clip: rect(68px, 9999px, 26px, 0); transform: skew(0.1deg); }
+    5% { clip: rect(18px, 9999px, 38px, 0); transform: skew(0.2deg); }
+    10% { clip: rect(0, 0, 0, 0); transform: skew(0.8deg); }
+    15% { clip: rect(0, 0, 0, 0); transform: skew(0.4deg); }
+    20% { clip: rect(93px, 9999px, 61px, 0); transform: skew(0.1deg); }
+    25% { clip: rect(9px, 9999px, 100px, 0); transform: skew(0.6deg); }
+    30% { clip: rect(0, 0, 0, 0); transform: skew(0.1deg); }
+    100% { clip: rect(0, 0, 0, 0); transform: skew(0.7deg); }
+  }
+  
+  /* Neo feature card */
+  .neo-feature-card {
+    position: relative;
+    padding: 1.5rem;
+    background: white;
+    border-top: 2px solid black;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  
+  .neo-feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom right, transparent 0%, rgba(0,0,0,0.02) 100%);
+    opacity: 0;
+    transition: opacity 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    z-index: 0;
+  }
+  
+  .neo-feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+  }
+  
+  /* Touch feedback effects */
+  .touch-feedback-card:active {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+  }
+  
+  .neo-feature-card:hover::before,
+  .neo-feature-card:active::before {
+    opacity: 1;
+  }
+  
+  .neo-feature-icon {
+    position: relative;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    z-index: 10;
+  }
+  
+  .icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: white;
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  
+  .neo-feature-card:hover .neo-feature-icon,
+  .neo-feature-card:active .neo-feature-icon {
+    transform: rotateY(180deg);
+  }
+  
+  .neo-feature-card:hover .icon,
+  .neo-feature-card:active .icon {
+    transform: rotateY(-180deg);
+  }
+  
+  .neo-feature-content {
+    position: relative;
+    z-index: 10;
+  }
+  
+  .neo-feature-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  
+  .neo-feature-card:hover .neo-feature-title,
+  .neo-feature-card:active .neo-feature-title {
+    transform: translateX(0.5rem);
+  }
+  
+  .neo-feature-description {
+    font-size: 0.875rem;
+    color: rgba(0,0,0,0.6);
+  }
+  
+  .neo-feature-indicator {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: black;
+    transition: width 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  
+  .neo-feature-card:hover .neo-feature-indicator,
+  .neo-feature-card:active .neo-feature-indicator {
+    width: 100%;
+  }
+  
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .shape-float,
+    .particle,
+    .neural-network,
+    .matrix-text::before,
+    .underline-kinetic::after,
+    .neuron-pulse::after,
+    .glitch-text::before,
+    .glitch-text::after {
+      animation: none !important;
+    }
+    
+    .neo-feature-card:hover,
+    .dimensional-card:hover,
+    .dimensional-text:hover,
+    .dimensional-accent:hover {
+      transform: none !important;
+    }
+    
+    .neo-feature-card:hover .neo-feature-title,
+    .neo-feature-card:active .neo-feature-title {
+      transform: none;
+    }
+    
+    .neo-btn-primary:hover,
+    .neo-btn-secondary:hover {
+      transform: none;
+    }
+    
+    .nebula-grid {
+      animation: none !important;
+    }
+    
+    .btn-mask-effect,
+    .btn-icon-mask,
+    .btn-secondary-mask {
+      transition: none !important;
+    }
+  }
+  
+  /* Responsive adjustments for small screens */
+  @media (max-width: 480px) {
+    .neo-feature-card {
+      padding: 1rem;
+    }
+    
+    .neo-feature-icon {
+      width: 2.25rem;
+      height: 2.25rem;
+      margin-bottom: 0.75rem;
+    }
+    
+    .neo-feature-title {
+      font-size: 0.9rem;
+      margin-bottom: 0.2rem;
+    }
+    
+    .neo-feature-description {
+      font-size: 0.75rem;
+      line-height: 1.3;
+    }
+    
+    .icon {
+      width: 1rem;
+      height: 1rem;
+    }
+  }
+</style>

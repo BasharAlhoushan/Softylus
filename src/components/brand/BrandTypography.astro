@@ -1,0 +1,220 @@
+---
+// BrandTypography.astro - Typography guidelines
+const fontStyles = [
+  {
+    name: "Display",
+    family: "Playfair Display",
+    weights: [
+      { weight: "Regular", value: "400", sample: "AaBbCcDdEeFf 123" },
+      { weight: "Medium", value: "500", sample: "AaBbCcDdEeFf 123" },
+      { weight: "SemiBold", value: "600", sample: "AaBbCcDdEeFf 123" },
+      { weight: "Bold", value: "700", sample: "AaBbCcDdEeFf 123" }
+    ],
+    usage: "Headlines, Display Text"
+  },
+  {
+    name: "Primary",
+    family: "Montserrat",
+    weights: [
+      { weight: "Light", value: "300", sample: "AaBbCcDdEeFf 123" },
+      { weight: "Regular", value: "400", sample: "AaBbCcDdEeFf 123" },
+      { weight: "Medium", value: "500", sample: "AaBbCcDdEeFf 123" },
+      { weight: "SemiBold", value: "600", sample: "AaBbCcDdEeFf 123" }
+    ],
+    usage: "Body Text, UI Elements"
+  }
+];
+
+const typographyScale = [
+  { name: "Display", size: "4rem", lineHeight: "1.1", sample: "Display Text" },
+  { name: "H1", size: "3rem", lineHeight: "1.2", sample: "Heading 1" },
+  { name: "H2", size: "2.25rem", lineHeight: "1.3", sample: "Heading 2" },
+  { name: "H3", size: "1.875rem", lineHeight: "1.4", sample: "Heading 3" },
+  { name: "H4", size: "1.5rem", lineHeight: "1.4", sample: "Heading 4" },
+  { name: "Large", size: "1.125rem", lineHeight: "1.5", sample: "Large Text" },
+  { name: "Body", size: "1rem", lineHeight: "1.6", sample: "Body Text" },
+  { name: "Small", size: "0.875rem", lineHeight: "1.6", sample: "Small Text" }
+];
+---
+
+<section id="typography" class="py-16 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-number">03</span>
+        <h2 class="section-title">Typography</h2>
+      </div>
+
+      <div class="mt-16">
+        <!-- Font Families -->
+        <div class="mb-16" data-aos="fade-up">
+          <h3 class="text-2xl font-display font-bold mb-6">Font Families</h3>
+          <div class="space-y-12">
+            {fontStyles.map(font => (
+              <div class="font-showcase">
+                <div class="font-header">
+                  <h4 class="text-xl font-bold">{font.name}</h4>
+                  <p class="text-gray-600">{font.family} - {font.usage}</p>
+                </div>
+                <div class="font-weights mt-6 space-y-4">
+                  {font.weights.map(weight => (
+                    <div class="weight-sample">
+                      <div class="weight-info">
+                        <span class="weight-name">{weight.weight}</span>
+                        <span class="weight-value">{weight.value}</span>
+                      </div>
+                      <p class="sample-text" style={`font-family: "${font.family}"; font-weight: ${weight.value};`}>
+                        {weight.sample}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Type Scale -->
+        <div data-aos="fade-up">
+          <h3 class="text-2xl font-display font-bold mb-6">Type Scale</h3>
+          <div class="bg-white border border-gray-200 rounded-lg overflow-hidden">
+            <div class="type-scale-grid">
+              {typographyScale.map(type => (
+                <div class="type-scale-row">
+                  <div class="type-scale-info">
+                    <span class="type-name">{type.name}</span>
+                    <div class="type-specs">
+                      <span>{type.size}</span>
+                      <span class="text-gray-400">/</span>
+                      <span>{type.lineHeight}</span>
+                    </div>
+                  </div>
+                  <div class="type-sample">
+                    <p style={`font-size: ${type.size}; line-height: ${type.lineHeight};`}>
+                      {type.sample}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <!-- Typography Guidelines -->
+        <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8" data-aos="fade-up">
+          <!-- Best Practices -->
+          <div>
+            <h3 class="text-xl font-bold mb-4">Best Practices</h3>
+            <div class="space-y-4">
+              <div class="p-4 bg-white border border-gray-200 rounded">
+                <h4 class="font-medium mb-2">Hierarchy</h4>
+                <p class="text-gray-600 text-sm">Maintain clear visual hierarchy using size, weight, and spacing.</p>
+              </div>
+              <div class="p-4 bg-white border border-gray-200 rounded">
+                <h4 class="font-medium mb-2">Line Length</h4>
+                <p class="text-gray-600 text-sm">Keep line length between 45-75 characters for optimal readability.</p>
+              </div>
+              <div class="p-4 bg-white border border-gray-200 rounded">
+                <h4 class="font-medium mb-2">Contrast</h4>
+                <p class="text-gray-600 text-sm">Ensure sufficient contrast between text and background colors.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Usage Examples -->
+          <div>
+            <h3 class="text-xl font-bold mb-4">Usage Examples</h3>
+            <div class="space-y-6">
+              <div class="p-6 bg-white border border-gray-200 rounded">
+                <h1 class="text-4xl font-display font-bold mb-4">Main Headline</h1>
+                <h2 class="text-2xl font-display mb-3">Section Title</h2>
+                <p class="text-gray-600 mb-4">Body text with good readability and proper line height. This demonstrates how different type styles work together in a layout.</p>
+                <a href="#" class="text-sm font-medium">Call to Action →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .font-showcase {
+    background: white;
+    padding: 2rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .weight-sample {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.02);
+  }
+
+  .weight-info {
+    width: 150px;
+    flex-shrink: 0;
+  }
+
+  .weight-name {
+    display: block;
+    font-weight: 600;
+    font-size: 0.875rem;
+  }
+
+  .weight-value {
+    font-size: 0.75rem;
+    color: rgba(0, 0, 0, 0.5);
+  }
+
+  .sample-text {
+    font-size: 1.5rem;
+  }
+
+  .type-scale-grid {
+    display: grid;
+    gap: 1px;
+    background: rgba(0, 0, 0, 0.1);
+  }
+
+  .type-scale-row {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    background: white;
+  }
+
+  .type-scale-info {
+    padding: 1rem;
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .type-name {
+    display: block;
+    font-weight: 600;
+    font-size: 0.875rem;
+  }
+
+  .type-specs {
+    font-size: 0.75rem;
+    color: rgba(0, 0, 0, 0.5);
+    margin-top: 0.25rem;
+  }
+
+  .type-sample {
+    padding: 1rem;
+    overflow: hidden;
+  }
+
+  @media (max-width: 768px) {
+    .type-scale-row {
+      grid-template-columns: 1fr;
+    }
+
+    .type-scale-info {
+      border-right: none;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+  }
+</style>

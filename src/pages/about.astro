@@ -1,0 +1,29 @@
+---
+import Layout from '../layouts/Layout.astro';
+import AboutHero from '../components/about/AboutHero.astro';
+import AboutStory from '../components/about/AboutStory.astro';
+import AboutValues from '../components/about/AboutValues.astro';
+import AboutTeam from '../components/about/AboutTeam.astro';
+import AboutOffices from '../components/about/AboutOffices.astro';
+import ContactCTA from '../components/ContactCTA.astro';
+
+// Define metadata for About page
+const metadata = {
+  title: "About Softylus | Digital Excellence Since 2017",
+  description: "Learn about Softylus - a leading software development company with offices in Jordan, London, and Riyadh. Discover our journey, team, and commitment to digital excellence.",
+  keywords: "software development company history, digital agency team, technology company culture, software development expertise, IT company values, digital innovation team, software development professionals, tech company leadership, software development experience, digital transformation experts"
+};
+---
+
+<Layout 
+  title={metadata.title}
+  description={metadata.description}
+  keywords={metadata.keywords}
+>
+  <AboutHero />
+  <AboutStory />
+  <AboutValues />
+  <AboutTeam />
+  <AboutOffices />
+  <ContactCTA />
+</Layout>

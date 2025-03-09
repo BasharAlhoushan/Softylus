@@ -1,0 +1,239 @@
+---
+// ProjectGrid.astro - Grid display for project cards
+import ProjectCard from './ProjectCard.astro';
+
+// Mock project data
+const projects = [
+  {
+    title: "Neural Interface Design System",
+    description: "A comprehensive design system for neural interface applications with adaptive components and immersive interactions.",
+    category: "UX/UI Design",
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    slug: "neural-interface-design",
+    featured: true,
+    categories: ["web", "branding"]
+  },
+  {
+    title: "Quantum Banking Platform",
+    description: "Next-generation banking platform with quantum security protocols and intuitive financial management tools.",
+    category: "Web Development",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    slug: "quantum-banking",
+    featured: false,
+    categories: ["web", "enterprise", "ecommerce"]
+  },
+  {
+    title: "Holographic Retail Experience",
+    description: "Immersive shopping experience combining AR technologies with personalized product recommendations.",
+    category: "Mixed Reality",
+    image: "https://images.unsplash.com/photo-1616101118364-d5bbca229ec0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    slug: "holographic-retail",
+    featured: false,
+    categories: ["branding", "ecommerce"]
+  },
+  {
+    title: "Synthetica Mobile App",
+    description: "Cutting-edge mobile application for synthetic asset management with blockchain integration.",
+    category: "Mobile Development",
+    image: "https://images.unsplash.com/photo-1596742578443-7682ef7b7057?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80",
+    slug: "synthetica-app",
+    featured: false,
+    categories: ["mobile"]
+  },
+  {
+    title: "BioCorp Brand Identity",
+    description: "Comprehensive brand identity for a biotechnology company, including logo design, brand guidelines, and marketing materials.",
+    category: "Branding",
+    image: "https://images.unsplash.com/photo-1649180556628-9ba704115795?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2062&q=80",
+    slug: "biocorp-identity",
+    featured: false,
+    categories: ["branding"]
+  },
+  {
+    title: "Nexus Enterprise Portal",
+    description: "Scalable enterprise portal with advanced analytics, real-time data visualization, and collaborative tools.",
+    category: "Web Platform",
+    image: "https://images.unsplash.com/photo-1502239608882-93b729c6af43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    slug: "nexus-portal",
+    featured: false,
+    categories: ["web", "enterprise"]
+  },
+  {
+    title: "Ethereal E-commerce Solution",
+    description: "Cloud-based e-commerce platform with AI-powered inventory management and customer insights.",
+    category: "E-commerce",
+    image: "https://images.unsplash.com/photo-1629904853893-c2c8981a1dc5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    slug: "ethereal-ecommerce",
+    featured: true,
+    categories: ["web", "ecommerce"]
+  },
+  {
+    title: "Pulse Health Monitoring App",
+    description: "Health tracking mobile application with wearable integration and personalized wellness recommendations.",
+    category: "Mobile Development",
+    image: "https://images.unsplash.com/photo-1526256262350-7da7584cf5eb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    slug: "pulse-health",
+    featured: false,
+    categories: ["mobile", "enterprise"]
+  },
+  {
+    title: "Quantum Edge Computing",
+    description: "Pioneering edge computing infrastructure with quantum-resistant security and distributed processing.",
+    category: "Enterprise Solution",
+    image: "https://images.unsplash.com/photo-1706001503092-35e756ba2916?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    slug: "quantum-edge",
+    featured: false,
+    categories: ["enterprise"]
+  }
+];
+---
+
+<section class="py-12 px-4 bg-white">
+  <div class="container mx-auto">
+    <!-- Featured Projects -->
+    <div class="mb-16">
+      <h2 class="text-2xl md:text-3xl font-display font-bold mb-8" data-aos="fade-up">Featured Projects</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {projects
+          .filter(project => project.featured)
+          .map((project, index) => (
+            <ProjectCard 
+              {...project}
+              index={index}
+            />
+          ))
+        }
+      </div>
+    </div>
+    
+    <!-- All Projects Grid -->
+    <div>
+      <h2 class="text-2xl md:text-3xl font-display font-bold mb-8" data-aos="fade-up">All Projects</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {projects.map((project, index) => (
+          <ProjectCard 
+            {...project}
+            index={index}
+          />
+        ))}
+      </div>
+    </div>
+    
+    <!-- Load More Button -->
+    <div class="text-center mt-16" data-aos="fade-up">
+      <button id="load-more" class="load-more-button">
+        <span>Load more projects</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Simulate loading more projects
+  document.addEventListener('DOMContentLoaded', function() {
+    const loadMoreButton = document.getElementById('load-more');
+    let isLoading = false;
+    
+    if (loadMoreButton && loadMoreButton.parentNode) {
+      loadMoreButton.addEventListener('click', function() {
+        if (isLoading) return;
+        
+        // Show loading state
+        isLoading = true;
+        const originalText = loadMoreButton.innerHTML;
+        loadMoreButton.innerHTML = `
+          <span>Loading...</span>
+          <div class="spinner"></div>
+        `;
+        
+        // Simulate API call delay
+        setTimeout(() => {
+          // Restore button
+          loadMoreButton.innerHTML = originalText;
+          isLoading = false;
+          
+          // Show "no more projects" message after one click
+          const messageElement = document.createElement('p');
+          messageElement.className = 'text-gray-500 mt-4 animate-fade-in';
+          messageElement.textContent = 'No more projects to load';
+          
+          // Safely append the message and hide the button
+          if (loadMoreButton.parentNode) {
+            loadMoreButton.parentNode.appendChild(messageElement);
+            loadMoreButton.style.display = 'none';
+          }
+        }, 1500);
+      });
+    }
+  });
+</script>
+
+<style>
+  .load-more-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    background-color: white;
+    color: black;
+    font-weight: 500;
+    border: 1px solid black;
+    transition: all 0.3s ease;
+    min-height: 48px;
+  }
+  
+  .load-more-button:hover {
+    background-color: black;
+    color: white;
+    transform: translateY(-3px);
+  }
+  
+  .spinner {
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    border-top-color: black;
+    animation: spin 0.8s linear infinite;
+    margin-left: 0.75rem;
+  }
+  
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  /* Touch optimization */
+  @media (max-width: 768px) {
+    .load-more-button {
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+  
+  /* Reduced motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    .load-more-button:hover {
+      transform: none;
+    }
+    
+    .spinner {
+      animation: none;
+    }
+    
+    .animate-fade-in {
+      animation: none;
+    }
+  }
+</style>

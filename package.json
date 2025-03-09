@@ -1,0 +1,26 @@
+{
+  "name": "softylus-website",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "capture-gif": "node scripts/captureGif.js"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.2.1",
+    "@astrojs/tailwind": "^5.1.0",
+    "aos": "^2.3.4",
+    "astro": "^5.2.5",
+    "git": "^0.1.5",
+    "tailwindcss": "^3.4.1"
+  },
+  "devDependencies": {
+    "gif-encoder-2": "^1.0.5",
+    "png-js": "^1.0.0",
+    "puppeteer": "^22.0.0"
+  }
+}

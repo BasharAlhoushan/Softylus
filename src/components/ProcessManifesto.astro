@@ -1,0 +1,742 @@
+---
+// Interactive Process Manifesto - A visually dynamic breakdown of working process, methodology and principles
+import MobileProcessCards from './MobileProcessCards.astro';
+---
+
+<section class="py-16 md:py-24 px-4 relative overflow-hidden bg-white">
+  <!-- Abstract Background Elements -->
+  <div class="absolute inset-0 pointer-events-none">
+    <!-- Animated gradient background -->
+    <div class="absolute inset-0 bg-gradient-radial from-gray-50/80 via-white to-white opacity-60"></div>
+    
+    <!-- Dynamic pattern -->
+    <div class="absolute inset-0 pattern-overlay"></div>
+    
+    <!-- Geometric elements -->
+    <div class="absolute -top-20 -right-20 w-96 h-96 border border-black/5 rounded-full opacity-20 transform rotate-12"></div>
+    <div class="absolute -bottom-40 -left-20 w-80 h-80 border border-black/5 rounded-full opacity-20 transform -rotate-6"></div>
+    
+    <!-- Abstract paths -->
+    <svg class="absolute bottom-0 left-0 w-full h-60 text-black/[0.02]" viewBox="0 0 1440 320" preserveAspectRatio="none">
+      <path class="manifesto-wave" fill="currentColor" fill-opacity="1" d="M0,192L48,176C96,160,192,128,288,138.7C384,149,480,203,576,208C672,213,768,171,864,165.3C960,160,1056,192,1152,197.3C1248,203,1344,181,1392,170.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+    </svg>
+  </div>
+
+  <div class="container mx-auto relative z-10">
+    <!-- Section Header -->
+    <div class="max-w-3xl mx-auto text-center mb-16" data-aos="fade-up">
+      <span class="inline-block px-3 py-1 bg-black text-white text-sm mb-4">Our Methodology</span>
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-black mb-4">
+        Process Manifesto
+      </h2>
+      <p class="text-lg md:text-xl text-gray-600">
+        Our philosophy distilled into a precise framework that guides every project from concept to completion.
+      </p>
+    </div>
+    
+    <!-- DESKTOP: Interactive Manifesto Wheel -->
+    <div class="manifesto-wheel-container hidden md:block" data-aos="fade-up" data-aos-delay="100">
+      <div class="manifesto-center" id="manifesto-center">
+        <div class="center-content">
+          <div class="center-title">Excellence</div>
+          <div class="center-description">Hover over each segment to explore our methodology</div>
+        </div>
+      </div>
+      
+      <div class="manifesto-wheel">
+        <div class="wheel-segment segment-1" data-title="Discover" data-description="Immersive research and deep analysis of objectives, constraints, and possibilities.">
+          <div class="segment-content">
+            <div class="segment-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            </div>
+            <div class="segment-title">Discover</div>
+          </div>
+        </div>
+        
+        <div class="wheel-segment segment-2" data-title="Define" data-description="Crystallizing insights into precise project parameters and clear success metrics.">
+          <div class="segment-content">
+            <div class="segment-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+              </svg>
+            </div>
+            <div class="segment-title">Define</div>
+          </div>
+        </div>
+        
+        <div class="wheel-segment segment-3" data-title="Design" data-description="Transforming concepts into visually striking and functionally intuitive frameworks.">
+          <div class="segment-content">
+            <div class="segment-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+              </svg>
+            </div>
+            <div class="segment-title">Design</div>
+          </div>
+        </div>
+        
+        <div class="wheel-segment segment-4" data-title="Develop" data-description="Engineering elegant solutions with clean code and scalable architecture.">
+          <div class="segment-content">
+            <div class="segment-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+              </svg>
+            </div>
+            <div class="segment-title">Develop</div>
+          </div>
+        </div>
+        
+        <div class="wheel-segment segment-5" data-title="Deploy" data-description="Meticulous testing and seamless implementation through a methodical launch framework.">
+          <div class="segment-content">
+            <div class="segment-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <div class="segment-title">Deploy</div>
+          </div>
+        </div>
+        
+        <div class="wheel-segment segment-6" data-title="Evolve" data-description="Continuous optimization and thoughtful iteration based on performance analytics.">
+          <div class="segment-content">
+            <div class="segment-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+              </svg>
+            </div>
+            <div class="segment-title">Evolve</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- MOBILE: Process Cards -->
+    <div class="md:hidden">
+      <MobileProcessCards />
+    </div>
+    
+    <!-- Principles Grid -->
+    <div class="mt-20 md:mt-28" data-aos="fade-up" data-aos-delay="200">
+      <h3 class="text-2xl md:text-3xl font-display font-bold text-center mb-12">Guiding Principles</h3>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Principle 1 -->
+        <div class="principle-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="principle-number">01</div>
+          <h4 class="principle-title">Minimalist Precision</h4>
+          <p class="principle-description">We eliminate the superfluous to amplify what truly matters. Every element serves a specific purpose.</p>
+          <div class="principle-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+            </svg>
+          </div>
+          <div class="card-progress"></div>
+        </div>
+        
+        <!-- Principle 2 -->
+        <div class="principle-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="principle-number">02</div>
+          <h4 class="principle-title">Intuitive Interaction</h4>
+          <p class="principle-description">Digital experiences should feel natural and effortless, guiding users through a seamless journey.</p>
+          <div class="principle-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11" />
+            </svg>
+          </div>
+          <div class="card-progress"></div>
+        </div>
+        
+        <!-- Principle 3 -->
+        <div class="principle-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="principle-number">03</div>
+          <h4 class="principle-title">Technical Excellence</h4>
+          <p class="principle-description">We engineer solutions with meticulous attention to performance, security, and scalability.</p>
+          <div class="principle-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+          </div>
+          <div class="card-progress"></div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Quote Banner -->
+    <div class="relative mt-20 md:mt-28 py-16 rounded-sm" data-aos="fade-up" data-aos-delay="300">
+      <div class="absolute inset-0 backdrop bg-gray-50"></div>
+      <div class="relative z-10 text-center px-4">
+        <svg class="mx-auto mb-6 text-black/20" width="40" height="40" viewBox="0 0 40 40" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M11.25 25H17.5V18.75H11.25C11.25 14.4375 13.75 12.3125 17.5 11.25V5C11.25 6.25 5 11.25 5 18.75V25C5 27.5 7.5 30 10 30H16.25C18.75 30 21.25 27.5 21.25 25V18.75C21.25 16.25 18.75 13.75 16.25 13.75H11.25V18.75ZM28.75 13.75H23.75V18.75H30V25C30 27.5 27.5 30 25 30H18.75C16.25 30 13.75 27.5 13.75 25V18.75C13.75 16.25 16.25 13.75 18.75 13.75H25C25 9.4375 22.5 7.3125 18.75 6.25V0C25 1.25 31.25 6.25 31.25 13.75V20C31.25 22.5 28.75 25 26.25 25H20C17.5 25 15 22.5 15 20V13.75C15 11.25 17.5 8.75 20 8.75H28.75V13.75Z"/>
+        </svg>
+        <blockquote class="text-xl md:text-2xl lg:text-3xl font-display italic max-w-3xl mx-auto">
+          Design is not just what it looks like and feels like. Design is how it works.
+        </blockquote>
+        <div class="mt-4 text-black/60">— We live by this principle</div>
+      </div>
+    </div>
+    
+    <!-- Animated Stats -->
+    <div class="mt-20 md:mt-28" data-aos="fade-up" data-aos-delay="400">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+        <div class="stat-card">
+          <div class="stat-number" data-count="98">0</div>
+          <div class="stat-label">Client Satisfaction</div>
+          <div class="stat-symbol">%</div>
+        </div>
+        
+        <div class="stat-card">
+          <div class="stat-number" data-count="127">0</div>
+          <div class="stat-label">Projects Completed</div>
+          <div class="stat-symbol">+</div>
+        </div>
+        
+        <div class="stat-card">
+          <div class="stat-number" data-count="14">0</div>
+          <div class="stat-label">Industry Awards</div>
+          <div class="stat-symbol"></div>
+        </div>
+        
+        <div class="stat-card">
+          <div class="stat-number" data-count="8">0</div>
+          <div class="stat-label">Years of Excellence</div>
+          <div class="stat-symbol"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Wheel Segments Interaction - Desktop Only
+    const wheelSegments = document.querySelectorAll('.wheel-segment');
+    const centerContent = document.querySelector('.center-content');
+    const centerTitle = document.querySelector('.center-title');
+    const centerDescription = document.querySelector('.center-description');
+    
+    if (wheelSegments && centerContent && centerTitle && centerDescription) {
+      // Store original content
+      const originalTitle = centerTitle.textContent;
+      const originalDescription = centerDescription.textContent;
+      
+      // For touch devices, change text to tap instead of hover
+      if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+        if (centerDescription && centerDescription.textContent.includes('Hover')) {
+          centerDescription.textContent = centerDescription.textContent.replace('Hover', 'Tap');
+        }
+      }
+      
+      wheelSegments.forEach(segment => {
+        segment.addEventListener('mouseenter', () => {
+          const title = segment.getAttribute('data-title');
+          const description = segment.getAttribute('data-description');
+          
+          // Update center content with segment info
+          centerTitle.textContent = title;
+          centerDescription.textContent = description;
+          
+          // Highlight active segment
+          wheelSegments.forEach(s => s.classList.remove('active'));
+          segment.classList.add('active');
+          
+          // Add animation class
+          centerContent.classList.add('content-change');
+          setTimeout(() => {
+            centerContent.classList.remove('content-change');
+          }, 300);
+        });
+        
+        segment.addEventListener('mouseleave', () => {
+          // Reset to original content after a small delay
+          setTimeout(() => {
+            if (!document.querySelector('.wheel-segment:hover')) {
+              centerTitle.textContent = originalTitle;
+              centerDescription.textContent = originalDescription;
+              
+              // Reset active state
+              wheelSegments.forEach(s => s.classList.remove('active'));
+              
+              // Add animation class
+              centerContent.classList.add('content-change');
+              setTimeout(() => {
+                centerContent.classList.remove('content-change');
+              }, 300);
+            }
+          }, 100);
+        });
+        
+        // Add touch event for mobile
+        segment.addEventListener('click', () => {
+          if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+            const title = segment.getAttribute('data-title');
+            const description = segment.getAttribute('data-description');
+            
+            // Update center content with segment info
+            centerTitle.textContent = title;
+            centerDescription.textContent = description;
+            
+            // Highlight active segment
+            wheelSegments.forEach(s => s.classList.remove('active'));
+            segment.classList.add('active');
+          }
+        });
+      });
+    }
+    
+    // Principle Cards Interaction
+    const principleCards = document.querySelectorAll('.principle-card');
+    
+    principleCards.forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        const progress = card.querySelector('.card-progress');
+        if (progress) {
+          progress.style.width = '100%';
+        }
+      });
+      
+      card.addEventListener('mouseleave', () => {
+        const progress = card.querySelector('.card-progress');
+        if (progress) {
+          progress.style.width = '0';
+        }
+      });
+    });
+    
+    // Animated Stats Counter
+    const stats = document.querySelectorAll('.stat-number');
+    
+    function animateStats() {
+      stats.forEach(stat => {
+        const target = parseInt(stat.getAttribute('data-count'), 10);
+        const duration = 2000; // 2 seconds
+        const step = target / (duration / 16); // 16ms per frame (approx 60fps)
+        let current = 0;
+        
+        const updateStat = () => {
+          current += step;
+          if (current > target) {
+            current = target;
+            stat.textContent = Math.round(current);
+            return;
+          }
+          
+          stat.textContent = Math.round(current);
+          requestAnimationFrame(updateStat);
+        };
+        
+        updateStat();
+      });
+    }
+    
+    // Use Intersection Observer to trigger animation when in view
+    const statsSection = document.querySelector('.stat-card');
+    if (statsSection && 'IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animateStats();
+            observer.disconnect();
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      observer.observe(statsSection);
+    } else {
+      // Fallback for browsers without IntersectionObserver
+      setTimeout(animateStats, 1000);
+    }
+  });
+</script>
+
+<style>
+  /* Background */
+  .bg-gradient-radial {
+    background: radial-gradient(circle at center, var(--tw-gradient-from) 0%, var(--tw-gradient-via) 50%, var(--tw-gradient-to) 100%);
+  }
+  
+  .pattern-overlay {
+    background-image: 
+      linear-gradient(to right, rgba(0,0,0,0.01) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0,0,0,0.01) 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.7;
+    transform: rotate(-2deg) scale(2);
+  }
+  
+  .manifesto-wave {
+    animation: wave-animation 20s linear infinite alternate;
+    animation-delay: -2s;
+  }
+  
+  @keyframes wave-animation {
+    0% {
+      d: path("M0,192L48,176C96,160,192,128,288,138.7C384,149,480,203,576,208C672,213,768,171,864,165.3C960,160,1056,192,1152,197.3C1248,203,1344,181,1392,170.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z");
+    }
+    50% {
+      d: path("M0,192L48,208C96,224,192,256,288,240C384,224,480,160,576,154.7C672,149,768,203,864,208C960,213,1056,171,1152,154.7C1248,139,1344,149,1392,154.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z");
+    }
+    100% {
+      d: path("M0,192L48,176C96,160,192,128,288,138.7C384,149,480,203,576,208C672,213,768,171,864,165.3C960,160,1056,192,1152,197.3C1248,203,1344,181,1392,170.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z");
+    }
+  }
+  
+  /* Manifesto Wheel */
+  .manifesto-wheel-container {
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+    height: 450px;
+    margin: 0 auto;
+  }
+  
+  .manifesto-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(220px, 50vw);
+    height: min(220px, 50vw);
+    background-color: white;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(10px, 5vw, 20px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+  
+  .center-content {
+    text-align: center;
+    transition: opacity 0.3s ease;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .content-change {
+    animation: content-fade 0.3s ease;
+  }
+  
+  @keyframes content-fade {
+    0% { opacity: 0.5; transform: translateY(5px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  
+  .center-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.5rem, 4vw, 1.8rem);
+    font-weight: 600;
+    margin-bottom: clamp(10px, 3vw, 15px);
+    color: black;
+    line-height: 1.2;
+  }
+  
+  .center-description {
+    font-size: clamp(0.8rem, 2.5vw, 1rem);
+    color: rgba(0, 0, 0, 0.6);
+    line-height: 1.4;
+  }
+  
+  .manifesto-wheel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .wheel-segment {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 170px;
+    height: 170px;
+    margin: -85px 0 0 -85px;
+    transform-origin: center;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+  
+  .segment-content {
+    position: absolute;
+    width: 140px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+  
+  .segment-icon {
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+    color: black;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .segment-title {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: black;
+    transition: all 0.3s ease;
+  }
+  
+  /* Position the segments in a circle */
+  .segment-1 {
+    transform: rotate(0deg) translate(220px) rotate(0deg);
+  }
+  .segment-1 .segment-content {
+    transform: rotate(0deg);
+    top: 0;
+    left: 0;
+  }
+  
+  .segment-2 {
+    transform: rotate(60deg) translate(220px) rotate(-60deg);
+  }
+  .segment-2 .segment-content {
+    transform: rotate(0deg);
+    top: 0;
+    left: 0;
+  }
+  
+  .segment-3 {
+    transform: rotate(120deg) translate(220px) rotate(-120deg);
+  }
+  .segment-3 .segment-content {
+    transform: rotate(0deg);
+    top: 0;
+    left: 0;
+  }
+  
+  .segment-4 {
+    transform: rotate(180deg) translate(220px) rotate(-180deg);
+  }
+  .segment-4 .segment-content {
+    transform: rotate(0deg);
+    top: 0;
+    left: 0;
+  }
+  
+  .segment-5 {
+    transform: rotate(240deg) translate(220px) rotate(-240deg);
+  }
+  .segment-5 .segment-content {
+    transform: rotate(0deg);
+    top: 0;
+    left: 0;
+  }
+  
+  .segment-6 {
+    transform: rotate(300deg) translate(220px) rotate(-300deg);
+  }
+  .segment-6 .segment-content {
+    transform: rotate(0deg);
+    top: 0;
+    left: 0;
+  }
+  
+  /* Hover and active states for segments */
+  .wheel-segment:hover,
+  .wheel-segment.active {
+    transform-origin: center;
+    z-index: 10;
+  }
+  
+  .segment-1:hover,
+  .segment-1.active {
+    transform: rotate(0deg) translate(230px) rotate(0deg) scale(1.1);
+  }
+  
+  .segment-2:hover,
+  .segment-2.active {
+    transform: rotate(60deg) translate(230px) rotate(-60deg) scale(1.1);
+  }
+  
+  .segment-3:hover,
+  .segment-3.active {
+    transform: rotate(120deg) translate(230px) rotate(-120deg) scale(1.1);
+  }
+  
+  .segment-4:hover,
+  .segment-4.active {
+    transform: rotate(180deg) translate(230px) rotate(-180deg) scale(1.1);
+  }
+  
+  .segment-5:hover,
+  .segment-5.active {
+    transform: rotate(240deg) translate(230px) rotate(-240deg) scale(1.1);
+  }
+  
+  .segment-6:hover,
+  .segment-6.active {
+    transform: rotate(300deg) translate(230px) rotate(-300deg) scale(1.1);
+  }
+  
+  .wheel-segment:hover .segment-icon,
+  .wheel-segment.active .segment-icon {
+    background-color: black;
+    color: white;
+    transform: scale(1.1);
+  }
+  
+  .wheel-segment:hover .segment-title,
+  .wheel-segment.active .segment-title {
+    transform: translateY(3px);
+    font-weight: 600;
+  }
+  
+  /* Principles Cards */
+  .principle-card {
+    position: relative;
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    height: 100%;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+  
+  .principle-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    border-color: rgba(0, 0, 0, 0.2);
+  }
+  
+  .principle-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1;
+    color: rgba(0, 0, 0, 0.05);
+    margin-bottom: 1rem;
+  }
+  
+  .principle-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: black;
+  }
+  
+  .principle-description {
+    font-size: 0.95rem;
+    color: rgba(0, 0, 0, 0.7);
+    line-height: 1.6;
+  }
+  
+  .principle-icon {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    color: rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+  }
+  
+  .principle-card:hover .principle-icon {
+    color: black;
+    transform: translateY(-5px);
+  }
+  
+  .card-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: black;
+    transition: width 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+  
+  /* Quote Banner */
+  .backdrop {
+    opacity: 0.8;
+  }
+  
+  /* Stats Cards */
+  .stat-card {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    border-color: rgba(0, 0, 0, 0.2);
+  }
+  
+  .stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    color: black;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    display: inline-block;
+  }
+  
+  .stat-symbol {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: black;
+    line-height: 1;
+    display: inline-block;
+    margin-left: 5px;
+    vertical-align: top;
+    margin-top: 0.5rem;
+  }
+  
+  .stat-label {
+    font-size: clamp(0.8rem, 2vw, 0.9rem);
+    color: rgba(0, 0, 0, 0.7);
+    margin-top: 0.5rem;
+    text-align: center;
+  }
+  
+  /* Reduce motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    .wheel-segment:hover,
+    .wheel-segment.active {
+      transform: none !important;
+    }
+    
+    .principle-card:hover {
+      transform: none;
+    }
+    
+    .stat-card:hover {
+      transform: none;
+    }
+    
+    .manifesto-wave {
+      animation: none;
+    }
+  }
+</style>

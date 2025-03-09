@@ -1,0 +1,507 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Softylus Design System">
+  <div class="design-system-wrapper">
+    <!-- Cover -->
+    <section class="page cover">
+      <div class="cover-content">
+        <span class="overline">Design System Documentation</span>
+        <h1>Softylus Design System</h1>
+        <p class="subtitle">A comprehensive design language for digital excellence</p>
+        <div class="cover-footer">
+          <div class="version">Version 1.0</div>
+          <div class="date">{new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long' })}</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Overview -->
+    <section class="page">
+      <h2>Design System Overview</h2>
+      <div class="overview-grid">
+        <div class="overview-item">
+          <h3>Purpose</h3>
+          <p>A unified design language that ensures consistency, efficiency, and scalability across all digital touchpoints.</p>
+        </div>
+        <div class="overview-item">
+          <h3>Principles</h3>
+          <ul>
+            <li>Minimalist Precision</li>
+            <li>Intuitive Interaction</li>
+            <li>Technical Excellence</li>
+            <li>Systematic Thinking</li>
+          </ul>
+        </div>
+        <div class="overview-item">
+          <h3>Components</h3>
+          <ul>
+            <li>Core Elements</li>
+            <li>UI Components</li>
+            <li>Patterns & Templates</li>
+            <li>Design Tokens</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Typography -->
+    <section class="page">
+      <h2>Typography System</h2>
+      <div class="type-system">
+        <div class="type-family">
+          <h3>Primary Font: Montserrat</h3>
+          <div class="type-scale">
+            <div class="type-example" style="font-size: 3rem; line-height: 1.1;">
+              Display Text (48/52)
+            </div>
+            <div class="type-example" style="font-size: 2.5rem; line-height: 1.2;">
+              Heading 1 (40/48)
+            </div>
+            <div class="type-example" style="font-size: 2rem; line-height: 1.2;">
+              Heading 2 (32/40)
+            </div>
+            <div class="type-example" style="font-size: 1.5rem; line-height: 1.3;">
+              Heading 3 (24/32)
+            </div>
+            <div class="type-example" style="font-size: 1.125rem; line-height: 1.5;">
+              Body Large (18/28)
+            </div>
+            <div class="type-example" style="font-size: 1rem; line-height: 1.6;">
+              Body (16/24)
+            </div>
+          </div>
+        </div>
+        
+        <div class="type-family">
+          <h3>Display Font: Playfair Display</h3>
+          <div class="type-weights">
+            <span class="weight-example" style="font-weight: 400;">Regular</span>
+            <span class="weight-example" style="font-weight: 500;">Medium</span>
+            <span class="weight-example" style="font-weight: 600;">Semibold</span>
+            <span class="weight-example" style="font-weight: 700;">Bold</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Color System -->
+    <section class="page">
+      <h2>Color System</h2>
+      <div class="color-system">
+        <div class="color-section">
+          <h3>Primary Colors</h3>
+          <div class="color-grid">
+            <div class="color-item">
+              <div class="color-swatch" style="background-color: #000000;"></div>
+              <div class="color-info">
+                <span class="color-name">Black</span>
+                <span class="color-value">#000000</span>
+              </div>
+            </div>
+            <div class="color-item">
+              <div class="color-swatch" style="background-color: #FFFFFF; border: 1px solid #eee;"></div>
+              <div class="color-info">
+                <span class="color-name">White</span>
+                <span class="color-value">#FFFFFF</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="color-section">
+          <h3>Gray Scale</h3>
+          <div class="color-grid">
+            {Array.from({ length: 10 }).map((_, i) => (
+              <div class="color-item">
+                <div class="color-swatch" style={`background-color: rgb(${255 - i * 25}, ${255 - i * 25}, ${255 - i * 25});`}></div>
+                <div class="color-info">
+                  <span class="color-name">Gray {i + 1}00</span>
+                  <span class="color-value">#{(255 - i * 25).toString(16).repeat(3)}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Components -->
+    <section class="page">
+      <h2>Component Library</h2>
+      <div class="components-grid">
+        <!-- Buttons -->
+        <div class="component-section">
+          <h3>Buttons</h3>
+          <div class="component-examples">
+            <div class="button primary">Primary Button</div>
+            <div class="button secondary">Secondary Button</div>
+            <div class="button outline">Outline Button</div>
+          </div>
+          <div class="component-specs">
+            <p>Padding: 12px 24px</p>
+            <p>Height: 48px (touch-friendly)</p>
+            <p>Border Radius: 0px</p>
+          </div>
+        </div>
+
+        <!-- Form Elements -->
+        <div class="component-section">
+          <h3>Form Elements</h3>
+          <div class="component-examples">
+            <input type="text" placeholder="Text Input" class="form-input" />
+            <select class="form-select">
+              <option>Select Option</option>
+            </select>
+            <textarea class="form-textarea" placeholder="Textarea"></textarea>
+          </div>
+        </div>
+
+        <!-- Cards -->
+        <div class="component-section">
+          <h3>Cards</h3>
+          <div class="component-examples">
+            <div class="card-example">
+              <div class="card-header">Card Title</div>
+              <div class="card-body">Card content with consistent spacing and typography.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Spacing & Layout -->
+    <section class="page">
+      <h2>Spacing & Layout</h2>
+      <div class="spacing-system">
+        <div class="spacing-scale">
+          <h3>Spacing Scale</h3>
+          <div class="spacing-examples">
+            {[4, 8, 12, 16, 24, 32, 48, 64].map(size => (
+              <div class="spacing-item">
+                <div class="spacing-visual" style={`width: ${size}px; height: ${size}px;`}></div>
+                <span class="spacing-value">{size}px</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div class="grid-system">
+          <h3>Grid System</h3>
+          <div class="grid-example">
+            <div class="grid-col"></div>
+            <div class="grid-col"></div>
+            <div class="grid-col"></div>
+            <div class="grid-col"></div>
+          </div>
+          <p class="grid-specs">12-column grid with 24px gutters</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technical Specs -->
+    <section class="page">
+      <h2>Technical Specifications</h2>
+      <div class="tech-specs">
+        <div class="spec-section">
+          <h3>Development Framework</h3>
+          <ul class="spec-list">
+            <li>Built with Astro.js</li>
+            <li>Tailwind CSS for styling</li>
+            <li>TypeScript for type safety</li>
+            <li>Component-driven architecture</li>
+          </ul>
+        </div>
+
+        <div class="spec-section">
+          <h3>Design Tools</h3>
+          <ul class="spec-list">
+            <li>Figma for UI design</li>
+            <li>Version control with Git</li>
+            <li>Storybook for documentation</li>
+            <li>Automated testing with Vitest</li>
+          </ul>
+        </div>
+
+        <div class="spec-section">
+          <h3>Performance Metrics</h3>
+          <div class="metrics-grid">
+            <div class="metric">
+              <div class="metric-value">98%</div>
+              <div class="metric-label">Performance</div>
+            </div>
+            <div class="metric">
+              <div class="metric-value">100%</div>
+              <div class="metric-label">Accessibility</div>
+            </div>
+            <div class="metric">
+              <div class="metric-value">99%</div>
+              <div class="metric-label">Best Practices</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="page">
+      <h2>Get in Touch</h2>
+      <div class="contact-section">
+        <p class="contact-lead">Ready to elevate your digital presence with our design system?</p>
+        <div class="contact-info">
+          <p>Email: beyond@softylus.com</p>
+          <p>Website: www.softylus.com</p>
+        </div>
+        <div class="locations-grid">
+          <div class="location">
+            <h4>Zarqa, Jordan</h4>
+            <p>Headquarters</p>
+          </div>
+          <div class="location">
+            <h4>London, UK</h4>
+            <p>Innovation Hub</p>
+          </div>
+          <div class="location">
+            <h4>Riyadh, KSA</h4>
+            <p>Regional Office</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  /* Print optimization */
+  @media print {
+    @page {
+      size: A4;
+      margin: 0;
+    }
+    
+    html, body {
+      width: 210mm;
+      height: 297mm;
+    }
+  }
+
+  .design-system-wrapper {
+    max-width: 210mm;
+    margin: 0 auto;
+    background: white;
+  }
+
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    padding: 20mm;
+    page-break-after: always;
+    background: white;
+  }
+
+  /* Cover styles */
+  .cover {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .overline {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: #666;
+    margin-bottom: 2rem;
+    display: block;
+  }
+
+  h1 {
+    font-size: 4rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+
+  .subtitle {
+    font-size: 1.5rem;
+    color: #666;
+    margin-bottom: 4rem;
+  }
+
+  .cover-footer {
+    margin-top: 8rem;
+    font-size: 1rem;
+    color: #666;
+  }
+
+  /* Section styles */
+  h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    font-weight: bold;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+
+  /* Typography examples */
+  .type-system {
+    margin-top: 2rem;
+  }
+
+  .type-example {
+    margin-bottom: 1.5rem;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .type-weights {
+    display: flex;
+    gap: 2rem;
+    margin-top: 1rem;
+  }
+
+  .weight-example {
+    font-size: 1.25rem;
+  }
+
+  /* Color system */
+  .color-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .color-swatch {
+    width: 100%;
+    height: 60px;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+  }
+
+  .color-info {
+    font-size: 0.875rem;
+  }
+
+  /* Components */
+  .components-grid {
+    display: grid;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .component-examples {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 1rem 0;
+  }
+
+  .button {
+    padding: 12px 24px;
+    font-weight: 500;
+    text-align: center;
+  }
+
+  .primary {
+    background: black;
+    color: white;
+  }
+
+  .secondary {
+    background: white;
+    color: black;
+    border: 1px solid black;
+  }
+
+  .outline {
+    border: 1px solid black;
+    color: black;
+  }
+
+  /* Form elements */
+  .form-input,
+  .form-select,
+  .form-textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    margin-bottom: 1rem;
+  }
+
+  /* Spacing system */
+  .spacing-examples {
+    display: flex;
+    gap: 2rem;
+    margin-top: 1rem;
+  }
+
+  .spacing-visual {
+    background: black;
+    margin-bottom: 0.5rem;
+  }
+
+  /* Technical specs */
+  .tech-specs {
+    display: grid;
+    gap: 2rem;
+  }
+
+  .spec-list {
+    list-style: disc;
+    margin-left: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 1rem;
+  }
+
+  .metric {
+    text-align: center;
+  }
+
+  .metric-value {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+
+  /* Contact section */
+  .contact-section {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .contact-lead {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .locations-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  /* Print optimization */
+  @media print {
+    * {
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+
+    .page {
+      break-after: page;
+    }
+  }
+</style>

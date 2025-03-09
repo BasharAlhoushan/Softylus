@@ -1,0 +1,294 @@
+---
+// ProjectCard.astro - Individual project card component
+export interface Props {
+  title: string;
+  description: string;
+  category: string;
+  image: string;
+  slug: string;
+  index: number;
+  featured?: boolean;
+  categories: string[];
+}
+
+const { 
+  title, 
+  description, 
+  category, 
+  image, 
+  slug, 
+  index, 
+  featured = false,
+  categories = []
+} = Astro.props;
+
+// Convert categories array to space-separated string for data attribute
+const categoriesString = categories.join(' ');
+---
+
+<article 
+  class={`project-item ${featured ? 'featured' : ''} transition-opacity duration-300 opacity-0`} 
+  data-aos="fade-up" 
+  data-aos-delay={100 + index * 50}
+  data-categories={categoriesString}
+  data-index={index}
+>
+  <div class="project-card group">
+    <div class="project-image-container">
+      <img 
+        src={image} 
+        alt={title} 
+        class="project-image"
+        loading="lazy"
+      />
+      <div class="project-overlay">
+        <div class="flex gap-4">
+          <a href={`/projects/${slug}`} class="project-button">
+            View Project
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="project-content">
+      <div class="project-category">{category}</div>
+      <h3 class="project-title">{title}</h3>
+      <p class="project-description">{description}</p>
+    </div>
+    
+    <div class="project-progress"></div>
+  </div>
+</article>
+
+<script>
+  // Add animation to project cards when they appear
+  document.addEventListener('DOMContentLoaded', function() {
+    // Animate in project items with delay
+    const projectItems = document.querySelectorAll('.project-item');
+    
+    projectItems.forEach((item, index) => {
+      setTimeout(() => {
+        item.classList.add('opacity-100');
+      }, 100 + (index * 50)); 
+    });
+    
+    // Add ripple effect to project buttons for touch feedback
+    const projectButtons = document.querySelectorAll('.project-button');
+    
+    projectButtons.forEach(button => {
+      button.addEventListener('mousedown', function(e) {
+        const x = e.clientX - e.target.getBoundingClientRect().left;
+        const y = e.clientY - e.target.getBoundingClientRect().top;
+        
+        const ripple = document.createElement('span');
+        ripple.classList.add('ripple');
+        ripple.style.left = `${x}px`;
+        ripple.style.top = `${y}px`;
+        
+        this.appendChild(ripple);
+        
+        setTimeout(() => {
+          ripple.remove();
+        }, 600);
+      });
+    });
+  });
+</script>
+
+<style>
+  .project-card {
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+  
+  .project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    border-color: rgba(0, 0, 0, 0.2);
+  }
+  
+  .project-image-container {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+  }
+  
+  .project-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+  
+  .project-card:hover .project-image {
+    transform: scale(1.05);
+  }
+  
+  .project-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  
+  .project-card:hover .project-overlay {
+    opacity: 1;
+  }
+
+  .project-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    background-color: white;
+    color: black;
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition-delay: 0.1s;
+  }
+
+  .project-card:hover .project-button {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  
+  /* Ripple effect */
+  .project-button .ripple {
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 100px;
+    height: 100px;
+    margin-top: -50px;
+    margin-left: -50px;
+    animation: ripple 0.6s linear;
+    transform: scale(0);
+    pointer-events: none;
+  }
+  
+  @keyframes ripple {
+    to {
+      transform: scale(2.5);
+      opacity: 0;
+    }
+  }
+  
+  .project-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .project-category {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: rgba(0, 0, 0, 0.6);
+    margin-bottom: 0.5rem;
+  }
+  
+  .project-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: black;
+    transition: transform 0.3s ease;
+  }
+  
+  .project-card:hover .project-title {
+    transform: translateX(5px);
+  }
+  
+  .project-description {
+    font-size: 0.875rem;
+    color: rgba(0, 0, 0, 0.7);
+    line-height: 1.5;
+  }
+  
+  .project-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: black;
+    transition: width 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+  
+  .project-card:hover .project-progress {
+    width: 100%;
+  }
+  
+  /* Featured project styling */
+  .featured .project-card {
+    border-color: rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  }
+  
+  .featured .project-category {
+    color: black;
+  }
+  
+  /* Touch optimization */
+  @media (max-width: 768px) {
+    .project-overlay {
+      background: rgba(0, 0, 0, 0.5);
+    }
+    
+    .project-button {
+      min-height: 44px;
+      font-size: 0.9rem;
+    }
+  }
+  
+  /* Reduced motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    .project-card:hover {
+      transform: none;
+    }
+    
+    .project-card:hover .project-image {
+      transform: none;
+    }
+    
+    .project-card:hover .project-title {
+      transform: none;
+    }
+    
+    .project-button {
+      transition: none;
+    }
+    
+    .project-card:hover .project-button {
+      transform: none;
+    }
+    
+    .project-image {
+      transition: none;
+    }
+    
+    .project-card:hover .project-progress {
+      transition: none;
+    }
+  }
+</style>

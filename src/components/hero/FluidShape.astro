@@ -1,0 +1,75 @@
+---
+export interface Props {
+  position: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' | 'center';
+  color: string;
+  size: string;
+  delay: string | number;
+}
+
+const { position, color, size, delay } = Astro.props;
+
+const getPosition = (pos: string) => {
+  switch (pos) {
+    case 'top-left':
+      return { top: '-50px', left: '-50px' };
+    case 'top-right':
+      return { top: '-50px', right: '-50px' };
+    case 'bottom-left':
+      return { bottom: '-50px', left: '-50px' };
+    case 'bottom-right':
+      return { bottom: '-50px', right: '-50px' };
+    case 'center':
+      return { top: '50%', left: '50%', transform: 'translate(-50%, -50%)' };
+    default:
+      return {};
+  }
+};
+
+const positionStyles = getPosition(position);
+const positionString = Object.entries(positionStyles)
+  .map(([key, value]) => `${key}: ${value};`)
+  .join(' ');
+---
+
+<div 
+  class="fluid-shape" 
+  style={`
+    ${positionString}
+    background: ${color};
+    width: ${size};
+    height: ${size};
+    animation-delay: ${delay}ms;
+  `}
+  aria-hidden="true"
+></div>
+
+<style>
+  .fluid-shape {
+    position: absolute;
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+    filter: blur(30px);
+    z-index: 0;
+    animation: morph 15s ease-in-out infinite;
+    opacity: 0.8;
+    pointer-events: none;
+  }
+  
+  @keyframes morph {
+    0% {
+      border-radius: 40% 60% 70% 30% / 40% 40% 60% 50%;
+    }
+    50% {
+      border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    }
+    100% {
+      border-radius: 40% 60% 70% 30% / 40% 40% 60% 50%;
+    }
+  }
+  
+  /* Reduced motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    .fluid-shape {
+      animation: none;
+    }
+  }
+</style>

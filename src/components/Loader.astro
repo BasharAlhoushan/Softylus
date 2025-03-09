@@ -1,0 +1,593 @@
+---
+// Premium Minimalist Loader - Updated with Elevated Logo Design
+---
+
+<div id="page-loader" class="fixed inset-0 z-[100] bg-white">
+  <div class="absolute inset-0 loader-backdrop"></div>
+  
+  <div class="flex items-center justify-center w-full h-full">
+    <div class="loader-container">
+      <!-- Geometric Accent Lines -->
+      <div class="accent-lines">
+        <div class="accent-line horizontal"></div>
+        <div class="accent-line vertical"></div>
+      </div>
+      
+      <!-- Premium Brand Mark -->
+      <div class="brand-mark">
+        <div class="brand-circle"></div>
+        <div class="brand-square"></div>
+      </div>
+      
+      <!-- Premium Logo Design -->
+      <div class="premium-logo">
+        <div class="logo-inner">
+          <span class="logo-text">S</span>
+          <span class="logo-text">O</span>
+          <span class="logo-text">F</span>
+          <span class="logo-text">T</span>
+          <span class="logo-text">Y</span>
+          <span class="logo-text">L</span>
+          <span class="logo-text">U</span>
+          <span class="logo-text">S</span>
+        </div>
+        <div class="logo-highlight"></div>
+        <div class="logo-underline"></div>
+      </div>
+      
+      <!-- Elegant Progress Bar -->
+      <div class="progress-container">
+        <div class="progress-bar">
+          <div class="progress-fill"></div>
+          <div class="progress-glow"></div>
+        </div>
+        <div class="progress-text">
+          <span class="progress-percent">0</span>
+          <span class="percent-sign">%</span>
+        </div>
+      </div>
+      
+      <!-- Refined Tagline -->
+      <div class="tagline">DIGITAL REALITY ARCHITECT</div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Initialize key elements
+    const loader = document.getElementById('page-loader');
+    const progressFill = document.querySelector('.progress-fill');
+    const progressText = document.querySelector('.progress-percent');
+    const logoTexts = document.querySelectorAll('.logo-text');
+    const brandMark = document.querySelector('.brand-mark');
+    const progressGlow = document.querySelector('.progress-glow');
+    const logoHighlight = document.querySelector('.logo-highlight');
+    const logoUnderline = document.querySelector('.logo-underline');
+    
+    // Force loader to complete if it takes too long
+    const forceCompleteTimeout = setTimeout(() => {
+      completeLoading();
+    }, 10000); // Increased max time to 10 seconds
+    
+    // Setup and initiate the premium loading sequence
+    let progress = 0;
+    const loadingTime = 8000; // Even slower loading time (8 seconds)
+    const loadingInterval = 60; // Less frequent updates for more deliberate progression
+    const increment = 100 / (loadingTime / loadingInterval);
+    
+    // Add staggered entrance animation to logo text elements with increased delays
+    logoTexts.forEach((text, index) => {
+      text.style.transitionDelay = `${index * 120 + 300}ms`; // Staggered delay
+      
+      // Small delay before starting the animation
+      setTimeout(() => {
+        text.classList.add('appear');
+      }, 100);
+    });
+    
+    // Animate the highlight after text appears
+    setTimeout(() => {
+      if (logoHighlight) logoHighlight.classList.add('animate');
+    }, 1800);
+    
+    // Animate the underline after text appears
+    setTimeout(() => {
+      if (logoUnderline) logoUnderline.classList.add('animate');
+    }, 2200);
+    
+    // Start a very slight one-time rotation animation on the brand mark
+    if (brandMark) {
+      // Use CSS transform instead of animation for a controlled rotation
+      let rotation = 0;
+      const rotateInterval = setInterval(() => {
+        rotation += 0.2; // Very slow rotation increment
+        if (rotation >= 45) { // Rotate just 45 degrees total
+          clearInterval(rotateInterval);
+        } else {
+          brandMark.style.transform = `rotate(${rotation}deg)`;
+        }
+      }, 100);
+    }
+    
+    // Handle progress glow - single animation only
+    if (progressGlow) {
+      progressGlow.classList.add('single-glow');
+    }
+    
+    // Initial deliberate pause before progress begins
+    setTimeout(() => {
+      // High-performance loading simulation with sophisticated easing curve
+      const loadingTimer = setInterval(() => {
+        // Check if elements still exist (prevent errors if loader was removed)
+        if (!progressFill || !progressText) {
+          clearInterval(loadingTimer);
+          return;
+        }
+        
+        // Sophisticated multi-stage easing for a more deliberate, premium feeling
+        let easedIncrement;
+        
+        if (progress < 20) {
+          // Start even slower
+          easedIncrement = increment * 0.6;
+        } else if (progress < 40) {
+          // Very gradual acceleration
+          easedIncrement = increment * 0.7;
+        } else if (progress < 60) {
+          // Middle section slightly faster
+          easedIncrement = increment * 0.9;
+        } else if (progress < 80) {
+          // Begin to slow down
+          easedIncrement = increment * 0.6;
+        } else {
+          // Final stretch is extremely deliberate
+          easedIncrement = increment * 0.3;
+        }
+          
+        progress = Math.min(100, progress + easedIncrement);
+        
+        // Update visual elements
+        progressFill.style.transform = `scaleX(${progress / 100})`;
+        progressText.textContent = Math.round(progress);
+        
+        // Add deliberate pauses at key milestones
+        if (Math.round(progress) === 25 || Math.round(progress) === 50 || Math.round(progress) === 75) {
+          clearInterval(loadingTimer);
+          
+          // Resume after a longer pause
+          setTimeout(() => {
+            // Resume the timer
+            const resumeTimer = setInterval(() => {
+              if (!progressFill || !progressText) {
+                clearInterval(resumeTimer);
+                return;
+              }
+              
+              // Determine which phase we're in after the pause
+              let resumedIncrement;
+              
+              if (progress < 20) {
+                resumedIncrement = increment * 0.6;
+              } else if (progress < 40) {
+                resumedIncrement = increment * 0.7;
+              } else if (progress < 60) {
+                resumedIncrement = increment * 0.9;
+              } else if (progress < 80) {
+                resumedIncrement = increment * 0.6;
+              } else {
+                resumedIncrement = increment * 0.3;
+              }
+              
+              progress = Math.min(100, progress + resumedIncrement);
+              
+              // Update visual elements
+              progressFill.style.transform = `scaleX(${progress / 100})`;
+              progressText.textContent = Math.round(progress);
+              
+              // Complete loading sequence
+              if (progress >= 100) {
+                clearInterval(resumeTimer);
+                clearTimeout(forceCompleteTimeout);
+                
+                // Add a longer pause at 100% for design effect
+                setTimeout(() => {
+                  finishLoading();
+                }, 1200); // Even longer pause at completion
+              }
+            }, loadingInterval);
+          }, 800); // Longer pause at milestone percentages
+        }
+        
+        // Complete loading sequence
+        if (progress >= 100) {
+          clearInterval(loadingTimer);
+          clearTimeout(forceCompleteTimeout);
+          
+          // Add a longer pause at 100% for design effect
+          setTimeout(() => {
+            finishLoading();
+          }, 1200); // Extended pause at completion
+        }
+      }, loadingInterval);
+    }, 1500); // Longer initial delay before progress starts
+    
+    // Finish loading with premium exit animation
+    function finishLoading() {
+      // Substantial delay before exit animation
+      setTimeout(() => {
+        // Fade out logo elements with staggered timing
+        logoTexts.forEach((text, index) => {
+          setTimeout(() => {
+            text.classList.remove('appear');
+          }, index * 50);
+        });
+        
+        // Fade out highlight and underline
+        if (logoHighlight) logoHighlight.classList.remove('animate');
+        if (logoUnderline) logoUnderline.classList.remove('animate');
+        
+        // Add subtle scale-up on brand mark
+        if (brandMark) {
+          brandMark.classList.add('scale-up');
+        }
+        
+        // Longer delay before fade-out begins
+        setTimeout(() => {
+          // Start fade-out animation
+          if (loader) {
+            loader.classList.add('fade-out');
+            
+            // Remove from DOM after animation completes
+            setTimeout(() => {
+              loader.style.display = 'none';
+            }, 1500); // Even longer fade-out duration
+          }
+        }, 1000); // Longer delay before fade-out starts
+      }, 800); // Longer delay before exit animation starts
+    }
+    
+    // Ensure loader always completes
+    function completeLoading() {
+      if (progressFill && progressText) {
+        progressFill.style.transform = 'scaleX(1)';
+        progressText.textContent = '100';
+      }
+      
+      finishLoading();
+    }
+    
+    // Make sure the loader completes when page is fully loaded
+    window.addEventListener('load', () => {
+      // Don't immediately jump to completion - go to a high percentage
+      if (progress < 90) {
+        progress = 90; // Go to 90% for a more deliberate finish
+        if (progressFill) {
+          progressFill.style.transform = 'scaleX(0.9)';
+        }
+        if (progressText) {
+          progressText.textContent = '90';
+        }
+        
+        // Complete after a longer delay
+        setTimeout(completeLoading, 1000); // Even longer delay before completion
+      }
+    });
+    
+    // Skip functionality for impatient users
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && loader && loader.style.display !== 'none') {
+        completeLoading();
+      }
+    });
+    
+    // Click anywhere to skip loader
+    loader.addEventListener('click', () => {
+      completeLoading();
+    });
+  });
+</script>
+
+<style>
+  /* Base loader styling with refined aesthetic */
+  #page-loader {
+    opacity: 1;
+    transition: opacity 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow: hidden;
+  }
+  
+  #page-loader.fade-out {
+    opacity: 0;
+  }
+  
+  .loader-backdrop {
+    background-image: 
+      linear-gradient(to right, rgba(0,0,0,0.01) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0,0,0,0.01) 1px, transparent 1px);
+    background-size: 35px 35px;
+    opacity: 0.7;
+  }
+  
+  .loader-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 280px;
+    height: 250px;
+  }
+  
+  /* Accent lines with subtle animation */
+  .accent-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+  }
+  
+  .accent-line {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.03);
+  }
+  
+  .horizontal {
+    width: 100%;
+    height: 1px;
+    top: 50%;
+    transform-origin: center;
+    animation: line-extend 2.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  
+  .vertical {
+    width: 1px;
+    height: 100%;
+    left: 50%;
+    transform-origin: center;
+    animation: line-extend 2.5s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+  }
+  
+  @keyframes line-extend {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+  }
+  
+  /* Premium brand mark with controlled animation */
+  .brand-mark {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    margin-bottom: 30px;
+    transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .brand-mark.scale-up {
+    transform: scale(1.2);
+  }
+  
+  .brand-circle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px solid black;
+    border-radius: 50%;
+    opacity: 0;
+    animation: fade-in 2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  
+  .brand-square {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    background-color: black;
+    transform: translate(-50%, -50%) rotate(45deg);
+    opacity: 0;
+    animation: fade-in 2s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
+  }
+  
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  /* Premium Logo Design - New Implementation */
+  .premium-logo {
+    position: relative;
+    height: 60px;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .logo-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 0 8px;
+  }
+  
+  .logo-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.4rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+    color: black;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .logo-text.appear {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* First and last letters slightly different styling */
+  .logo-text:first-child,
+  .logo-text:last-child {
+    font-weight: 400;
+  }
+  
+  /* Logo highlight effect */
+  .logo-highlight {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    background: linear-gradient(90deg, 
+      rgba(0,0,0,0.01) 0%, 
+      rgba(0,0,0,0.04) 50%, 
+      rgba(0,0,0,0.01) 100%);
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: opacity 1.5s ease, transform 2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .logo-highlight.animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Logo underline effect */
+  .logo-underline {
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    width: 0;
+    height: 1px;
+    background-color: black;
+    transform: translateX(-50%);
+    transition: width 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .logo-underline.animate {
+    width: 80%;
+  }
+  
+  /* Refined progress bar */
+  .progress-container {
+    width: 160px;
+    margin-bottom: 30px;
+  }
+  
+  .progress-bar {
+    width: 100%;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+  
+  .progress-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform;
+  }
+  
+  .progress-glow {
+    position: absolute;
+    top: 0;
+    width: 30px;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent);
+    opacity: 0;
+  }
+  
+  .progress-glow.single-glow {
+    animation: single-glow-slide 8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  
+  @keyframes single-glow-slide {
+    0% { 
+      left: -30px; 
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% { 
+      left: 100%; 
+      opacity: 0;
+    }
+  }
+  
+  .progress-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.8);
+  }
+  
+  .percent-sign {
+    font-size: 0.7rem;
+    color: rgba(0, 0, 0, 0.5);
+    margin-left: 1px;
+  }
+  
+  /* Subtle tagline */
+  .tagline {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    color: rgba(0, 0, 0, 0.4);
+    text-align: center;
+    opacity: 0;
+    animation: tagline-appear 2.2s ease-out 1.8s forwards;
+  }
+  
+  @keyframes tagline-appear {
+    from { 
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to { 
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Mobile optimizations */
+  @media (max-width: 480px) {
+    .loader-container {
+      width: 260px;
+    }
+    
+    .logo-text {
+      font-size: 2rem;
+    }
+    
+    .progress-container {
+      width: 140px;
+    }
+  }
+  
+  /* Touch device optimizations */
+  @supports ((-webkit-touch-callout: none) or (touch-action: pan-x)) {
+    .progress-text {
+      margin-top: 5px;
+    }
+  }
+</style>

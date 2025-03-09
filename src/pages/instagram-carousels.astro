@@ -1,0 +1,264 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const carousels = [
+  {
+    title: "Digital Excellence Series",
+    slides: [
+      {
+        type: "cover",
+        heading: "The Architecture of Innovation",
+        subheading: "A 5-part series on digital excellence",
+        background: "bg-black"
+      },
+      {
+        type: "content",
+        heading: "01. Strategic Vision",
+        points: [
+          "Define clear objectives",
+          "Analyze market landscape",
+          "Identify opportunities",
+          "Set measurable goals"
+        ]
+      },
+      {
+        type: "content",
+        heading: "02. Technical Mastery",
+        points: [
+          "Choose optimal tech stack",
+          "Implement best practices",
+          "Ensure scalability",
+          "Maintain security"
+        ]
+      },
+      {
+        type: "content",
+        heading: "03. User-Centric Design",
+        points: [
+          "Research user needs",
+          "Create intuitive flows",
+          "Test & iterate",
+          "Optimize experience"
+        ]
+      },
+      {
+        type: "content",
+        heading: "04. Quality Assurance",
+        points: [
+          "Rigorous testing",
+          "Performance optimization",
+          "Cross-platform validation",
+          "Continuous monitoring"
+        ]
+      }
+    ]
+  },
+  {
+    title: "Future of Digital Reality",
+    slides: [
+      {
+        type: "cover",
+        heading: "Shaping Tomorrow",
+        subheading: "Digital trends that define the future",
+        background: "bg-gradient-to-br from-gray-900 to-black"
+      },
+      {
+        type: "statistic",
+        heading: "AI Integration",
+        value: "73%",
+        description: "of enterprises will integrate AI by 2025"
+      },
+      {
+        type: "statistic",
+        heading: "Quantum Computing",
+        value: "45B",
+        description: "market size projection by 2028"
+      },
+      {
+        type: "statistic",
+        heading: "Digital Transformation",
+        value: "2.8T",
+        description: "global spending forecast"
+      },
+      {
+        type: "cta",
+        heading: "Partner With Us",
+        description: "Let's build the future together",
+        action: "Contact: beyond@softylus.com"
+      }
+    ]
+  },
+  {
+    title: "Design Philosophy",
+    slides: [
+      {
+        type: "cover",
+        heading: "Minimalist Precision",
+        subheading: "The art of digital design",
+        background: "bg-gradient-to-br from-black via-gray-900 to-black"
+      },
+      {
+        type: "principle",
+        heading: "Form Follows Function",
+        description: "Every element serves a purpose",
+        icon: "M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
+      },
+      {
+        type: "principle",
+        heading: "White Space",
+        description: "Breathing room for content",
+        icon: "M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"
+      },
+      {
+        type: "principle",
+        heading: "Visual Hierarchy",
+        description: "Guide the user's journey",
+        icon: "M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+      }
+    ]
+  }
+];
+---
+
+<Layout title="Instagram Carousels">
+  <div class="min-h-screen bg-gray-50 py-20 px-4">
+    <div class="container mx-auto max-w-6xl">
+      <h1 class="text-4xl font-display font-bold text-center mb-16">Instagram Carousels</h1>
+      
+      <div class="space-y-32">
+        {carousels.map((carousel, carouselIndex) => (
+          <div class="carousel-container">
+            <h2 class="text-2xl font-display font-bold mb-8">{carousel.title}</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+              {carousel.slides.map((slide, slideIndex) => (
+                <div class="instagram-slide aspect-square relative overflow-hidden bg-white shadow-lg">
+                  {slide.type === 'cover' && (
+                    <div class={`absolute inset-0 ${slide.background}`}>
+                      <!-- Background Pattern -->
+                      <div class="absolute inset-0 opacity-[0.03]">
+                        <div class="absolute inset-0 bg-grid-pattern transform rotate-3"></div>
+                      </div>
+                      
+                      <!-- Content -->
+                      <div class="relative h-full flex flex-col items-center justify-center p-8 text-white text-center">
+                        <div class="brand-mark mb-6">
+                          <div class="w-16 h-16 relative">
+                            <div class="absolute inset-0 border-2 border-white rounded-full"></div>
+                            <div class="absolute inset-[22%] border border-white rounded-full"></div>
+                            <div class="absolute inset-[38%] bg-white transform rotate-45">
+                              <div class="absolute inset-[30%] bg-black rounded-full"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <h3 class="text-2xl font-display font-bold mb-2">{slide.heading}</h3>
+                        <p class="text-sm text-white/80 uppercase tracking-wider">{slide.subheading}</p>
+                        
+                        <!-- Slide indicator -->
+                        <div class="absolute bottom-6 flex items-center space-x-1">
+                          {Array(carousel.slides.length).fill(null).map((_, i) => (
+                            <div class={`w-1 h-1 rounded-full ${i === 0 ? 'bg-white' : 'bg-white/30'}`}></div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                  
+                  {slide.type === 'content' && (
+                    <div class="absolute inset-0 bg-white">
+                      <div class="h-full flex flex-col p-8">
+                        <div class="slide-number text-sm text-black/30 mb-6">{String(slideIndex + 1).padStart(2, '0')}</div>
+                        <h3 class="text-xl font-display font-bold mb-6">{slide.heading}</h3>
+                        <ul class="space-y-4 flex-grow">
+                          {slide.points.map(point => (
+                            <li class="flex items-start">
+                              <div class="w-1.5 h-1.5 bg-black rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                              <span class="text-sm">{point}</span>
+                            </li>
+                          ))}
+                        </ul>
+                        <div class="softylus-tag text-sm text-black/50">@softylus</div>
+                      </div>
+                    </div>
+                  )}
+                  
+                  {slide.type === 'statistic' && (
+                    <div class="absolute inset-0 bg-black">
+                      <div class="h-full flex flex-col items-center justify-center p-8 text-center">
+                        <h3 class="text-white/70 text-sm uppercase tracking-wider mb-4">{slide.heading}</h3>
+                        <div class="text-5xl font-display font-bold text-white mb-4">{slide.value}</div>
+                        <p class="text-white/80 text-sm max-w-[200px]">{slide.description}</p>
+                      </div>
+                    </div>
+                  )}
+                  
+                  {slide.type === 'principle' && (
+                    <div class="absolute inset-0 bg-white">
+                      <div class="h-full flex flex-col items-center justify-center p-8 text-center">
+                        <div class="w-16 h-16 bg-black rounded-full flex items-center justify-center mb-6">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d={slide.icon} />
+                          </svg>
+                        </div>
+                        <h3 class="text-xl font-display font-bold mb-3">{slide.heading}</h3>
+                        <p class="text-sm text-gray-600">{slide.description}</p>
+                      </div>
+                    </div>
+                  )}
+                  
+                  {slide.type === 'cta' && (
+                    <div class="absolute inset-0 bg-black">
+                      <div class="h-full flex flex-col items-center justify-center p-8 text-center text-white">
+                        <h3 class="text-2xl font-display font-bold mb-4">{slide.heading}</h3>
+                        <p class="text-white/70 mb-6">{slide.description}</p>
+                        <div class="text-sm font-medium">{slide.action}</div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .bg-grid-pattern {
+    background-image: 
+      linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  .instagram-slide {
+    border-radius: 4px;
+    transform: translateZ(0);
+  }
+
+  .brand-mark {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .slide-number {
+    font-family: 'Playfair Display', serif;
+  }
+
+  .softylus-tag {
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  /* Reduced Motion */
+  @media (prefers-reduced-motion: reduce) {
+    .brand-mark {
+      animation: none;
+    }
+  }
+</style>

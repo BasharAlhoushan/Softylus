@@ -1,0 +1,475 @@
+{Previous content remains exactly the same until the slide renderers section. After the Quantum slides renderer, add:}
+
+                  {/* 3D Concept Slides */}
+                  {slide.type === '3d-concept' && (
+                    <div class="absolute inset-0 bg-gradient-to-br from-gray-900 to-black">
+                      <div class="h-full flex flex-col items-center justify-center p-8 text-white text-center">
+                        <div class="perspective-container mb-6">
+                          {slide.elements.map((element, i) => (
+                            <div class="layer-card" style={`--depth: ${i * 40}px`}>
+                              <span class="text-sm font-medium">{element}</span>
+                            </div>
+                          ))}
+                        </div>
+                        <h3 class="text-2xl font-display font-bold">{slide.heading}</h3>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* 3D Principle Slides */}
+                  {slide.type === '3d-principle' && (
+                    <div class="absolute inset-0 bg-black">
+                      <div class="h-full flex flex-col items-center justify-center p-8 text-white text-center">
+                        <div class="spatial-grid mb-6">
+                          <div class="grid-plane"></div>
+                          <div class="grid-axis x"></div>
+                          <div class="grid-axis y"></div>
+                          <div class="grid-axis z"></div>
+                        </div>
+                        <h3 class="text-xl font-display font-bold mb-2">{slide.heading}</h3>
+                        <p class="text-sm text-white/70">{slide.concept}</p>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* 3D Showcase Slides */}
+                  {slide.type === '3d-showcase' && (
+                    <div class="absolute inset-0 bg-gradient-to-br from-gray-900 to-black">
+                      <div class="h-full flex flex-col items-center justify-center p-8 text-white text-center">
+                        <div class="layer-stack mb-6">
+                          {Array(5).fill(null).map((_, i) => (
+                            <div class="stack-layer" style={`--index: ${i}`}></div>
+                          ))}
+                        </div>
+                        <h3 class="text-xl font-display font-bold">{slide.heading}</h3>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Timeline Slides */}
+                  {slide.type === 'timeline' && (
+                    <div class="absolute inset-0 bg-black">
+                      <div class="h-full flex flex-col items-center justify-center p-8 text-white text-center">
+                        <div class="time-marker mb-6">
+                          <div class="year-display">{slide.year}</div>
+                          <div class="time-line"></div>
+                        </div>
+                        <h3 class="text-2xl font-display font-bold mb-2">{slide.heading}</h3>
+                        <p class="text-sm text-white/70">{slide.event}</p>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Timeline Split Slides */}
+                  {slide.type === 'timeline-split' && (
+                    <div class="absolute inset-0 bg-gradient-to-br from-gray-900 to-black">
+                      <div class="h-full flex flex-col items-center justify-center p-8 text-white">
+                        <div class="time-comparison w-full">
+                          <div class="past-time text-center mb-8">
+                            <span class="block text-3xl font-display">{slide.past}</span>
+                            <div class="time-dot past"></div>
+                          </div>
+                          <div class="time-connection">
+                            <div class="connection-line"></div>
+                            <div class="innovation-tag">{slide.innovation}</div>
+                          </div>
+                          <div class="future-time text-center mt-8">
+                            <div class="time-dot future"></div>
+                            <span class="block text-3xl font-display">{slide.future}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Binary Slides */}
+                  {slide.type === 'binary' && (
+                    <div class="absolute inset-0 bg-black">
+                      <div class="binary-matrix absolute inset-0 opacity-20"></div>
+                      <div class="relative h-full flex flex-col items-center justify-center p-8 text-white text-center">
+                        <h3 class="text-2xl font-display font-bold mb-2">{slide.heading}</h3>
+                        <div class="binary-pattern"></div>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Binary Art Slides */}
+                  {slide.type === 'binary-art' && (
+                    <div class="absolute inset-0 bg-gradient-to-br from-gray-900 to-black">
+                      <div class="matrix-canvas absolute inset-0 opacity-30"></div>
+                      <div class="relative h-full flex flex-col items-center justify-center p-8 text-white text-center">
+                        <h3 class="text-xl font-display font-bold mb-2">{slide.concept}</h3>
+                        <div class="digital-canvas">
+                          <div class="canvas-grid">
+                            {Array(64).fill(null).map(() => (
+                              <div class="canvas-pixel"></div>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Geometry Slides */}
+                  {slide.type === 'geometry' && (
+                    <div class="absolute inset-0 bg-black">
+                      <div class="h-full flex flex-col items-center justify-center p-8 text-white text-center">
+                        <div class="sacred-geometry mb-6">
+                          <div class="geometry-circle"></div>
+                          <div class="geometry-square"></div>
+                          <div class="geometry-triangle"></div>
+                        </div>
+                        <h3 class="text-2xl font-display font-bold">{slide.heading}</h3>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Geometry Principle Slides */}
+                  {slide.type === 'geometry-principle' && (
+                    <div class="absolute inset-0 bg-gradient-to-br from-gray-900 to-black">
+                      <div class="h-full flex flex-col items-center justify-center p-8 text-white text-center">
+                        <div class="golden-ratio mb-6">
+                          <div class="ratio-spiral"></div>
+                          <div class="ratio-number">{slide.ratio}</div>
+                        </div>
+                        <h3 class="text-xl font-display font-bold">{slide.heading}</h3>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Alchemy Slides */}
+                  {slide.type === 'alchemy' && (
+                    <div class="absolute inset-0 bg-black">
+                      <div class="h-full flex flex-col items-center justify-center p-8 text-white text-center">
+                        <div class="alchemy-symbol mb-6">
+                          {slide.elements.map((element, i) => (
+                            <div class="element-circle" style={`--delay: ${i * 0.2}s`}>
+                              <span class="element-text">{element}</span>
+                            </div>
+                          ))}
+                        </div>
+                        <h3 class="text-2xl font-display font-bold">{slide.heading}</h3>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Wave Slides */}
+                  {slide.type === 'wave' && (
+                    <div class="absolute inset-0 bg-gradient-to-br from-gray-900 to-black">
+                      <div class="h-full flex flex-col items-center justify-center p-8 text-white text-center">
+                        <div class="wave-container mb-6">
+                          <div class="wave-form"></div>
+                        </div>
+                        <h3 class="text-2xl font-display font-bold">{slide.heading}</h3>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Void Slides */}
+                  {slide.type === 'void' && (
+                    <div class="absolute inset-0 bg-black">
+                      <div class="h-full flex flex-col items-center justify-center p-8 text-white text-center">
+                        <div class="void-space mb-6">
+                          <div class="void-object"></div>
+                        </div>
+                        <h3 class="text-2xl font-display font-bold">{slide.heading}</h3>
+                        <p class="text-sm text-white/70 mt-2">{slide.concept}</p>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  /* Existing styles remain the same */
+
+  /* 3D Concept Styles */
+  .perspective-container {
+    perspective: 1000px;
+    width: 200px;
+    height: 200px;
+    position: relative;
+  }
+
+  .layer-card {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateZ(var(--depth));
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  /* Spatial Grid */
+  .spatial-grid {
+    width: 150px;
+    height: 150px;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateX(45deg) rotateZ(45deg);
+  }
+
+  .grid-plane {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px),
+                linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  .grid-axis {
+    position: absolute;
+    background: white;
+  }
+
+  .grid-axis.x { width: 100%; height: 1px; }
+  .grid-axis.y { width: 1px; height: 100%; }
+  .grid-axis.z {
+    width: 1px;
+    height: 100%;
+    transform: rotateY(90deg);
+  }
+
+  /* Layer Stack */
+  .layer-stack {
+    position: relative;
+    width: 150px;
+    height: 150px;
+  }
+
+  .stack-layer {
+    position: absolute;
+    inset: 0;
+    border: 1px solid white;
+    transform: translateZ(calc(var(--index) * 10px));
+    opacity: calc(1 - (var(--index) * 0.2));
+  }
+
+  /* Timeline Styles */
+  .time-marker {
+    position: relative;
+    width: 2px;
+    height: 100px;
+    background: white;
+  }
+
+  .year-display {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
+  /* Time Comparison */
+  .time-comparison {
+    position: relative;
+  }
+
+  .time-dot {
+    width: 12px;
+    height: 12px;
+    background: white;
+    border-radius: 50%;
+    margin: 1rem auto;
+  }
+
+  .connection-line {
+    width: 2px;
+    height: 100px;
+    background: linear-gradient(to bottom, white, rgba(255,255,255,0.3));
+    margin: 0 auto;
+  }
+
+  .innovation-tag {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255,255,255,0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    font-size: 0.875rem;
+  }
+
+  /* Binary Matrix */
+  .binary-matrix {
+    background: linear-gradient(90deg, 
+      transparent 0%,
+      rgba(255,255,255,0.1) 50%,
+      transparent 100%
+    );
+    animation: matrixScan 2s linear infinite;
+  }
+
+  @keyframes matrixScan {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(100%); }
+  }
+
+  /* Digital Canvas */
+  .canvas-grid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 2px;
+    width: 200px;
+    height: 200px;
+  }
+
+  .canvas-pixel {
+    background: rgba(255,255,255,0.1);
+    aspect-ratio: 1;
+    transition: background-color 0.3s ease;
+  }
+
+  .canvas-pixel:hover {
+    background: white;
+  }
+
+  /* Sacred Geometry */
+  .sacred-geometry {
+    width: 200px;
+    height: 200px;
+    position: relative;
+  }
+
+  .geometry-circle {
+    position: absolute;
+    inset: 0;
+    border: 2px solid white;
+    border-radius: 50%;
+    animation: rotate 10s linear infinite;
+  }
+
+  .geometry-square {
+    position: absolute;
+    inset: 20%;
+    border: 2px solid white;
+    animation: rotate 8s linear infinite reverse;
+  }
+
+  .geometry-triangle {
+    position: absolute;
+    inset: 30%;
+    clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+    background: rgba(255,255,255,0.2);
+    animation: rotate 6s linear infinite;
+  }
+
+  @keyframes rotate {
+    to { transform: rotate(360deg); }
+  }
+
+  /* Golden Ratio */
+  .golden-ratio {
+    width: 200px;
+    height: 200px;
+    position: relative;
+  }
+
+  .ratio-spiral {
+    position: absolute;
+    inset: 0;
+    border: 2px solid white;
+    border-radius: 50%;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    animation: unwind 4s ease-in-out infinite;
+  }
+
+  @keyframes unwind {
+    0% { clip-path: polygon(0 0, 0 0, 0 100%, 0 100%); }
+    100% { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+  }
+
+  /* Alchemy Symbols */
+  .alchemy-symbol {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .element-circle {
+    width: 60px;
+    height: 60px;
+    border: 2px solid white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: elementFade 2s ease-in-out infinite;
+    animation-delay: var(--delay);
+  }
+
+  @keyframes elementFade {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+  }
+
+  /* Wave Form */
+  .wave-container {
+    width: 200px;
+    height: 100px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .wave-form {
+    position: absolute;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, white, transparent);
+    animation: waveMove 3s ease-in-out infinite;
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120'%3E%3Cpath d='M0,0 C300,30 600,-30 1200,0' fill='none' stroke='white'/%3E%3C/svg%3E");
+    mask-size: 200% 100%;
+    mask-repeat: repeat-x;
+  }
+
+  @keyframes waveMove {
+    from { transform: translateX(-50%); }
+    to { transform: translateX(0); }
+  }
+
+  /* Void Space */
+  .void-space {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    background: radial-gradient(circle at center, transparent, rgba(255,255,255,0.1));
+  }
+
+  .void-object {
+    position: absolute;
+    inset: 40%;
+    background: white;
+    animation: voidPulse 4s ease-in-out infinite;
+  }
+
+  @keyframes voidPulse {
+    0%, 100% { transform: scale(0.8); opacity: 0.3; }
+    50% { transform: scale(1.2); opacity: 0.8; }
+  }
+
+  /* Reduced Motion */
+  @media (prefers-reduced-motion: reduce) {
+    .binary-matrix,
+    .ratio-spiral,
+    .geometry-circle,
+    .geometry-square,
+    .geometry-triangle,
+    .element-circle,
+    .wave-form,
+    .void-object {
+      animation: none;
+    }
+  }
+</style>

@@ -1,0 +1,402 @@
+---
+// MobileProcessCards.astro - Mobile-specific implementation of the Process Manifesto
+// This component provides an innovative, touch-friendly approach to exploring methodology
+---
+
+<div class="mobile-process">
+  <!-- Title Card - Always visible for context -->
+  <div class="title-card mb-6" data-aos="fade-up">
+    <div class="relative p-6 bg-black text-white rounded-lg overflow-hidden shadow-lg">
+      <h3 class="text-2xl font-display font-bold mb-1 relative z-10">Our Methodology</h3>
+      <p class="text-white/80 text-sm relative z-10">Tap cards below to explore our process</p>
+      
+      <!-- Visual elements -->
+      <div class="absolute top-0 right-0 w-full h-full bg-gradient-to-br from-black via-black to-black/70 opacity-70"></div>
+      <div class="absolute -bottom-6 -right-6 w-24 h-24 border border-white/20 rounded-full"></div>
+      <div class="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/10"></div>
+    </div>
+  </div>
+  
+  <!-- Interactive Process Cards -->
+  <div class="process-cards space-y-3">
+    <!-- Discover Card -->
+    <div class="process-card" data-aos="fade-up" data-aos-delay="100">
+      <button class="card-toggle w-full text-left" aria-expanded="false" aria-controls="discover-content">
+        <div class="flex items-center p-4 bg-white rounded-lg shadow-md border border-gray-100">
+          <div class="icon-container mr-4 p-3 bg-black text-white rounded-full flex-shrink-0">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+          </div>
+          <div>
+            <div class="flex items-center justify-between">
+              <h4 class="text-lg font-display font-bold">Discover</h4>
+              <span class="step-number font-display text-black/20 text-sm mr-2">01</span>
+            </div>
+          </div>
+          <div class="toggle-icon ml-auto transform transition-transform duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7" />
+            </svg>
+          </div>
+        </div>
+      </button>
+      <div id="discover-content" class="card-content overflow-hidden transition-all max-h-0 duration-300 ease-in-out">
+        <div class="p-4 bg-gray-50 rounded-b-lg border-t-0 border border-gray-100">
+          <p class="text-gray-700 mb-3">
+            Immersive research and deep analysis of objectives, constraints, and possibilities.
+          </p>
+          <div class="text-sm text-gray-600">
+            <div class="font-medium mb-1">Key activities:</div>
+            <ul class="list-disc list-inside space-y-1">
+              <li>User research & interviews</li>
+              <li>Competitive landscape analysis</li>
+              <li>Stakeholder workshops</li>
+            </ul>
+          </div>
+          <div class="w-full h-1 bg-gray-200 mt-4 rounded-full overflow-hidden">
+            <div class="progress-bar h-full w-0 bg-black transition-all duration-700"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Define Card -->
+    <div class="process-card" data-aos="fade-up" data-aos-delay="150">
+      <button class="card-toggle w-full text-left" aria-expanded="false" aria-controls="define-content">
+        <div class="flex items-center p-4 bg-white rounded-lg shadow-md border border-gray-100">
+          <div class="icon-container mr-4 p-3 bg-black text-white rounded-full flex-shrink-0">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+            </svg>
+          </div>
+          <div>
+            <div class="flex items-center justify-between">
+              <h4 class="text-lg font-display font-bold">Define</h4>
+              <span class="step-number font-display text-black/20 text-sm mr-2">02</span>
+            </div>
+          </div>
+          <div class="toggle-icon ml-auto transform transition-transform duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7" />
+            </svg>
+          </div>
+        </div>
+      </button>
+      <div id="define-content" class="card-content overflow-hidden transition-all max-h-0 duration-300 ease-in-out">
+        <div class="p-4 bg-gray-50 rounded-b-lg border-t-0 border border-gray-100">
+          <p class="text-gray-700 mb-3">
+            Crystallizing insights into precise project parameters and clear success metrics.
+          </p>
+          <div class="text-sm text-gray-600">
+            <div class="font-medium mb-1">Key activities:</div>
+            <ul class="list-disc list-inside space-y-1">
+              <li>Strategic blueprinting</li>
+              <li>Project scope definition</li>
+              <li>Success metrics identification</li>
+            </ul>
+          </div>
+          <div class="w-full h-1 bg-gray-200 mt-4 rounded-full overflow-hidden">
+            <div class="progress-bar h-full w-0 bg-black transition-all duration-700"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Design Card -->
+    <div class="process-card" data-aos="fade-up" data-aos-delay="200">
+      <button class="card-toggle w-full text-left" aria-expanded="false" aria-controls="design-content">
+        <div class="flex items-center p-4 bg-white rounded-lg shadow-md border border-gray-100">
+          <div class="icon-container mr-4 p-3 bg-black text-white rounded-full flex-shrink-0">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+            </svg>
+          </div>
+          <div>
+            <div class="flex items-center justify-between">
+              <h4 class="text-lg font-display font-bold">Design</h4>
+              <span class="step-number font-display text-black/20 text-sm mr-2">03</span>
+            </div>
+          </div>
+          <div class="toggle-icon ml-auto transform transition-transform duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7" />
+            </svg>
+          </div>
+        </div>
+      </button>
+      <div id="design-content" class="card-content overflow-hidden transition-all max-h-0 duration-300 ease-in-out">
+        <div class="p-4 bg-gray-50 rounded-b-lg border-t-0 border border-gray-100">
+          <p class="text-gray-700 mb-3">
+            Transforming concepts into visually striking and functionally intuitive frameworks.
+          </p>
+          <div class="text-sm text-gray-600">
+            <div class="font-medium mb-1">Key activities:</div>
+            <ul class="list-disc list-inside space-y-1">
+              <li>Information architecture</li>
+              <li>UI/UX design systems</li>
+              <li>Interactive prototyping</li>
+            </ul>
+          </div>
+          <div class="w-full h-1 bg-gray-200 mt-4 rounded-full overflow-hidden">
+            <div class="progress-bar h-full w-0 bg-black transition-all duration-700"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Develop Card -->
+    <div class="process-card" data-aos="fade-up" data-aos-delay="250">
+      <button class="card-toggle w-full text-left" aria-expanded="false" aria-controls="develop-content">
+        <div class="flex items-center p-4 bg-white rounded-lg shadow-md border border-gray-100">
+          <div class="icon-container mr-4 p-3 bg-black text-white rounded-full flex-shrink-0">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+            </svg>
+          </div>
+          <div>
+            <div class="flex items-center justify-between">
+              <h4 class="text-lg font-display font-bold">Develop</h4>
+              <span class="step-number font-display text-black/20 text-sm mr-2">04</span>
+            </div>
+          </div>
+          <div class="toggle-icon ml-auto transform transition-transform duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7" />
+            </svg>
+          </div>
+        </div>
+      </button>
+      <div id="develop-content" class="card-content overflow-hidden transition-all max-h-0 duration-300 ease-in-out">
+        <div class="p-4 bg-gray-50 rounded-b-lg border-t-0 border border-gray-100">
+          <p class="text-gray-700 mb-3">
+            Engineering elegant solutions with clean code and scalable architecture.
+          </p>
+          <div class="text-sm text-gray-600">
+            <div class="font-medium mb-1">Key activities:</div>
+            <ul class="list-disc list-inside space-y-1">
+              <li>Front-end development</li>
+              <li>Back-end systems engineering</li>
+              <li>Performance optimization</li>
+            </ul>
+          </div>
+          <div class="w-full h-1 bg-gray-200 mt-4 rounded-full overflow-hidden">
+            <div class="progress-bar h-full w-0 bg-black transition-all duration-700"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Deploy Card -->
+    <div class="process-card" data-aos="fade-up" data-aos-delay="300">
+      <button class="card-toggle w-full text-left" aria-expanded="false" aria-controls="deploy-content">
+        <div class="flex items-center p-4 bg-white rounded-lg shadow-md border border-gray-100">
+          <div class="icon-container mr-4 p-3 bg-black text-white rounded-full flex-shrink-0">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <div>
+            <div class="flex items-center justify-between">
+              <h4 class="text-lg font-display font-bold">Deploy</h4>
+              <span class="step-number font-display text-black/20 text-sm mr-2">05</span>
+            </div>
+          </div>
+          <div class="toggle-icon ml-auto transform transition-transform duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7" />
+            </svg>
+          </div>
+        </div>
+      </button>
+      <div id="deploy-content" class="card-content overflow-hidden transition-all max-h-0 duration-300 ease-in-out">
+        <div class="p-4 bg-gray-50 rounded-b-lg border-t-0 border border-gray-100">
+          <p class="text-gray-700 mb-3">
+            Meticulous testing and seamless implementation through a methodical launch framework.
+          </p>
+          <div class="text-sm text-gray-600">
+            <div class="font-medium mb-1">Key activities:</div>
+            <ul class="list-disc list-inside space-y-1">
+              <li>Quality assurance</li>
+              <li>Server configuration</li>
+              <li>Continuous integration</li>
+            </ul>
+          </div>
+          <div class="w-full h-1 bg-gray-200 mt-4 rounded-full overflow-hidden">
+            <div class="progress-bar h-full w-0 bg-black transition-all duration-700"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Evolve Card -->
+    <div class="process-card" data-aos="fade-up" data-aos-delay="350">
+      <button class="card-toggle w-full text-left" aria-expanded="false" aria-controls="evolve-content">
+        <div class="flex items-center p-4 bg-white rounded-lg shadow-md border border-gray-100">
+          <div class="icon-container mr-4 p-3 bg-black text-white rounded-full flex-shrink-0">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+            </svg>
+          </div>
+          <div>
+            <div class="flex items-center justify-between">
+              <h4 class="text-lg font-display font-bold">Evolve</h4>
+              <span class="step-number font-display text-black/20 text-sm mr-2">06</span>
+            </div>
+          </div>
+          <div class="toggle-icon ml-auto transform transition-transform duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7" />
+            </svg>
+          </div>
+        </div>
+      </button>
+      <div id="evolve-content" class="card-content overflow-hidden transition-all max-h-0 duration-300 ease-in-out">
+        <div class="p-4 bg-gray-50 rounded-b-lg border-t-0 border border-gray-100">
+          <p class="text-gray-700 mb-3">
+            Continuous optimization and thoughtful iteration based on performance analytics.
+          </p>
+          <div class="text-sm text-gray-600">
+            <div class="font-medium mb-1">Key activities:</div>
+            <ul class="list-disc list-inside space-y-1">
+              <li>Performance monitoring</li>
+              <li>User feedback analysis</li>
+              <li>Iterative enhancement</li>
+            </ul>
+          </div>
+          <div class="w-full h-1 bg-gray-200 mt-4 rounded-full overflow-hidden">
+            <div class="progress-bar h-full w-0 bg-black transition-all duration-700"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Initialize the cards toggling functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    // Select all toggle buttons
+    const toggleButtons = document.querySelectorAll('.card-toggle');
+    
+    toggleButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        // Get the ID of the content to toggle
+        const contentId = this.getAttribute('aria-controls');
+        const content = document.getElementById(contentId);
+        const iconContainer = this.querySelector('.icon-container');
+        const progressBar = content.querySelector('.progress-bar');
+        const toggleIcon = this.querySelector('.toggle-icon');
+        
+        // Get the current state
+        const isExpanded = this.getAttribute('aria-expanded') === 'true';
+        
+        // Update ARIA attributes
+        this.setAttribute('aria-expanded', !isExpanded);
+        
+        if (!isExpanded) {
+          // Expand the content
+          content.style.maxHeight = content.scrollHeight + 'px';
+          toggleIcon.classList.add('rotate-180');
+          iconContainer.classList.add('scale-110');
+          setTimeout(() => {
+            if (progressBar) progressBar.style.width = '100%';
+          }, 400);
+        } else {
+          // Collapse the content
+          content.style.maxHeight = '0px';
+          toggleIcon.classList.remove('rotate-180');
+          iconContainer.classList.remove('scale-110');
+          if (progressBar) progressBar.style.width = '0';
+        }
+      });
+    });
+    
+    // Optional: Add ripple effect for better touch feedback
+    const buttons = document.querySelectorAll('.card-toggle');
+    buttons.forEach(button => {
+      button.addEventListener('click', function(e) {
+        const x = e.clientX - e.target.getBoundingClientRect().left;
+        const y = e.clientY - e.target.getBoundingClientRect().top;
+        
+        const ripple = document.createElement('span');
+        ripple.classList.add('ripple-effect');
+        ripple.style.left = `${x}px`;
+        ripple.style.top = `${y}px`;
+        
+        this.appendChild(ripple);
+        
+        setTimeout(() => {
+          ripple.remove();
+        }, 600);
+      });
+    });
+    
+    // Optional: Open first card by default
+    // if (toggleButtons.length > 0) {
+    //   toggleButtons[0].click();
+    // }
+  });
+</script>
+
+<style>
+  /* Base styles for the mobile process section */
+  .mobile-process {
+    width: 100%;
+  }
+  
+  /* Card toggle button styles */
+  .card-toggle {
+    width: 100%;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+  }
+  
+  .card-toggle:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0,0,0,0.2);
+  }
+  
+  .icon-container {
+    transition: all 0.3s ease;
+  }
+  
+  /* Progress bar animation */
+  .progress-bar {
+    transition: width 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  /* Card content transition */
+  .card-content {
+    transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* Ripple effect for touch feedback */
+  .ripple-effect {
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.05);
+    width: 100px;
+    height: 100px;
+    margin-top: -50px;
+    margin-left: -50px;
+    animation: ripple 0.6s linear;
+    transform: scale(0);
+    pointer-events: none;
+  }
+  
+  @keyframes ripple {
+    to {
+      transform: scale(4);
+      opacity: 0;
+    }
+  }
+  
+  /* Pattern for title card */
+  .title-card .pattern-grid {
+    background-image: 
+      linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+</style>

@@ -1,0 +1,70 @@
+---
+// BrandHero.astro - Hero section for brand guidelines
+---
+
+<section class="relative py-24 md:py-32 px-4 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
+  <!-- Background Elements -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute inset-0 opacity-[0.03]" aria-hidden="true">
+      <div class="absolute inset-0 bg-grid-pattern transform -skew-y-6"></div>
+    </div>
+    
+    <!-- Geometric shapes -->
+    <div class="absolute top-1/4 right-1/4 w-64 h-64 border border-black/5 rounded-full opacity-20 transform rotate-12"></div>
+    <div class="absolute bottom-0 left-1/3 w-80 h-80 border border-black/5 rounded-full opacity-20 transform -rotate-6 translate-y-1/2"></div>
+  </div>
+
+  <div class="container mx-auto relative">
+    <!-- Breadcrumb -->
+    <div class="mb-6 text-sm" data-aos="fade-up">
+      <nav class="flex" aria-label="Breadcrumb">
+        <ol class="flex items-center space-x-2">
+          <li>
+            <a href="/" class="text-gray-500 hover:text-black transition-colors">Home</a>
+          </li>
+          <li class="flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+            <span class="ml-2 text-black font-medium">Brand Guidelines</span>
+          </li>
+        </ol>
+      </nav>
+    </div>
+
+    <div class="max-w-3xl mx-auto text-center">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-tight mb-6" data-aos="fade-up">
+        Brand Guidelines
+        <span class="block text-2xl md:text-3xl lg:text-4xl mt-2 text-gray-600">Version 1.0</span>
+      </h1>
+      <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+        A comprehensive guide to the Softylus brand identity. These guidelines ensure consistency and clarity across all our digital touchpoints.
+      </p>
+      
+      <!-- Last Updated -->
+      <div class="text-sm text-gray-500" data-aos="fade-up" data-aos-delay="200">
+        Last updated: {new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .bg-grid-pattern {
+    background-image: 
+      linear-gradient(to right, rgba(0,0,0,0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0,0,0,0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  /* Responsive typography */
+  @media (max-width: 768px) {
+    h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+    }
+
+    .text-xl {
+      font-size: 1.125rem;
+    }
+  }
+</style>

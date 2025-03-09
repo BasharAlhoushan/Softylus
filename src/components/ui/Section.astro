@@ -1,0 +1,124 @@
+---
+import { siteContent } from '@lib/content';
+
+
+export interface Props {
+  id?: string;
+  contentKey?: keyof typeof siteContent;
+  sectionKey?: string;
+  title?: string;
+  subtitle?: string;
+  description?: string;
+  background?: 'white' | 'gray' | 'black';
+  padding?: 'sm' | 'md' | 'lg' | 'xl';
+  class?: string;
+  titleAnimation?: boolean;
+  fullWidth?: boolean;
+}
+
+const { 
+  id, 
+  contentKey,
+  sectionKey = 'section',
+  title: propTitle, 
+  subtitle: propSubtitle, 
+  description: propDescription, 
+  background = 'white',
+  padding = 'lg',
+  class: className = '',
+  titleAnimation = true,
+  fullWidth = false
+} = Astro.props;
+
+// Get content from content file if contentKey is provided
+let title = propTitle;
+let subtitle = propSubtitle;
+let description = propDescription;
+
+if (contentKey && sectionKey) {
+  const sectionContent = siteContent[contentKey][sectionKey];
+  if (sectionContent) {
+    title = title || sectionContent.title;
+    subtitle = subtitle || sectionContent.subtitle;
+    description = description || sectionContent.description;
+  }
+}
+
+// Dynamic classes based on background
+const bgClasses = {
+  white: 'bg-white',
+  gray: 'bg-gray-50',
+  black: 'bg-black text-white'
+};
+
+// Padding classes
+const paddingClasses = {
+  sm: 'py-8 md:py-12',
+  md: 'py-12 md:py-16',
+  lg: 'py-16 md:py-24',
+  xl: 'py-20 md:py-32'
+};
+---
+
+<section 
+  id={id} 
+  class={`${bgClasses[background]} ${paddingClasses[padding]} px-4 relative overflow-hidden ${className}`}
+>
+  <div class={fullWidth ? 'w-full' : 'container mx-auto'}>
+    {(title || subtitle || description) && (
+      <div class="max-w-3xl mx-auto text-center mb-12 md:mb-16" data-aos={titleAnimation ? "fade-up" : null}>
+        {subtitle && (
+          <span class="inline-block px-3 py-1 bg-black text-white text-sm mb-4">{subtitle}</span>
+        )}
+        {title && (
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-4">
+            {title}
+          </h2>
+        )}
+        {description && (
+          <p class="text-lg md:text-xl text-gray-600 dark:text-gray-300">
+            {description}
+          </p>
+        )}
+      </div>
+    )}
+    <slot />
+  </div>
+</section>
+
+<style>
+  /* Section background patterns */
+  section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: 
+      linear-gradient(to right, rgba(0,0,0,0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0,0,0,0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.03;
+    pointer-events: none;
+  }
+
+  /* Dark mode adjustments */
+  :global(.dark) section::before {
+    background-image: 
+      linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
+  }
+
+  /* Mobile optimizations */
+  @media (max-width: 768px) {
+    section {
+      overflow-x: hidden;
+    }
+  }
+
+  /* Print styles */
+  @media print {
+    section {
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+  }
+</style>

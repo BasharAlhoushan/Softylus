@@ -1,0 +1,162 @@
+---
+// ProjectFilter.astro - Filterable categories for projects
+
+const categories = [
+  { id: 'all', label: 'All Projects' },
+  { id: 'web', label: 'Web Design' },
+  { id: 'mobile', label: 'Mobile Apps' },
+  { id: 'branding', label: 'Branding' },
+  { id: 'ecommerce', label: 'E-commerce' },
+  { id: 'enterprise', label: 'Enterprise' }
+];
+---
+
+<section class="py-12 px-4 bg-white">
+  <div class="container mx-auto">
+    <!-- Category Filter -->
+    <div class="flex flex-wrap justify-center mb-12" data-aos="fade-up">
+      <div class="filter-container">
+        {categories.map((category, index) => (
+          <button 
+            class={`filter-button ${category.id === 'all' ? 'active' : ''}`}
+            data-category={category.id}
+            aria-pressed={category.id === 'all' ? 'true' : 'false'}
+            data-aos="fade-up" 
+            data-aos-delay={100 + index * 50}
+          >
+            {category.label}
+          </button>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Handle filter functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.filter-button');
+    const projectItems = document.querySelectorAll('.project-item');
+    
+    filterButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        // Update active state
+        filterButtons.forEach(btn => {
+          btn.classList.remove('active');
+          btn.setAttribute('aria-pressed', 'false');
+        });
+        
+        this.classList.add('active');
+        this.setAttribute('aria-pressed', 'true');
+        
+        // Filter projects
+        const selectedCategory = this.getAttribute('data-category');
+        
+        projectItems.forEach(item => {
+          if (selectedCategory === 'all') {
+            item.classList.remove('hidden');
+            
+            // Staggered animation for reappearing items
+            setTimeout(() => {
+              item.classList.remove('opacity-0');
+              item.classList.add('opacity-100');
+            }, 50 * parseInt(item.getAttribute('data-index') || 0));
+          } else {
+            const itemCategories = item.getAttribute('data-categories').split(' ');
+            
+            if (itemCategories.includes(selectedCategory)) {
+              item.classList.remove('hidden');
+              
+              // Staggered animation for reappearing items
+              setTimeout(() => {
+                item.classList.remove('opacity-0');
+                item.classList.add('opacity-100');
+              }, 50 * parseInt(item.getAttribute('data-index') || 0));
+            } else {
+              item.classList.add('opacity-0');
+              
+              // Remove from DOM after fade out
+              setTimeout(() => {
+                item.classList.add('hidden');
+              }, 300); // Match duration of opacity transition
+            }
+          }
+        });
+      });
+    });
+  });
+</script>
+
+<style>
+  .filter-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    justify-content: center;
+  }
+
+  .filter-button {
+    padding: 0.6rem 1.2rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: white;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .filter-button::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: black;
+    transition: width 0.3s ease;
+  }
+
+  .filter-button:hover::after,
+  .filter-button.active::after {
+    width: 100%;
+  }
+
+  .filter-button.active {
+    border-color: black;
+    font-weight: 600;
+  }
+
+  /* Touch optimization */
+  @media (max-width: 768px) {
+    .filter-container {
+      gap: 0.5rem;
+      padding: 0.25rem;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scroll-padding: 1rem;
+      justify-content: flex-start;
+      max-width: 100%;
+    }
+
+    .filter-button {
+      padding: 0.5rem 1rem;
+      white-space: nowrap;
+      font-size: 0.85rem;
+      min-height: 40px;
+    }
+  }
+  
+  /* Reduced motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    .filter-button {
+      transition: none;
+    }
+    
+    .filter-button::after {
+      transition: none;
+    }
+  }
+</style>

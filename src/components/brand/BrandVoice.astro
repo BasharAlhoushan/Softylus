@@ -1,0 +1,210 @@
+---
+// BrandVoice.astro - Tone of voice guidelines
+const voicePrinciples = [
+  {
+    title: "Clear & Direct",
+    description: "We communicate with precision and purpose, avoiding unnecessary complexity.",
+    examples: {
+      do: "Our solution improves performance by 50%.",
+      dont: "Our cutting-edge solution might be able to help you achieve somewhat better performance metrics."
+    }
+  },
+  {
+    title: "Professional & Approachable",
+    description: "We balance expertise with accessibility, making complex topics understandable.",
+    examples: {
+      do: "Let's explore how neural networks can enhance your workflow.",
+      dont: "Our advanced deep learning algorithms leverage sophisticated neural architectures."
+    }
+  },
+  {
+    title: "Confident & Humble",
+    description: "We're confident in our capabilities while remaining open to learning and growth.",
+    examples: {
+      do: "We bring 8 years of experience to every project.",
+      dont: "We're the absolute best in the industry with unmatched expertise."
+    }
+  }
+];
+
+const writingGuidelines = [
+  {
+    category: "Headlines",
+    rules: [
+      "Keep headlines clear and concise",
+      "Use active voice",
+      "Avoid unnecessary punctuation",
+      "Focus on benefits, not features"
+    ]
+  },
+  {
+    category: "Body Copy",
+    rules: [
+      "Use short, clear sentences",
+      "Break text into digestible paragraphs",
+      "Include only one main idea per paragraph",
+      "Use transition words for flow"
+    ]
+  },
+  {
+    category: "CTAs",
+    rules: [
+      "Be specific and action-oriented",
+      "Keep it short (2-4 words)",
+      "Create urgency without pressure",
+      "Use strong verbs"
+    ]
+  }
+];
+---
+
+<section id="voice" class="py-16 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-number">05</span>
+        <h2 class="section-title">Tone of Voice</h2>
+      </div>
+
+      <div class="mt-16">
+        <!-- Voice Principles -->
+        <div class="mb-16" data-aos="fade-up">
+          <h3 class="text-2xl font-display font-bold mb-6">Voice Principles</h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {voicePrinciples.map(principle => (
+              <div class="principle-card">
+                <h4 class="text-xl font-bold mb-3">{principle.title}</h4>
+                <p class="text-gray-600 mb-6">{principle.description}</p>
+                
+                <div class="examples-container">
+                  <div class="example do">
+                    <div class="example-label">Do</div>
+                    <p class="example-text">{principle.examples.do}</p>
+                  </div>
+                  <div class="example dont">
+                    <div class="example-label">Don't</div>
+                    <p class="example-text">{principle.examples.dont}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Writing Guidelines -->
+        <div data-aos="fade-up">
+          <h3 class="text-2xl font-display font-bold mb-6">Writing Guidelines</h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {writingGuidelines.map(guide => (
+              <div class="guideline-card">
+                <h4 class="text-xl font-bold mb-4">{guide.category}</h4>
+                <ul class="space-y-3">
+                  {guide.rules.map(rule => (
+                    <li class="flex items-start">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-black mr-2 flex-shrink-0 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                      </svg>
+                      <span class="text-gray-600">{rule}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Voice Examples -->
+        <div class="mt-16" data-aos="fade-up">
+          <h3 class="text-2xl font-display font-bold mb-6">Voice in Action</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Headlines -->
+            <div class="example-card">
+              <h4 class="text-xl font-bold mb-4">Headlines</h4>
+              <div class="space-y-4">
+                <div class="p-4 bg-white border border-gray-200 rounded">
+                  <div class="text-sm text-gray-500 mb-2">Original</div>
+                  <p class="text-gray-800 font-medium">We Provide Advanced Solutions for Business Growth</p>
+                </div>
+                <div class="p-4 bg-white border border-green-200 rounded">
+                  <div class="text-sm text-green-600 mb-2">Softylus Voice</div>
+                  <p class="text-gray-800 font-medium">Transform Your Digital Reality</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Body Copy -->
+            <div class="example-card">
+              <h4 class="text-xl font-bold mb-4">Body Copy</h4>
+              <div class="space-y-4">
+                <div class="p-4 bg-white border border-gray-200 rounded">
+                  <div class="text-sm text-gray-500 mb-2">Original</div>
+                  <p class="text-gray-800">We utilize cutting-edge technology to deliver optimal solutions for businesses seeking digital transformation initiatives.</p>
+                </div>
+                <div class="p-4 bg-white border border-green-200 rounded">
+                  <div class="text-sm text-green-600 mb-2">Softylus Voice</div>
+                  <p class="text-gray-800">We synthesize the imagined into the tangible, where form embraces function in the poetry of computational elegance.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .principle-card {
+    background: white;
+    padding: 2rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    height: 100%;
+  }
+
+  .examples-container {
+    background: rgba(0, 0, 0, 0.02);
+    border-radius: 0.5rem;
+    overflow: hidden;
+  }
+
+  .example {
+    padding: 1rem;
+  }
+
+  .example.do {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .example-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  .do .example-label {
+    color: #059669;
+  }
+
+  .dont .example-label {
+    color: #dc2626;
+  }
+
+  .example-text {
+    font-size: 0.875rem;
+    color: rgba(0, 0, 0, 0.7);
+  }
+
+  .guideline-card {
+    background: white;
+    padding: 2rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    height: 100%;
+  }
+
+  .example-card {
+    background: rgba(0, 0, 0, 0.02);
+    padding: 2rem;
+    border-radius: 0.5rem;
+  }
+</style>

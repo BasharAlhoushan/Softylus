@@ -1,0 +1,371 @@
+---
+const blogs = [
+  {
+    title: "The Art of Digital Minimalism",
+    excerpt: "Exploring how restraint in design creates more impactful digital experiences that focus on what truly matters...",
+    slug: "digital-minimalism",
+    category: "Design"
+  },
+  {
+    title: "Architecture of Code",
+    excerpt: "The parallels between physical architecture and code structure, and how thoughtful organization creates sustainable solutions...",
+    slug: "code-architecture",
+    category: "Development"
+  },
+  {
+    title: "The Silent Power of White Space",
+    excerpt: "How negative space in interface design speaks volumes and creates rhythm, balance, and user focus...",
+    slug: "power-of-whitespace",
+    category: "UX Design"
+  }
+];
+---
+
+<section class="py-16 md:py-24 px-4 bg-white relative">
+  <!-- Subtle background pattern - optimized for mobile -->
+  <div class="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-gray-50 to-transparent opacity-50"></div>
+  
+  <div class="container mx-auto relative z-10">
+    <div class="max-w-3xl mx-auto text-center mb-12 md:mb-16" data-aos="fade-up">
+      <span class="inline-block px-3 py-1 bg-black text-white text-sm mb-4">Our thinking</span>
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-black mb-4">Intellectual Currents</h2>
+      <p class="text-lg md:text-xl text-gray-600">
+        Thoughts and insights on the ever-evolving digital landscape.
+      </p>
+    </div>
+    
+    <!-- Mobile-optimized blog card grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+      {blogs.map((blog, index) => (
+        <article 
+          class="blog-card" 
+          data-aos="fade-up" 
+          data-aos-delay={100 * (index + 1)}>
+          <div class="blog-category">{blog.category}</div>
+          
+          <div class="blog-image">
+            <svg xmlns="http://www.w3.org/2000/svg" class="blog-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+            </svg>
+            <div class="blog-overlay"></div>
+          </div>
+          
+          <div class="blog-content">
+            <div class="blog-accent"></div>
+            <h3 class="blog-title">{blog.title}</h3>
+            <p class="blog-excerpt">{blog.excerpt}</p>
+            <a href={`/blog/${blog.slug}`} class="blog-link">
+              Continue reading
+              <svg xmlns="http://www.w3.org/2000/svg" class="blog-arrow" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+              </svg>
+            </a>
+          </div>
+          <div class="blog-progress"></div>
+        </article>
+      ))}
+    </div>
+    
+    <!-- Mobile-optimized CTA button -->
+    <div class="text-center mt-10 md:mt-16" data-aos="fade-up">
+      <a href="/blog" class="browse-button">
+        <span class="browse-text">Browse all articles</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="browse-icon" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Blog card - optimized for mobile */
+  .blog-card {
+    position: relative;
+    background-color: white;
+    border: 1px solid black;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    overflow: hidden;
+  }
+  
+  @media not (prefers-reduced-motion: reduce) {
+    .blog-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+    }
+  }
+  
+  /* Category label */
+  .blog-category {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    background-color: black;
+    color: white;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.75rem;
+    transform: translate(0, 0);
+    transition: transform 0.3s ease;
+  }
+  
+  @media not (prefers-reduced-motion: reduce) {
+    .blog-card:hover .blog-category {
+      transform: translate(2px, -2px);
+    }
+  }
+  
+  /* Image area */
+  .blog-image {
+    height: 160px;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Blog icon */
+  .blog-icon {
+    height: 48px;
+    width: 48px;
+    color: white;
+    z-index: 1;
+    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  
+  @media not (prefers-reduced-motion: reduce) {
+    .blog-card:hover .blog-icon {
+      transform: rotate(3deg) scale(1.1);
+    }
+  }
+  
+  /* Overlay effect */
+  .blog-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom right, transparent, rgba(0, 0, 0, 0.6));
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  
+  @media not (prefers-reduced-motion: reduce) {
+    .blog-card:hover .blog-overlay {
+      opacity: 1;
+    }
+  }
+  
+  /* Content area */
+  .blog-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Accent line */
+  .blog-accent {
+    width: 40px;
+    height: 2px;
+    background-color: black;
+    margin-bottom: 1rem;
+    transition: width 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  
+  @media not (prefers-reduced-motion: reduce) {
+    .blog-card:hover .blog-accent {
+      width: 60px;
+    }
+  }
+  
+  /* Title */
+  .blog-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: black;
+    transition: transform 0.3s ease;
+  }
+  
+  @media not (prefers-reduced-motion: reduce) {
+    .blog-card:hover .blog-title {
+      transform: translateX(5px);
+    }
+  }
+  
+  /* Excerpt */
+  .blog-excerpt {
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+  }
+  
+  /* Read more link */
+  .blog-link {
+    display: inline-flex;
+    align-items: center;
+    color: black;
+    font-weight: 500;
+    font-size: 0.9375rem;
+    position: relative;
+    transition: color 0.3s ease;
+    padding: 0.5rem 0;
+    margin-top: auto;
+  }
+  
+  .blog-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: currentColor;
+    transition: width 0.3s ease;
+  }
+  
+  .blog-card:hover .blog-link::after,
+  .blog-link:focus::after {
+    width: 100%;
+  }
+  
+  /* Arrow icon */
+  .blog-arrow {
+    width: 20px;
+    height: 20px;
+    margin-left: 0.5rem;
+    transition: transform 0.3s ease;
+  }
+  
+  @media not (prefers-reduced-motion: reduce) {
+    .blog-card:hover .blog-arrow {
+      transform: translateX(3px);
+    }
+  }
+  
+  /* Progress indicator */
+  .blog-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: black;
+    transition: width 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  
+  @media not (prefers-reduced-motion: reduce) {
+    .blog-card:hover .blog-progress {
+      width: 100%;
+    }
+  }
+  
+  /* Browse button */
+  .browse-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 2rem;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    min-height: 48px; /* Improved tap target for mobile */
+  }
+  
+  .browse-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: black;
+    transition: width 0.3s ease;
+    z-index: 0;
+  }
+  
+  @media not (prefers-reduced-motion: reduce) {
+    .browse-button:hover {
+      color: white;
+      transform: translateY(-3px);
+    }
+    
+    .browse-button:hover::before {
+      width: 100%;
+    }
+  }
+  
+  .browse-text {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .browse-icon {
+    width: 20px;
+    height: 20px;
+    margin-left: 0.5rem;
+    position: relative;
+    z-index: 1;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+  }
+  
+  @media not (prefers-reduced-motion: reduce) {
+    .browse-button:hover .browse-icon {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  /* Touch device optimizations */
+  .touch-device .blog-card {
+    transform: none !important;
+  }
+  
+  .touch-device .blog-link::after {
+    width: 30%;
+  }
+  
+  /* Mobile optimizations */
+  @media (max-width: 640px) {
+    .blog-content {
+      padding: 1.25rem;
+    }
+    
+    .blog-title {
+      font-size: 1.125rem;
+    }
+    
+    .blog-excerpt {
+      font-size: 0.8125rem;
+      margin-bottom: 1rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    
+    .blog-link {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 0.75rem 0;
+    }
+    
+    .browse-button {
+      width: 100%;
+      max-width: 280px;
+    }
+  }
+</style>

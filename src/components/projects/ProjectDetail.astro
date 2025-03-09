@@ -1,0 +1,258 @@
+---
+// ProjectDetail.astro - Component for individual project detail pages
+export interface Props {
+  title: string;
+  description: string;
+  client: string;
+  services: string[];
+  duration: string;
+  year: number;
+  challenge: string;
+  solution: string;
+  results: string[];
+  mainImage: string;
+  gallery: string[];
+  nextProject?: {
+    title: string;
+    slug: string;
+  };
+  previousProject?: {
+    title: string;
+    slug: string;
+  };
+}
+
+const {
+  title,
+  description,
+  client,
+  services,
+  duration,
+  year,
+  challenge,
+  solution,
+  results,
+  mainImage,
+  gallery,
+  nextProject,
+  previousProject
+} = Astro.props;
+---
+
+<div class="project-detail">
+  <!-- Hero Section -->
+  <section class="relative py-24 px-4 bg-white">
+    <div class="container mx-auto">
+      <!-- Breadcrumb -->
+      <div class="mb-8 text-sm" data-aos="fade-up">
+        <nav class="flex" aria-label="Breadcrumb">
+          <ol class="flex items-center space-x-2">
+            <li>
+              <a href="/" class="text-gray-500 hover:text-black transition-colors">Home</a>
+            </li>
+            <li class="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+              <a href="/projects" class="ml-2 text-gray-500 hover:text-black transition-colors">Projects</a>
+            </li>
+            <li class="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+              <span class="ml-2 text-black font-medium">{title}</span>
+            </li>
+          </ol>
+        </nav>
+      </div>
+
+      <!-- Project Title and Description -->
+      <div class="max-w-3xl mb-12" data-aos="fade-up">
+        <h1 class="text-4xl md:text-5xl font-display font-bold mb-6">{title}</h1>
+        <p class="text-xl text-gray-600">{description}</p>
+      </div>
+
+      <!-- Project Details Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 mb-16">
+        <!-- Main Content -->
+        <div class="md:col-span-8" data-aos="fade-up">
+          <div class="main-image mb-8">
+            <img src={mainImage} alt={title} class="w-full h-auto rounded-lg shadow-lg" />
+          </div>
+        </div>
+
+        <!-- Project Metadata -->
+        <div class="md:col-span-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="bg-gray-50 p-8 rounded-lg">
+            <div class="mb-6">
+              <h3 class="text-sm uppercase tracking-wider text-gray-500 mb-2">Client</h3>
+              <p class="font-medium">{client}</p>
+            </div>
+
+            <div class="mb-6">
+              <h3 class="text-sm uppercase tracking-wider text-gray-500 mb-2">Services</h3>
+              <div class="flex flex-wrap gap-2">
+                {services.map(service => (
+                  <span class="inline-block bg-white px-3 py-1 text-sm border border-gray-200 rounded">
+                    {service}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div class="mb-6">
+              <h3 class="text-sm uppercase tracking-wider text-gray-500 mb-2">Duration</h3>
+              <p class="font-medium">{duration}</p>
+            </div>
+
+            <div class="mb-6">
+              <h3 class="text-sm uppercase tracking-wider text-gray-500 mb-2">Year</h3>
+              <p class="font-medium">{year}</p>
+            </div>
+
+            <div class="pt-6 border-t border-gray-200">
+              <a href="#" class="inline-flex items-center text-black font-medium hover:underline">
+                Visit Live Project
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+                  <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Challenge and Solution -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
+        <div data-aos="fade-up">
+          <h2 class="text-2xl font-display font-bold mb-4">The Challenge</h2>
+          <p class="text-gray-600">{challenge}</p>
+        </div>
+
+        <div data-aos="fade-up" data-aos-delay="100">
+          <h2 class="text-2xl font-display font-bold mb-4">Our Solution</h2>
+          <p class="text-gray-600">{solution}</p>
+        </div>
+      </div>
+
+      <!-- Results -->
+      <div class="mb-16" data-aos="fade-up">
+        <h2 class="text-2xl font-display font-bold mb-6">Results</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {results.map(result => (
+            <div class="bg-gray-50 p-6 rounded-lg">
+              <div class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-500 mr-2 flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <p>{result}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Gallery -->
+      <div class="mb-16" data-aos="fade-up">
+        <h2 class="text-2xl font-display font-bold mb-6">Project Gallery</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {gallery.map((image, index) => (
+            <div 
+              class="gallery-item" 
+              data-aos="fade-up" 
+              data-aos-delay={100 * (index + 1)}
+            >
+              <img src={image} alt={`${title} gallery image ${index + 1}`} class="w-full h-auto rounded-lg shadow-md" />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <div class="border-t border-gray-200 pt-12" data-aos="fade-up">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          {previousProject && (
+            <a href={`/projects/${previousProject.slug}`} class="project-nav-link prev mb-6 md:mb-0">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+              </svg>
+              <span>
+                <span class="block text-sm text-gray-500">Previous Project</span>
+                <span class="font-medium">{previousProject.title}</span>
+              </span>
+            </a>
+          )}
+          
+          <a href="/projects" class="project-nav-link all">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+            </svg>
+          </a>
+          
+          {nextProject && (
+            <a href={`/projects/${nextProject.slug}`} class="project-nav-link next">
+              <span>
+                <span class="block text-sm text-gray-500">Next Project</span>
+                <span class="font-medium">{nextProject.title}</span>
+              </span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+              </svg>
+            </a>
+          )}
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<style>
+  .project-nav-link {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 0.375rem;
+    transition: all 0.3s ease;
+  }
+  
+  .project-nav-link:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    border-color: rgba(0, 0, 0, 0.2);
+  }
+  
+  .project-nav-link.all {
+    padding: 0.75rem;
+  }
+  
+  .gallery-item {
+    overflow: hidden;
+    border-radius: 0.5rem;
+    transition: transform 0.3s ease;
+  }
+  
+  .gallery-item:hover {
+    transform: translateY(-5px);
+  }
+  
+  /* Touch optimization */
+  @media (max-width: 768px) {
+    .project-nav-link {
+      padding: 1rem;
+      justify-content: center;
+      width: 100%;
+    }
+  }
+  
+  /* Reduced motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    .project-nav-link {
+      transition: none;
+    }
+    
+    .gallery-item:hover {
+      transform: none;
+    }
+  }
+</style>

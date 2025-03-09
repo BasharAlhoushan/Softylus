@@ -1,0 +1,215 @@
+---
+// BrandImagery.astro - Photography and imagery guidelines
+const imageStyles = [
+  {
+    title: "Product Photography",
+    description: "Clean, minimalist product shots on neutral backgrounds",
+    example: "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+  },
+  {
+    title: "Team & Culture",
+    description: "Natural, candid moments showcasing our collaborative environment",
+    example: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+  },
+  {
+    title: "Abstract Tech",
+    description: "Modern, abstract visuals representing digital concepts",
+    example: "https://images.unsplash.com/photo-1545987796-200677ee1011?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+  }
+];
+
+const guidelines = [
+  {
+    title: "Composition",
+    items: [
+      "Use the rule of thirds for balanced layouts",
+      "Create clear focal points",
+      "Maintain consistent aspect ratios",
+      "Leave space for text overlays when needed"
+    ]
+  },
+  {
+    title: "Color Treatment",
+    items: [
+      "Subtle, natural color grading",
+      "Avoid heavy filters or effects",
+      "Maintain consistent white balance",
+      "Ensure proper contrast levels"
+    ]
+  },
+  {
+    title: "Technical Requirements",
+    items: [
+      "Minimum resolution: 2000px on longest side",
+      "Format: JPG for web, TIFF for print",
+      "Color space: sRGB for digital, CMYK for print",
+      "Maximum file size: 2MB for web use"
+    ]
+  }
+];
+---
+
+<section id="imagery" class="py-16 bg-white">
+  <div class="container mx-auto px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-number">04</span>
+        <h2 class="section-title">Imagery</h2>
+      </div>
+
+      <div class="mt-16">
+        <!-- Image Styles -->
+        <div class="mb-16" data-aos="fade-up">
+          <h3 class="text-2xl font-display font-bold mb-6">Image Styles</h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {imageStyles.map(style => (
+              <div class="image-style-card">
+                <div class="image-container">
+                  <img src={style.example} alt={style.title} class="style-image" />
+                  <div class="image-overlay">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                  </div>
+                </div>
+                <h4 class="text-lg font-bold mt-4 mb-2">{style.title}</h4>
+                <p class="text-gray-600 text-sm">{style.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Guidelines Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8" data-aos="fade-up">
+          {guidelines.map(guide => (
+            <div class="guideline-card">
+              <h4 class="text-lg font-bold mb-4">{guide.title}</h4>
+              <ul class="space-y-2">
+                {guide.items.map(item => (
+                  <li class="flex items-start">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-black mr-2 flex-shrink-0 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                    </svg>
+                    <span class="text-gray-600 text-sm">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        <!-- Do's and Don'ts -->
+        <div class="mt-16" data-aos="fade-up">
+          <h3 class="text-2xl font-display font-bold mb-6">Do's and Don'ts</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Do's -->
+            <div class="dos-card">
+              <h4 class="text-lg font-bold mb-4 text-green-600">Do</h4>
+              <div class="space-y-4">
+                <div class="p-4 bg-white border border-green-200 rounded">
+                  <p class="text-gray-600">Use high-quality, professional photography</p>
+                </div>
+                <div class="p-4 bg-white border border-green-200 rounded">
+                  <p class="text-gray-600">Maintain consistent lighting and color treatment</p>
+                </div>
+                <div class="p-4 bg-white border border-green-200 rounded">
+                  <p class="text-gray-600">Consider image context and composition</p>
+                </div>
+                <div class="p-4 bg-white border border-green-200 rounded">
+                  <p class="text-gray-600">Optimize images for web performance</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Don'ts -->
+            <div class="donts-card">
+              <h4 class="text-lg font-bold mb-4 text-red-600">Don't</h4>
+              <div class="space-y-4">
+                <div class="p-4 bg-white border border-red-200 rounded">
+                  <p class="text-gray-600">Use low-resolution or pixelated images</p>
+                </div>
+                <div class="p-4 bg-white border border-red-200 rounded">
+                  <p class="text-gray-600">Apply heavy filters or effects</p>
+                </div>
+                <div class="p-4 bg-white border border-red-200 rounded">
+                  <p class="text-gray-600">Use generic stock photos without purpose</p>
+                </div>
+                <div class="p-4 bg-white border border-red-200 rounded">
+                  <p class="text-gray-600">Stretch or distort images</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .image-style-card {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+
+  .image-style-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .image-container {
+    position: relative;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+  }
+
+  .style-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .image-style-card:hover .style-image {
+    transform: scale(1.05);
+  }
+
+  .image-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .image-style-card:hover .image-overlay {
+    opacity: 1;
+  }
+
+  .guideline-card {
+    background: white;
+    padding: 2rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    height: 100%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .image-style-card:hover {
+      transform: none;
+    }
+
+    .style-image {
+      transition: none;
+    }
+
+    .image-overlay {
+      transition: none;
+    }
+  }
+</style>
