@@ -1,5 +1,19 @@
-{Previous content remains exactly the same until the Future Vision section. After that section (section11), add:}
+---
+import Layout from '../layouts/Layout.astro';
+import { siteContent } from '../lib/content';
 
+const metadata = {
+  title: "Company Profile | Softylus",
+  description: "Learn about Softylus's journey, innovations, and commitment to digital excellence. Discover our research initiatives and sustainable practices.",
+  keywords: "company profile, innovation lab, digital excellence, sustainable technology, software development company"
+};
+---
+
+<Layout 
+  title={metadata.title}
+  description={metadata.description}
+  keywords={metadata.keywords}
+>
   <!-- Innovation Lab -->
   <section id="section13" class="min-h-screen bg-black flex items-center relative overflow-hidden py-24 snap-start">
     <div class="container mx-auto px-4">
@@ -208,11 +222,9 @@
       </div>
     </div>
   </section>
+</Layout>
 
-{Previous content continues with the Contact section (section12) and closing tags}
-
-{Add to the existing style section:}
-
+<style>
   /* Innovation Lab */
   .innovation-grid {
     display: grid;
@@ -345,5 +357,4 @@
       aspect-ratio: 16/9;
     }
   }
-
-{Previous style section continues}
+</style>
