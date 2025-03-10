@@ -1,12 +1,11 @@
 ---
 import { siteContent } from '@lib/content';
 
-
 export interface Props {
   id?: string;
   contentKey?: keyof typeof siteContent;
   sectionKey?: string;
-  title?: string;
+  title?: string | { main: string; accent?: string; sub?: string };
   subtitle?: string;
   description?: string;
   background?: 'white' | 'gray' | 'black';
@@ -35,13 +34,34 @@ let title = propTitle;
 let subtitle = propSubtitle;
 let description = propDescription;
 
-if (contentKey && sectionKey) {
-  const sectionContent = siteContent[contentKey][sectionKey];
-  if (sectionContent) {
-    title = title || sectionContent.title;
-    subtitle = subtitle || sectionContent.subtitle;
-    description = description || sectionContent.description;
+if (contentKey) {
+  // First check if there's a section object with title, subtitle, description
+  if (siteContent[contentKey] && siteContent[contentKey][sectionKey]) {
+    const sectionContent = siteContent[contentKey][sectionKey];
+    if (!title) title = sectionContent?.title;
+    if (!subtitle) subtitle = sectionContent?.subtitle;
+    if (!description) description = sectionContent?.description;
+  } 
+  // If not found in section object, check if contentKey itself has these properties
+  else if (siteContent[contentKey]) {
+    const content = siteContent[contentKey];
+    if (!title) title = content?.title;
+    if (!subtitle) subtitle = content?.subtitle;
+    if (!description) description = content?.description;
   }
+}
+
+// Ensure we're getting the correct section data
+if (contentKey && sectionKey && siteContent[contentKey]?.[sectionKey]) {
+  const sectionData = siteContent[contentKey][sectionKey];
+  title = title || sectionData.title;
+  subtitle = subtitle || sectionData.subtitle;
+  description = description || sectionData.description;
+} else if (contentKey && siteContent[contentKey]) {
+  const contentData = siteContent[contentKey];
+  title = title || contentData.title;
+  subtitle = subtitle || contentData.subtitle;
+  description = description || contentData.description;
 }
 
 // Dynamic classes based on background
@@ -58,6 +78,11 @@ const paddingClasses = {
   lg: 'py-16 md:py-24',
   xl: 'py-20 md:py-32'
 };
+
+// Format title based on type
+const formattedTitle = typeof title === 'object' ? 
+  `${title.main || ''} ${title.accent || ''} ${title.sub || ''}`.trim() : 
+  title;
 ---
 
 <section 
@@ -65,14 +90,14 @@ const paddingClasses = {
   class={`${bgClasses[background]} ${paddingClasses[padding]} px-4 relative overflow-hidden ${className}`}
 >
   <div class={fullWidth ? 'w-full' : 'container mx-auto'}>
-    {(title || subtitle || description) && (
+    {(formattedTitle || subtitle || description) && (
       <div class="max-w-3xl mx-auto text-center mb-12 md:mb-16" data-aos={titleAnimation ? "fade-up" : null}>
         {subtitle && (
           <span class="inline-block px-3 py-1 bg-black text-white text-sm mb-4">{subtitle}</span>
         )}
-        {title && (
+        {formattedTitle && (
           <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-4">
-            {title}
+            {formattedTitle}
           </h2>
         )}
         {description && (
